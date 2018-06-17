@@ -1,0 +1,57 @@
+/**
+ * Forms buttons.
+ *
+ * Source: https://www.w3schools.com/howto/howto_css_switch.asp
+ */
+
+$switch-width: 34px
+$switch-height: 18px
+$switch-left: 4px
+$switch-bottom: 3px
+
+.switch
+  position: relative
+  display: inline-block
+  width: $switch-width
+  height: $switch-height
+  border-radius: $switch-width
+  overflow: hidden
+
+  input
+    display: none
+
+    &:checked + .slider
+      background-color: $primary
+
+    &:focus + .slider
+      box-shadow: 0 0 1px $primary
+
+    &:checked + .slider:before
+      -webkit-transform: translateX(#{($switch-width - 2 * $switch-left) / 2})
+      -ms-transform: translateX(#{($switch-width - 2 * $switch-left) / 2})
+      transform: translateX(#{($switch-width - 2 * $switch-left) / 2})
+
+  .slider
+    position: absolute
+    cursor: pointer
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background-color: $grey-lighter
+    -webkit-transition: .4s
+    transition: .4s
+
+    &:before
+      position: absolute
+      content: ""
+      height: #{$switch-height - 2 * $switch-bottom}
+      width: #{$switch-height - 2 * $switch-bottom}
+      left: $switch-left
+      bottom: $switch-bottom
+      background-color: $white-ter
+      -webkit-transition: .4s
+      transition: .4s
+
+    &:before
+        border-radius: 50%

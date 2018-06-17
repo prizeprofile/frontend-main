@@ -1,0 +1,35 @@
+/**
+ * Main filters box.
+ */
+.home-content
+  .filters
+    color: $grey
+    @include font-sized($small-font-size)
+
+    .twitter-badge
+      svg
+        width: 18px
+
+    .entry-methods
+      display: flex
+      text-align: center
+      justify-content: space-around
+      align-items: center
+
+      div
+        flex: 1
+        margin: 0 5px
+
+      span
+        background-color: $white-ter
+        border-radius: $std-radius
+        width: 100%
+        border: 1px solid $grey-lighter
+        padding: 15px 0
+        cursor: pointer
+        -webkit-transition: all .3s
+        transition: all .3s
+
+        &:hover
+          color: $primary
+          background: $white-bis

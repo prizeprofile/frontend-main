@@ -1,0 +1,37 @@
+/**
+ * Styling a buckled header that is sticked either on top or button of a box.
+ */
+
+.filters-buckled
+  display: flex
+  overflow: hidden
+  position: relative
+  padding: 0 15px
+  background-color: $white
+  @include bottom-shadowed($grey-lighter)
+
+  &.radius-bottom
+    border-bottom-left-radius: $std-radius
+    border-bottom-right-radius: $std-radius
+
+  &.radius-top
+    border-top-left-radius: $std-radius
+    border-top-right-radius: $std-radius
+
+  .filters-buckled-button
+    padding: 10px 12.5px
+    cursor: pointer
+    border-bottom: 4px solid $white
+    @include font-sized($large-font-size)
+
+    &.active, &:hover
+      border-bottom: 4px solid $primary
+
+  .filters-buckled-filter
+    padding: 10px 12.5px
+    margin-left: auto
+    cursor: pointer
+
+@media screen and (min-width: $desktop)
+  .filters-buckled
+    padding: 5px 30px 0 30px

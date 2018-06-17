@@ -1,0 +1,74 @@
+/**
+ * Styling the default layout with footer and header.
+ */
+
+.default-layout
+  height: 100%
+  background-color: $white-bis
+  color: $grey-dark
+  @extend .is-fullwidth
+  @include font-sized($body-font-size)
+
+  .default-header
+    @extend .is-fullwidth
+    background-color: $white
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    align-items: center
+    padding: 15px
+
+    .default-header-title
+      flex: 1
+
+    .default-header-login
+      flex: 1
+      text-align: right
+
+      .default-login-icon
+        margin-right: 12.5px
+
+  .default-login-button
+    padding: 6px 15px
+    border-radius: $std-radius
+    color: $white
+    background-color: $info
+    text-align: center
+    cursor: pointer
+
+  h1
+    font-weight: bold
+    @include font-sized($h1-font-size)
+
+  h2
+    font-weight: bold
+    @include font-sized($h2-font-size)
+
+  h3
+    @include font-sized($h3-font-size)
+    display: inline-block
+    font-weight: bold
+
+  .brick
+    position: relative
+    padding: 15px
+    border: 1px solid $grey-lighter
+    border-radius: $std-radius
+    background-color: $white
+    @include bottom-shadowed($grey-lighter)
+
+    .close
+      position: absolute
+      top: 5px
+      right: 5px
+      font-size: 12px
+      opacity: .7
+      cursor: pointer
+
+      &:hover
+        opacity: 1
+
+@media screen and (min-width: $desktop)
+  .default-layout
+    .default-header
+      padding: 10px 30px

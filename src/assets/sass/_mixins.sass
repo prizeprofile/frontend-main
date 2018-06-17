@@ -1,0 +1,74 @@
+/**
+ * Typography.
+ */
+
+$h1-font-size: (null: 34, $fullhd: 32, $widescreen: 32, $desktop: 30, $mobile: 28)
+$h2-font-size: (null: 28, $fullhd: 26, $widescreen: 25, $desktop: 22, $mobile: 21)
+$h3-font-size: (null: 25, $fullhd: 23, $widescreen: 22, $desktop: 20, $mobile: 18)
+$large-font-size: (null: 23, $fullhd: 23, $widescreen: 21, $desktop: 18, $mobile: 17)
+$body-font-size: (null: 18, $fullhd: 18, $widescreen: 18, $desktop: 17, $mobile: 16)
+$small-font-size: (null: 15, $fullhd: 15, $widescreen: 14, $desktop: 14, $mobile: 13)
+
+/**
+ * Mixin for unitless size values.
+ */
+
+@function em ($pixels, $context: 16)
+  @if (unitless($pixels))
+    $pixels: $pixels * 1px
+
+  @if (unitless($context))
+    $context: $context * 1px
+
+  @return $pixels / $context * 1em
+
+/**
+ * Finds breakpoint in an array of values.
+ */
+
+@mixin breakpoint ($mq01: 0, $mq2: false, $maxmin: max-width)
+  @if $mq2 == false
+    @media ($maxmin: $mq01)
+      @content
+
+  @else
+    @media (min-width: $mq01) and (max-width: $mq2)
+      @content
+
+/**
+ * Typography friendly font-size mixin.
+ *
+ * Usage:
+ * $body-font-size: ($fullhd: 20, $widescreen: 18, $desktop: 16, $mobile: 14)
+ * @include font-sized($body-font-size)
+ */
+
+@mixin font-sized ($font-size-map)
+  @each $breakpoint, $font-size in $font-size-map
+    @if $breakpoint == null
+      font-size: em($font-size)
+
+    @else
+      @include breakpoint($breakpoint)
+        font-size: em($font-size)
+
+/**
+ * Gives an element bottom shadow.
+ */
+
+@mixin bottom-shadowed ($colour)
+  box-shadow: 0 6px 8px -3px $colour
+
+/**
+ * Generates animation for all browsers.
+ */
+
+@mixin keyframes($name)
+  @-webkit-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @-ms-keyframes #{$name}
+    @content
+  @keyframes #{$name}
+    @content
