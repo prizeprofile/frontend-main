@@ -17,7 +17,7 @@ export default {
     // TODO: Implement error handler.
 
     // return axios.get('http://localhost:8001/')
-    return new Promise(resolve => setTimeout(resolve, 500))
+    return new Promise(resolve => setTimeout(resolve, 1500))
       .then(() => ({data: [
         {
           id: 1,

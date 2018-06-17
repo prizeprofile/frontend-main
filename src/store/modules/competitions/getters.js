@@ -1,4 +1,3 @@
-
 /**
  * Dumps all available competitions.
  *
