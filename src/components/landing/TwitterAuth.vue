@@ -49,10 +49,7 @@ export default {
       verifier,
       token_secret: tokenSecret
     })
-      .then(() => setTimeout(() => {
-        this.validated = true
-        console.log('pls')
-      }, 300))
+      .then(() => setTimeout(() => this.validated = true, 300))
   }
 }
 </script>

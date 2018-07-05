@@ -1,6 +1,6 @@
 <template>
   <div class="welcome-modal modal" v-bind:class="{ 'is-active': isActive }">
-    <div class="modal-background"></div>
+    <div class="modal-background" @click="hide()"></div>
 
     <div class="modal-content">
       <div class="hero is-white is-medium">
@@ -22,9 +22,17 @@
         </div>
 
         <div class="hero-footer">
-          <div class="is-pointer" v-on:click="hide">
-            CLOSE
-          </div>
+          <div
+            class="is-pointer is-unselectable"
+            v-if="slide === 0"
+            v-on:click="hide"
+          >CLOSE</div>
+
+          <div
+            class="is-pointer is-unselectable"
+            v-on:click="slide = slide - 1"
+            v-else
+          >PREVIOUS</div>
 
           <div class="control">
             <span v-for="n in 4">
@@ -45,12 +53,11 @@
             </span>
           </div>
 
-          <div class="has-text-primary is-pointer" v-visible="slide < 3">
-            <span
-              class="is-unselectable"
-              v-on:click="slide = slide + 1"
-            >NEXT</span>
-          </div>
+          <span
+            class="is-unselectable has-text-primary is-pointer"
+            v-visible="slide < 3"
+            v-on:click="slide = slide + 1"
+          >NEXT</span>
         </div>
       </div>
     </div>

@@ -23,8 +23,8 @@
       <p class="block">
         Promoter:
         <input
-          type="text"
           value=""
+          type="text"
           class="input is-small"
           placeholder="Search here..."
         />
@@ -89,6 +89,16 @@
               <i class="fas fa-at"></i>
             </span>
           </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block">
+          Number of entrants
+        </div>
+
+        <div class="slider-bar">
+
         </div>
       </div>
     </div>

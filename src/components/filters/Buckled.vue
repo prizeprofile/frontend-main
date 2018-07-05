@@ -16,7 +16,10 @@
       Popular
     </div>
 
-    <div class="filters-buckled-filter is-hidden-desktop">
+    <div
+      class="filters-buckled-filter is-hidden-desktop"
+      @click="$emit('toggle')"
+    >
       Filter
       <span class="has-text-primary">
         <i class="fas fa-sliders-h"></i>

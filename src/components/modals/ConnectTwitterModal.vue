@@ -1,6 +1,6 @@
 <template>
   <div class="connect-twitter-modal modal" v-bind:class="{ 'is-active': isActive }">
-    <div class="modal-background"></div>
+    <div class="modal-background" @click="hide()"></div>
 
     <div class="modal-content">
       <div class="hero is-white is-medium">

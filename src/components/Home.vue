@@ -6,17 +6,18 @@
       <connect-twitter-modal />
     </div>
 
-    <filters-buckled />
+    <filters-buckled v-on:toggle="hideFilters = !hideFilters"/>
 
     <div class="home-content">
       <div class="container columns is-desktop">
-        <div class="
-          column
-          is-hidden-touch
-          is-one-third-desktop
-          is-one-quarter-fullhd
-          is-three-quarters-tablet
-        ">
+        <div
+          v-bind:class="{'is-hidden-touch': hideFilters}"
+          class="
+            column
+            is-one-third-desktop
+            is-one-quarter-fullhd
+            is-three-quarters-tablet"
+        >
           <filters />
 
           <social class="is-hidden-touch" />
@@ -53,6 +54,12 @@ export default {
     Competitions,
     FiltersBuckled,
     ConnectTwitterModal
+  },
+
+  data () {
+    return {
+      hideFilters: true
+    }
   }
 }
 </script>
