@@ -50,24 +50,39 @@
 
       <div class="frame-content-actions has-buttons">
         <div class="content-actions-twitter">
-          <span>
+          <span
+            v-bind:class="entry.tagfriend || { inactive: true }"
+            @click="enter(['tagfriend'])"
+          >
             <i class="fas fa-user-plus"></i>
           </span>
 
-          <span>
+          <span
+            v-bind:class="entry.comment || { inactive: true }"
+            @click="enter(['comment'])"
+          >
             <i class="far fa-comment-alt"></i>
           </span>
 
-          <span>
+          <span
+            v-bind:class="entry.retweet || { inactive: true }"
+            @click="enter(['retweet'])"
+          >
             <i class="fas fa-retweet"></i>
           </span>
 
-          <span>
+          <span
+            v-bind:class="entry.like || { inactive: true }"
+            @click="enter(['like'])"
+          >
             <i class="fas fa-heart"></i>
           </span>
         </div>
 
-        <div class="content-actions-enter">
+        <div
+          class="content-actions-enter is-bold"
+          @click="enter(Object.keys(entry))"
+        >
           <i class="fas fa-magic"></i>
           &nbsp;
           <span>ENTER</span>
@@ -78,13 +93,24 @@
 </template>
 
 <script>
-import TwitterBadge from '@/components/common/TwitterBadge'
 import moment from 'moment'
+import enterCompetition from '@/modules/entries'
+import TwitterBadge from '@/components/common/elements/TwitterBadge'
 
 export default {
   components: { TwitterBadge },
 
   props: ['payload'],
+
+  data () {
+    return {
+      entry: {}
+    }
+  },
+
+  created () {
+    this.competition.entry_methods.forEach(method => this.entry[method] = {})
+  },
 
   computed: {
     competition () {
@@ -93,6 +119,20 @@ export default {
   },
 
   methods: {
+    enter (methods) {
+      const result = enterCompetition(methods, this.competition.tweet_id)
+
+      result.forEach((method) => {
+        let name = method.name()
+
+        method.job
+          .then(() => this.entry[name] || (this.entry[name] = {}))
+          .then(() => this.entry[name].done = true)
+          .catch(() => this.entry[name].error = true)
+          .then(() => this.$forceUpdate())
+      })
+    },
+
     /**
      * Transforms the default time into more human friendly format.
      *

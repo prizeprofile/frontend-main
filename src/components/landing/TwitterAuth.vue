@@ -49,7 +49,7 @@ export default {
       verifier,
       token_secret: tokenSecret
     })
-      .then(() => setTimeout(() => this.validated = true, 300))
+      .then(() => setTimeout(() => window.location = '/', 1000))
   }
 }
 </script>

@@ -8,7 +8,7 @@
       v-if="! blocks || blocks.length === 0"
     />
 
-    <transition-group name="fade" tag="p">
+    <transition-group name="fade" tag="div">
       <component
         :key="i"
         :is="block.component"

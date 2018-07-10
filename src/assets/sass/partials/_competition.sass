@@ -55,11 +55,33 @@
         justify-content: space-around
 
         span
+          position: relative
           cursor: pointer
           color: lighten($grey-darker, 30%)
 
           &:hover
             color: $primary
+
+          &.inactive
+            color: $grey-lighter
+
+          &.done
+            color: $primary
+
+            &::after
+              font-family: FontAwesome
+              content: '\f00c'
+              position: absolute
+              font-size: 12px
+
+          &.error
+            color: $danger
+
+            &::after
+              font-family: FontAwesome
+              content: '\f071'
+              position: absolute
+              font-size: 12px
 
       .content-actions-enter
         cursor: pointer

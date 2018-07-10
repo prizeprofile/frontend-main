@@ -11,15 +11,17 @@
       padding-bottom: 30px
       color: lighten($grey-dark, 30%)
 
+    .input-label
+      width: 90px
+      font-size: 13px
+      height: 100%
+      opacity: 0
+
     input
       width: 100%
       border: 1px solid $grey-lighter
       padding: 15px
       border-radius: $std-radius
 
-    .input-label
-      width: 90px
-      font-size: 13px
-      height: 100%
-      opacity: 0.65
-      color: $primary
+      &:focus + .input-label
+        opacity: .65

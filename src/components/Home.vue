@@ -9,7 +9,7 @@
     <filters-buckled v-on:toggle="hideFilters = !hideFilters"/>
 
     <div class="home-content">
-      <div class="container columns is-desktop">
+      <div class="container columns is-desktop is-variable is-4">
         <div
           v-bind:class="{'is-hidden-touch': hideFilters}"
           class="

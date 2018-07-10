@@ -36,10 +36,10 @@ export default {
       token: payload.token,
       verifier: payload.verifier,
       token_secret: payload.token_secret
+    }).then(({ data }) => {
+      // TODO: Create a new cognito identity and save the tokens there.
+      // commit(USER_SET_TOKEN, { key: 'access_token', value: data.access_token })
+      // commit(USER_SET_TOKEN, { key: 'access_token_secret', value: data.access_token_secret })
     })
-      .then(({ data }) => {
-        commit(USER_SET_TOKEN, { key: 'access_token', value: data.access_token })
-        commit(USER_SET_TOKEN, { key: 'access_token_secret', value: data.access_token_secret })
-      })
   }
 }

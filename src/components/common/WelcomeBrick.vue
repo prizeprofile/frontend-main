@@ -1,5 +1,5 @@
 <template>
-  <div class="welcome-brick brick">
+  <div class="brick welcome-brick">
     <div class="close">
       <span>
         <i class="fas fa-times"></i>
@@ -20,7 +20,7 @@
       <div class="column is-one-quarter">
         <div>
           <span
-            class="button is-primary"
+            class="button is-primary is-bold"
             v-on:click="openModal"
           >START HERE</span>
         </div>

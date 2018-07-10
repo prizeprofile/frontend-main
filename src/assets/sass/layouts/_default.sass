@@ -10,13 +10,11 @@
   @include font-sized($body-font-size)
 
   .default-header
-    @extend .is-fullwidth
-    background-color: $white
     display: flex
-    flex-wrap: wrap
+    flex-wrap: nowrap
     justify-content: center
     align-items: center
-    padding: 15px
+    padding: $brick-padding
 
     .default-header-title
       flex: 1
@@ -51,7 +49,7 @@
 
   .brick
     position: relative
-    padding: 15px
+    padding: $brick-padding
     border: 1px solid $grey-lighter
     border-radius: $std-radius
     background-color: $white
@@ -67,8 +65,3 @@
 
       &:hover
         opacity: 1
-
-@media screen and (min-width: $desktop)
-  .default-layout
-    .default-header
-      padding: 10px 30px

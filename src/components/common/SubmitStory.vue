@@ -7,16 +7,14 @@
     </p>
 
     <div class="control has-icons-left has-icons-right">
+      <span class="icon is-small is-left">
+        <i class="fas fa-trophy"></i>
+      </span>
       <input
         type="text"
         class="input"
         placeholder="I won an Amazon Gift Card..."
       >
-
-      <span class="icon is-small is-left">
-        <i class="fas fa-trophy"></i>
-      </span>
-
       <span class="icon is-small is-right input-label">
         press enter
       </span>

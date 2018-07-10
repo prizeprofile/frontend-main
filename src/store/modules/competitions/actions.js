@@ -21,6 +21,7 @@ export default {
       .then(() => ({data: [
         {
           id: 1,
+          tweet_id: '998990964671893506',
           posted: new Date(),
           entrants: 15,
           tweet_link: 'https://twitter.com/Nigel_Farage/status/998990964671893506',
@@ -29,10 +30,12 @@ export default {
             name: 'EE',
             image: 'static/images/_temp.jpg',
             approved: true
-          }
+          },
+          entry_methods: ['like', 'comment', 'retweet']
         },
         {
           id: 2,
+          tweet_id: '998990964671893506',
           posted: new Date(),
           preview: 'https://cdn.mos.cms.futurecdn.net/wXNBvsCtBLmiEJRyfP2644-768-80.jpg',
           entrants: 15,
@@ -42,10 +45,12 @@ export default {
             name: 'Tesco',
             image: 'static/images/_temp.jpg',
             approved: false
-          }
+          },
+          entry_methods: ['like', 'comment']
         },
         {
           id: 3,
+          tweet_id: '998990964671893506',
           posted: new Date(),
           preview: 'http://primapekarna.cz/Public/Images/Article/stredni-rohlik_01.png',
           entrants: 10,
@@ -55,7 +60,8 @@ export default {
             name: 'Tesco',
             image: 'http://keyassets-p2.timeincuk.net/wp/prod/wp-content/uploads/sites/42/2017/08/Steves-630x330.jpg',
             approved: true
-          }
+          },
+          entry_methods: ['like']
         }
       ]}))
       .then(({ data }) => commit(SET_COMPETITIONS, data))
