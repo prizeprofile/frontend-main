@@ -15,6 +15,7 @@
 
     .tags
       display: flex
+      align-items: initial
       flex: 0 0 100%
 
       .tag
@@ -22,7 +23,7 @@
 
   .competition-frame-content
     .frame-content-description
-      padding: 7.5px 0
+      padding: 7.5px 0 15px 0
 
     .frame-content-preview
       border-radius: 4px
@@ -58,6 +59,7 @@
           position: relative
           cursor: pointer
           color: lighten($grey-darker, 30%)
+          @include font-sized($large-font-size)
 
           &:hover
             color: $primary
@@ -84,12 +86,44 @@
               font-size: 12px
 
       .content-actions-enter
-        cursor: pointer
-        background-color: $primary
-        color: $white
         width: 100%
-        text-align: center
-        padding: 6px 15px
-        border-radius: $std-radius
-        font-size: 14px
-        @include bottom-shadowed($grey-lighter)
+
+        .action-enter
+          cursor: pointer
+          background-color: $primary
+          color: $white
+          text-align: center
+          padding: 6px 15px
+          border-radius: $std-radius
+          font-size: 14px
+          animation: Pulse 2s infinite
+          @include font-sized($small-font-size)
+          @include bottom-shadowed($grey-lighter)
+
+          &:hover
+            animation: Pulse 1s infinite
+
+@media (min-width: $tablet)
+  .competition-frame
+    .competition-frame-content
+      .frame-content-actions
+        flex-wrap: nowrap
+
+        .content-actions-twitter
+          display: block
+          text-align: right
+
+          span
+            margin: 0 25px
+
+            &:last-of-type
+              margin-right: 50px
+
+        .content-actions-enter
+          max-width: 200px
+          display: flex
+          justify-content: center
+          align-items: center
+
+          .action-enter-wrapper
+            flex: 1

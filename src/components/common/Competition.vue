@@ -2,27 +2,25 @@
   <div class="brick competition-frame">
     <div class="competition-frame-promoter">
       <div class="tags is-flex-right">
-        <span class="tag is-primary"
+        <span class="tag"
           v-text="humanFriendlyTime(competition.posted)"
         >
         </span>
 
         <span class="tag">
           <span
-            class="is-bold"
+            class="has-text-weight-bold"
             v-text="competition.entrants"
-            ></span>&nbsp;
+          ></span>&nbsp;
             entrants
         </span>
 
         <a
           target="_blank"
-          class="is-flex-right"
+          class="is-flex-right has-text-grey"
           v-bind:href="competition.tweet_link"
         >
-          <span class="tag">
-            <i class="fas fa-external-link-alt"></i>
-          </span>
+          <i class="fas fa-external-link-alt"></i>
         </a>
       </div>
 
@@ -80,12 +78,16 @@
         </div>
 
         <div
-          class="content-actions-enter is-bold"
+          class="content-actions-enter"
           @click="enter(Object.keys(entry))"
         >
-          <i class="fas fa-magic"></i>
-          &nbsp;
-          <span>ENTER</span>
+          <div class="action-enter-wrapper">
+            <div class="action-enter is-semibold">
+              <i class="fas fa-magic"></i>
+              &nbsp;
+              <span>ENTER</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

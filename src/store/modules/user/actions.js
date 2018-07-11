@@ -1,8 +1,21 @@
 import axios from 'axios'
 import config from 'config'
-import { USER_CONNECT_TWITTER, USER_SET_TOKEN, USER_AUTHORISE_TWITTER } from '@/store/types'
+import {
+  USER_SET_TOKEN,
+  USER_CONNECT_TWITTER,
+  USER_AUTHORISE_TWITTER,
+  USER_UPDATE_TIMESTAMPS
+} from '@/store/types'
 
 export default {
+  /**
+   * Commits action to update updated_at and populate created_at.
+   * @type {String}
+   */
+  [USER_UPDATE_TIMESTAMPS]: ({ commit }) => {
+    return commit(USER_UPDATE_TIMESTAMPS, Date.now())
+  },
+
   /**
    * Makes an API request to AWS lambda for oauth token and opens Twitter auth
    * page.

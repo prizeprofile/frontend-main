@@ -1,4 +1,4 @@
-import { USER_SET_TOKEN } from '@/store/types'
+import { USER_SET_TOKEN, USER_UPDATE_TIMESTAMPS } from '@/store/types'
 
 export default {
   /**
@@ -9,8 +9,13 @@ export default {
    * @return {void}
    */
   [USER_SET_TOKEN]: (state, payload) => {
+    // TODO: ???
     window.localStorage.setItem(payload.key, payload.value)
 
     state.user.tokens[payload.key] = payload.value
+  },
+
+  [USER_UPDATE_TIMESTAMPS]: (state, payload) => {
+    //
   }
 }

@@ -19,6 +19,9 @@
     .default-header-title
       flex: 1
 
+      img
+        max-width: 300px
+
     .default-header-login
       flex: 1
       text-align: right
@@ -26,13 +29,8 @@
       .default-login-icon
         margin-right: 12.5px
 
-  .default-login-button
-    padding: 6px 15px
-    border-radius: $std-radius
-    color: $white
-    background-color: $info
-    text-align: center
-    cursor: pointer
+      .button
+        @include font-sized($h3-font-size)
 
   h1
     font-weight: bold

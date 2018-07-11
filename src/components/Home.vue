@@ -15,7 +15,6 @@
           class="
             column
             is-one-third-desktop
-            is-one-quarter-fullhd
             is-three-quarters-tablet"
         >
           <filters />
@@ -27,7 +26,6 @@
           column
           is-three-quarters-tablet
           is-two-thirds-desktop
-          is-three-quarters-fullhd
         ">
           <competitions />
         </div>

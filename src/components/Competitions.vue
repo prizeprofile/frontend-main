@@ -30,6 +30,16 @@ import LoadingBrick from '@/components/ui/LoadingBrick'
 export default {
   components: { Competition, SubmitStory, WelcomeBrick, LoadingBrick },
 
+  computed: {
+    /**
+     * Whether user is logged in or not.
+     * @return {Boolean}
+     */
+    isLogged () {
+      return this.$store.getters.isLogged
+    }
+  },
+
   asyncComputed: {
     /**
      * Returns an array of components with the payload.
@@ -42,7 +52,7 @@ export default {
       return competitions.reduce((carry, payload, i) => {
         carry.push({ component: 'Competition', payload })
 
-        if (i === 1) {
+        if (i === 1 && this.isLogged) {
           carry.push({ component: 'SubmitStory' })
         }
 

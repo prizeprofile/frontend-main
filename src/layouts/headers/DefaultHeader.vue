@@ -4,9 +4,7 @@
       <div class="default-header">
         <div class="default-header-title">
           <router-link to="/">
-            <h1 class="has-text-primary">
-              PrizeProfile<span class="has-text-grey-darker">.</span>
-            </h1>
+            <img src="/static/images/branding/logo.png" alt="PrizeProfile.">
           </router-link>
         </div>
 
@@ -22,7 +20,7 @@
             <div class="is-hidden-mobile is-flex-tablet">
               <span
                 v-on:click="openModal"
-                class="button is-info is-flex-right is-focused"
+                class="button is-info is-flex-right is-focused is-semibold"
               >CONNECT TWITTER</span>
             </div>
           </div>

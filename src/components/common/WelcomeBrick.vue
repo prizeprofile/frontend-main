@@ -20,7 +20,7 @@
       <div class="column is-one-quarter">
         <div>
           <span
-            class="button is-primary is-bold"
+            class="button is-primary"
             v-on:click="openModal"
           >START HERE</span>
         </div>

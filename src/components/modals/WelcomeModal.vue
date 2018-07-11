@@ -1,5 +1,8 @@
 <template>
-  <div class="welcome-modal modal" v-bind:class="{ 'is-active': isActive }">
+  <div
+    class="welcome-modal modal"
+    v-bind:class="{ 'is-active': isActive }"
+  >
     <div class="modal-background" @click="hide()"></div>
 
     <div class="modal-content">
@@ -9,12 +12,12 @@
 
           <div class="logo">
             <img src="/static/images/branding/logo_green.png" alt="PrizeProfile">
-            <div class="is-bold has-text-grey">OVERVIEW</div>
+            <div class="has-text-weight-bold has-text-grey">OVERVIEW</div>
           </div>
         </div>
 
         <div class="modal-body">
-          <div class="title has-text-primary is-size-4 is-centered">
+          <div class="title has-text-primary is-size-4 is-centered has-text-weight-semibold">
             {{ slides[slide].heading }}
           </div>
 
@@ -35,7 +38,7 @@
           >PREVIOUS</div>
 
           <div class="control">
-            <span v-for="n in 4">
+            <span v-for="n in slides.length">
               <input
                 type="radio"
                 name="slider"

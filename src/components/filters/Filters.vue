@@ -12,7 +12,7 @@
             <span class="slider round"></span>
           </label>
 
-          <span style="padding: 0 2px 0 5px">
+          <span style="padding: 0 0 0 5px">
             Only showing verified accounts
           </span>
 
