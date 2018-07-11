@@ -1,4 +1,5 @@
-// import axios from 'axios'
+import axios from 'axios'
+import config from 'config'
 import { SET_COMPETITIONS, LOAD_COMPETITIONS } from '@/store/types'
 
 export default {
@@ -12,12 +13,10 @@ export default {
    * @return {Promise<void>}
    */
   [LOAD_COMPETITIONS]: ({ commit }, offset = 50) => {
-    // TODO: Cache competition in local storage.
     // TODO: Implement offset.
     // TODO: Implement error handler.
 
-    // return axios.get('http://localhost:8001/')
-    return new Promise(resolve => setTimeout(resolve, 1500))
+    /* return new Promise(resolve => setTimeout(resolve, 1500))
       .then(() => ({data: [
         {
           id: 1,
@@ -64,7 +63,8 @@ export default {
           },
           entry_methods: ['like']
         }
-      ]}))
+      ]})) */
+    return axios.get(config.api.competitions)
       .then(({ data }) => commit(SET_COMPETITIONS, data))
       .catch(console.error)
   }

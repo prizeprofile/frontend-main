@@ -6,7 +6,8 @@ export default class Retweet extends EntryMethod {
   }
 
   async intent () {
-    window.open('https://twitter.com/intent/retweet?tweet_id=' + this.tweet)
+    window.open('https://twitter.com/intent/retweet?tweet_id='
+      + this.tweet.tweet_id)
   }
 
   name () {

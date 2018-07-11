@@ -6,8 +6,8 @@ export default class Comment extends EntryMethod {
   }
 
   async intent () {
-    throw new Error()
-    // window.open('https://twitter.com/intent/tweet?in_reply_to=' + this.tweet)
+    window.open('https://twitter.com/intent/tweet?in_reply_to='
+      + this.tweet.tweet_id)
   }
 
   name () {

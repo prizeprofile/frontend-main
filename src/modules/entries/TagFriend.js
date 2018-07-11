@@ -6,7 +6,8 @@ export default class TagFriend extends EntryMethod {
   }
 
   async intent () {
-    window.open('https://twitter.com/intent/tweet?in_reply_to=' + this.tweet)
+    window.open('https://twitter.com/intent/tweet?in_reply_to='
+      + this.tweet.tweet_id)
   }
 
   name () {

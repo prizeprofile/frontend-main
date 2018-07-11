@@ -10,7 +10,7 @@
         <span class="tag">
           <span
             class="has-text-weight-bold"
-            v-text="competition.entrants"
+            v-text="competition.retweets"
           ></span>&nbsp;
             entrants
         </span>
@@ -18,21 +18,21 @@
         <a
           target="_blank"
           class="is-flex-right has-text-grey"
-          v-bind:href="competition.tweet_link"
+          v-bind:href="tweetLink"
         >
           <i class="fas fa-external-link-alt"></i>
         </a>
       </div>
 
       <span class="image is-32x32 is-cover"
-        :style="'background-image: url(' + competition.promoter.image + ')'"
+        :style="'background-image: url(' + competition.promoter.thumbnail + ')'"
       ></span>
 
       <h3 v-text="competition.promoter.name"></h3>
 
       <twitter-badge
         class="twitter-badge"
-        v-if="competition.promoter.approved"
+        v-if="competition.promoter.verified"
       />
     </div>
 
@@ -49,8 +49,8 @@
       <div class="frame-content-actions has-buttons">
         <div class="content-actions-twitter">
           <span
-            v-bind:class="entry.tagfriend || { inactive: true }"
-            @click="enter(['tagfriend'])"
+            v-bind:class="entry.follow || { inactive: true }"
+            @click="enter(['follow'])"
           >
             <i class="fas fa-user-plus"></i>
           </span>
@@ -111,18 +111,23 @@ export default {
   },
 
   created () {
-    this.competition.entry_methods.forEach(method => this.entry[method] = {})
+    console.log(this.payload)
+    JSON.parse(this.competition.entry_methods).forEach(method => this.entry[method] = {})
   },
 
   computed: {
     competition () {
       return this.payload
+    },
+
+    tweetLink () {
+      return 'https://twitter.com/statuses/' + this.competition.tweet_id
     }
   },
 
   methods: {
     enter (methods) {
-      const result = enterCompetition(methods, this.competition.tweet_id)
+      const result = enterCompetition(methods, this.competition)
 
       result.forEach((method) => {
         let name = method.name()
