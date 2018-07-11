@@ -9,9 +9,6 @@ export default {
    * @return {void}
    */
   [USER_SET_TOKEN]: (state, payload) => {
-    // TODO: ???
-    window.localStorage.setItem(payload.key, payload.value)
-
     state.user.tokens[payload.key] = payload.value
   },
 
