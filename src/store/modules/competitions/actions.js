@@ -1,6 +1,6 @@
 import axios from 'axios'
 import config from 'config'
-import { SET_COMPETITIONS, LOAD_COMPETITIONS } from '@/store/types'
+import { SET_COMPETITIONS, LOAD_COMPETITIONS, FILTER_COMPETITIONS } from '@/store/types'
 
 export default {
   /**
@@ -67,5 +67,20 @@ export default {
     return axios.get(config.api.competitions)
       .then(({ data }) => commit(SET_COMPETITIONS, data))
       .catch(console.error)
+  },
+
+  /**
+   * Action that commits filtered competitions to the state.
+   *
+   * @param {object.function} commit
+   * @param {string} filters
+   * @param {number} offset
+   * @return {Promise<void>}
+   */
+  [FILTER_COMPETITIONS]: ({ commit }, filters, offset = 50) => {
+    console.log(filters)
+    // return axios.get(config.api.filterCompetitions)
+    //   .then(({ data }) => commit(SET_COMPETITIONS, data))
+    //   .catch(console.error)
   }
 }

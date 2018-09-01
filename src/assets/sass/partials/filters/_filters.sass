@@ -20,6 +20,10 @@
         flex: 1
         margin: 0 5px
 
+        &.is-active, &:hover
+          color: $primary
+          background: $white-bis
+
       span
         background-color: $white-ter
         border-radius: $std-radius
@@ -30,6 +34,15 @@
         -webkit-transition: all .3s
         transition: all .3s
 
-        &:hover
-          color: $primary
-          background: $white-bis
+    .promoters-autocomplete
+      position: relative
+      z-index: 1000
+      background: white
+      padding: 10px
+      border-radius: $std-radius
+      border-top-left-radius: 0
+      border-top-right-radius: 0
+      top: -4px
+      border: 1px solid $grey-lighter
+      border-top: none
+      width: 100%
