@@ -1,5 +1,5 @@
 <template>
-  <div class="welcome-brick brick">
+  <div class="brick welcome-brick">
     <div class="close">
       <span>
         <i class="fas fa-times"></i>

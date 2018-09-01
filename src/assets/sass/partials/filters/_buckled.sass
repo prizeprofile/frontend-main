@@ -3,35 +3,34 @@
  */
 
 .filters-buckled
-  display: flex
-  overflow: hidden
-  position: relative
-  padding: 0 15px
+  width: 100%
   background-color: $white
   @include bottom-shadowed($grey-lighter)
 
-  &.radius-bottom
-    border-bottom-left-radius: $std-radius
-    border-bottom-right-radius: $std-radius
+  .filters-buckled-content
+    display: flex
+    overflow: hidden
+    position: relative
+    padding: 0 $brick-padding
 
-  &.radius-top
-    border-top-left-radius: $std-radius
-    border-top-right-radius: $std-radius
+    &.radius-bottom
+      border-bottom-left-radius: $std-radius
+      border-bottom-right-radius: $std-radius
 
-  .filters-buckled-button
-    padding: 10px 12.5px
-    cursor: pointer
-    border-bottom: 4px solid $white
-    @include font-sized($large-font-size)
+    &.radius-top
+      border-top-left-radius: $std-radius
+      border-top-right-radius: $std-radius
 
-    &.active, &:hover
-      border-bottom: 4px solid $primary
+    .filters-buckled-button
+      padding: 10px 12.5px
+      cursor: pointer
+      border-bottom: 4px solid $white
+      @include font-sized($large-font-size)
 
-  .filters-buckled-filter
-    padding: 10px 12.5px
-    margin-left: auto
-    cursor: pointer
+      &.active, &:hover
+        border-bottom: 4px solid $primary
 
-@media screen and (min-width: $desktop)
-  .filters-buckled
-    padding: 5px 30px 0 30px
+    .filters-buckled-toggle
+      padding: 10px 0
+      margin-left: auto
+      cursor: pointer

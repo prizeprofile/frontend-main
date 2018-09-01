@@ -1,6 +1,9 @@
 <template>
-  <div class="welcome-modal modal" v-bind:class="{ 'is-active': isActive }">
-    <div class="modal-background"></div>
+  <div
+    class="welcome-modal modal"
+    v-bind:class="{ 'is-active': isActive }"
+  >
+    <div class="modal-background" @click="hide()"></div>
 
     <div class="modal-content">
       <div class="hero is-white is-medium">
@@ -9,12 +12,12 @@
 
           <div class="logo">
             <img src="/static/images/branding/logo_green.png" alt="PrizeProfile">
-            <div class="is-bold has-text-grey">OVERVIEW</div>
+            <div class="has-text-weight-bold has-text-grey">OVERVIEW</div>
           </div>
         </div>
 
         <div class="modal-body">
-          <div class="title has-text-primary is-size-4 is-centered">
+          <div class="title has-text-primary is-size-4 is-centered has-text-weight-semibold">
             {{ slides[slide].heading }}
           </div>
 
@@ -22,12 +25,20 @@
         </div>
 
         <div class="hero-footer">
-          <div class="is-pointer" v-on:click="hide">
-            CLOSE
-          </div>
+          <div
+            class="is-pointer is-unselectable"
+            v-if="slide === 0"
+            v-on:click="hide"
+          >CLOSE</div>
+
+          <div
+            class="is-pointer is-unselectable"
+            v-on:click="slide = slide - 1"
+            v-else
+          >PREVIOUS</div>
 
           <div class="control">
-            <span v-for="n in 4">
+            <span v-for="n in slides.length">
               <input
                 type="radio"
                 name="slider"
@@ -45,12 +56,11 @@
             </span>
           </div>
 
-          <div class="has-text-primary is-pointer" v-visible="slide < 3">
-            <span
-              class="is-unselectable"
-              v-on:click="slide = slide + 1"
-            >NEXT</span>
-          </div>
+          <span
+            class="is-unselectable has-text-primary is-pointer"
+            v-visible="slide < 3"
+            v-on:click="slide = slide + 1"
+          >NEXT</span>
         </div>
       </div>
     </div>

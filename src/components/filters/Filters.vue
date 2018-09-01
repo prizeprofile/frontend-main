@@ -12,7 +12,7 @@
             <span class="slider round"></span>
           </label>
 
-          <span style="padding: 0 2px 0 5px">
+          <span style="padding: 0 0 0 5px">
             Only showing verified accounts
           </span>
 
@@ -22,12 +22,15 @@
 
       <p class="block">
         Promoter:
-        <input
-          type="text"
-          value=""
-          class="input is-small"
-          placeholder="Search here..."
-        />
+
+        <div class="block">
+          <input
+            value=""
+            type="text"
+            class="input"
+            placeholder="Search here..."
+          />
+        </div>
 
         <div class="field is-grouped is-grouped-multiline">
           <div class="control">
@@ -91,12 +94,28 @@
           </div>
         </div>
       </div>
+
+      <div class="block">
+        <div class="block">
+          Number of entrants:
+        </div>
+
+        <div class="slider-bar">
+          <input
+            type="range"
+            min="1"
+            max="100"
+            value="50"
+            class="slider"
+          >
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import TwitterBadge from '@/components/common/TwitterBadge'
+import TwitterBadge from '@/components/common/elements/TwitterBadge'
 
 export default {
   components: { TwitterBadge }

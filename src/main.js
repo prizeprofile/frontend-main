@@ -16,5 +16,8 @@ export default new Vue({
   template: '<App/>',
   components: { App },
   router: new Router({ routes }),
-  store
+  store,
+  beforeCreate () {
+    this.$store.commit('init')
+  }
 })

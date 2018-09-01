@@ -1,6 +1,6 @@
 <template>
   <div class="connect-twitter-modal modal" v-bind:class="{ 'is-active': isActive }">
-    <div class="modal-background"></div>
+    <div class="modal-background" @click="hide()"></div>
 
     <div class="modal-content">
       <div class="hero is-white is-medium">
@@ -17,7 +17,9 @@
           </p>
 
           <div class="block">
-            <span class="button is-info is-medium">CONNECT TWITTER</span>
+            <span class="button is-info is-medium" v-on:click="auth">
+              CONNECT TWITTER
+            </span>
           </div>
 
           <div class="block">
@@ -46,7 +48,7 @@
 </template>
 
 <script>
-import { MODAL_HIDE } from '@/store/types'
+import { MODAL_HIDE, USER_CONNECT_TWITTER } from '@/store/types'
 
 export default {
   computed: {
@@ -58,6 +60,10 @@ export default {
   methods: {
     hide () {
       this.$store.dispatch(MODAL_HIDE, 'connect-twitter')
+    },
+
+    auth () {
+      this.$store.dispatch(USER_CONNECT_TWITTER)
     }
   }
 }

@@ -1,4 +1,5 @@
-// import axios from 'axios'
+import axios from 'axios'
+import config from 'config'
 import { SET_COMPETITIONS, LOAD_COMPETITIONS } from '@/store/types'
 
 export default {
@@ -12,29 +13,31 @@ export default {
    * @return {Promise<void>}
    */
   [LOAD_COMPETITIONS]: ({ commit }, offset = 50) => {
-    // TODO: Cache competition in local storage.
     // TODO: Implement offset.
     // TODO: Implement error handler.
 
-    // return axios.get('http://localhost:8001/')
-    return new Promise(resolve => setTimeout(resolve, 500))
+    /* return new Promise(resolve => setTimeout(resolve, 1500))
       .then(() => ({data: [
         {
           id: 1,
+          tweet_id: '998990964671893506',
           posted: new Date(),
           entrants: 15,
+          preview: 'http://via.placeholder.com/640x320',
           tweet_link: 'https://twitter.com/Nigel_Farage/status/998990964671893506',
-          text: 'daddy sees ya. gotta go and buy some food cuz im starving. dont scroll down.',
+          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
           promoter: {
             name: 'EE',
             image: 'static/images/_temp.jpg',
             approved: true
-          }
+          },
+          entry_methods: ['like', 'comment', 'retweet']
         },
         {
           id: 2,
+          tweet_id: '998990964671893506',
           posted: new Date(),
-          preview: 'https://cdn.mos.cms.futurecdn.net/wXNBvsCtBLmiEJRyfP2644-768-80.jpg',
+          preview: 'http://via.placeholder.com/500x820',
           entrants: 15,
           tweet_link: 'https://twitter.com/Nigel_Farage/status/998990964671893506',
           text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -42,22 +45,26 @@ export default {
             name: 'Tesco',
             image: 'static/images/_temp.jpg',
             approved: false
-          }
+          },
+          entry_methods: ['like', 'comment']
         },
         {
           id: 3,
+          tweet_id: '998990964671893506',
           posted: new Date(),
-          preview: 'http://primapekarna.cz/Public/Images/Article/stredni-rohlik_01.png',
-          entrants: 'all',
+          preview: 'http://via.placeholder.com/1250x320',
+          entrants: 10,
           tweet_link: 'https://twitter.com/Nigel_Farage/status/998990964671893506',
-          text: 'youre a rebell fucking hell. well anyway this is a very good piece of traditional czech rohlik. best with ham and some butter or some honey. if you feel peckish there aint a better option, trust me bruv',
+          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
           promoter: {
-            name: 'Baked Baker',
+            name: 'Tesco',
             image: 'http://keyassets-p2.timeincuk.net/wp/prod/wp-content/uploads/sites/42/2017/08/Steves-630x330.jpg',
             approved: true
-          }
+          },
+          entry_methods: ['like']
         }
-      ]}))
+      ]})) */
+    return axios.get(config.api.competitions)
       .then(({ data }) => commit(SET_COMPETITIONS, data))
       .catch(console.error)
   }

@@ -16,3 +16,17 @@
   transition: opacity .5s
 .fade-enter, .fade-leave-to
   opacity: 0
+
+/**
+ * Pulsing border animation.
+ */
++keyframes(Pulse)
+	0%
+		box-shadow: 0 0 0 0 rgba($primary, 0.4)
+	
+	80%
+		box-shadow: 0 0 0 10px rgba($primary, 0)
+
+	100%
+		box-shadow: 0 0 0 0 rgba($primary, 0)
+	
