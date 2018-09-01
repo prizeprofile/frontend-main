@@ -78,9 +78,8 @@ export default {
    * @return {Promise<void>}
    */
   [FILTER_COMPETITIONS]: ({ commit }, filters, offset = 50) => {
-    console.log(filters)
-    // return axios.get(config.api.filterCompetitions)
-    //   .then(({ data }) => commit(SET_COMPETITIONS, data))
-    //   .catch(console.error)
+    return axios.get(`${config.api.competitions}${filters}`)
+      .then(({ data }) => commit(SET_COMPETITIONS, data))
+      .catch(console.error)
   }
 }

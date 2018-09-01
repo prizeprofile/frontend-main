@@ -30,11 +30,14 @@
             class="input"
             placeholder="Search here..."
             v-model="promoterPattern"
+            @focus="promoterAutocompleteActive = true"
+            @blur="promoterAutocompleteActive = false"
             @keyup.enter="togglePromoter(filteredPromoters[0])"
           />
 
-          <ul class="promoters-autocomplete" v-show="!!promoterPattern">
-            <li v-for="(promoter, key) in filteredPromoters" :key="key" @click="togglePromoter(promoter)">
+          <ul class="promoters-autocomplete" v-show="!!promoterPattern && promoterAutocompleteActive">
+            <li class="has-text-weight-bold" v-show="filteredPromoters.length === 0">No promoters match your search.</li>
+            <li v-for="(promoter, key) in filteredPromoters" :key="key" @mousedown="togglePromoter(promoter)">
               {{ promoter.name }}
             </li>
           </ul>
@@ -99,6 +102,7 @@ export default {
 
   data: () => ({
     promoterPattern: '',
+    promoterAutocompleteActive: false,
     filterTimeout: null,
     filters: {
       onlyVerified: false,
@@ -107,7 +111,7 @@ export default {
       promoters: []
     },
     entryMethods: [
-      { name: 'friend', icon: 'user-plus' },
+      { name: 'follow', icon: 'user-plus' },
       { name: 'comment', icon: 'comment-alt' },
       { name: 'retweet', icon: 'retweet' },
       { name: 'like', icon: 'heart' },
