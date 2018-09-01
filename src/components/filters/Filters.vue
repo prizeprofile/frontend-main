@@ -82,7 +82,7 @@
           <input
             type="range"
             min="1"
-            max="100"
+            max="10"
             class="slider"
             v-model="filters.numberOfEntrants"
           >
@@ -153,7 +153,7 @@ export default {
     stringifiedFilters () {
       return `
         ?onlyVerified=${this.filters.onlyVerified}
-        &numberOfEntrants=${this.filters.numberOfEntrants}
+        &numberOfEntrants=${this.filters.numberOfEntrants * 100}
         &entryMethods=${this.filters.entryMethods.join('|')}
         &promoters=${this.filters.promoters.map(p => p.id).join('|')}
       `.replace(/\s/g, '')
