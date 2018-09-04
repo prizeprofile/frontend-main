@@ -3,6 +3,13 @@
  */
 export const SET_COMPETITIONS = 'SET_COMPETITIONS'
 export const LOAD_COMPETITIONS = 'LOAD_COMPETITIONS'
+export const FILTER_COMPETITIONS = 'FILTER_COMPETITIONS'
+
+/**
+ * Promoters.
+ */
+export const SET_PROMOTERS = 'SET_PROMOTERS'
+export const LOAD_PROMOTERS = 'LOAD_PROMOTERS'
 
 /**
  * Modals.

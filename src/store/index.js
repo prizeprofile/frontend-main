@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import user from './modules/user'
 import elements from './modules/elements'
+import promoters from './modules/promoters'
 import competitions from './modules/competitions'
 
 Vue.use(Vuex)
@@ -10,22 +11,23 @@ const store = new Vuex.Store({
   modules: {
     competitions,
     elements,
+    promoters,
     user
   },
 
   mutations: {
-    // Loads cashed data from local storage.
+    // Loads cached data from local storage.
     init (state) {
-      let cashe = window.localStorage.getItem('store')
+      let cache = window.localStorage.getItem('store')
 
-      if (cashe) {
-        this.replaceState(Object.assign(state, JSON.parse(cashe)))
+      if (cache) {
+        this.replaceState(Object.assign(state, JSON.parse(cache)))
       }
     }
   }
 })
 
-// Cashes Vuex to localStorage.
+// Caches Vuex to localStorage.
 store.subscribe((_, state) => {
   window.localStorage.setItem('store', JSON.stringify(state))
 })
