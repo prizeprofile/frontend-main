@@ -1,5 +1,5 @@
 import axios from 'axios'
-import config from 'config'
+import config from '@/config'
 import { LOAD_PROMOTERS, SET_PROMOTERS } from '@/store/types'
 
 export default {

@@ -1,0 +1,73 @@
+
+$button-types: (primary: $primary, twitter: $twitter)
+
+a.action, button.action
+  align-items: center
+  border-radius: $radius-medium
+  border: none
+  cursor: pointer
+  display: flex
+  font-size: $size-6
+  justify-content: center
+  line-height: 1.5
+  outline: none
+  padding: 0.375em 0.875em
+  position: relative
+  transition: $transition-default
+  user-select: none
+  white-space: nowrap
+
+  /**
+   * Type modifiers
+   */
+
+  @each $type, $color in $button-types
+    &.is-#{$type}
+      background: $color
+      color: white
+
+      &.is-inverted
+        background: white
+        color: $color
+
+  /**
+   * State modifiers
+   */
+
+  &:hover
+    opacity: 0.875
+
+  &:active
+    opacity: 0.75
+
+  /**
+   * Size modifiers
+   */
+
+  &.is-small
+    font-size: $size-7
+
+  &.is-medium
+    font-size: $size-5
+
+  &.is-large
+    font-size: $size-4
+
+  &.is-fullwidth
+    width: 100%
+
+  /**
+   * Other modifiers
+   */
+
+  &[disabled]
+    +static
+
+  &.is-loading
+    color: transparent !important
+    pointer-events: none
+
+    &:after
+      +loader
+      +center(1em)
+

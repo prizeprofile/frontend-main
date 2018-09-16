@@ -1,3 +1,4 @@
+
 /**
  * Returns object with modals.
  *

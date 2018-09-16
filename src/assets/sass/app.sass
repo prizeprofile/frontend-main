@@ -1,36 +1,39 @@
+
 /**
  * Main SASS boot point of the app.
  *
  * Start by importing mixins, variables, Bulma and helpers.
  */
-@import reset
 
 @import variables
 
 @import ~bulma/bulma
 
+@import reset
 @import mixins
-
-@import helpers
-
-@import form
-
 @import animations
+@import helpers
 
 /**
  * Importing layouts files.
  */
 
 @import layouts/default
+@import layouts/headers/default
+@import layouts/footers/default
 
 /**
- * Import pages from 'pages' directory.
+ * Import component styles.
  */
 
-@import pages/home
-
-@import pages/competitions
-
+@import components/action
+@import components/badge
+@import components/lever
+// move this swhere
+@import components/nav
+@import components/panel
+@import components/pic
+@import components/slider
 
 /**
  *  Imports all partials styles.

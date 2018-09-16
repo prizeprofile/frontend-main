@@ -1,23 +1,23 @@
-import 'es6-promise/auto'
+import './bootstrap/registerVuePlugins'
+import './bootstrap/registerGlobalHelpers'
+import './bootstrap/registerServiceWorker'
+import './bootstrap/registerControllerRouter'
+import './bootstrap/registerGlobalComponents'
+
+
 import Vue from 'vue'
 import App from './App'
 import store from './store'
-import routes from './routes'
-import Router from 'vue-router'
-import VueVisible from 'vue-visible'
-import AsyncComputed from 'vue-async-computed'
+import router from './router'
 
-Vue.use(Router)
-  .use(VueVisible)
-  .use(AsyncComputed)
+import './directives'
 
-export default new Vue({
-  el: '#app',
-  template: '<App/>',
-  components: { App },
-  router: new Router({ routes }),
+Vue.config.productionTip = false
+
+new Vue({
+  router,
   store,
-  beforeCreate () {
-    this.$store.commit('init')
-  }
-})
+  render: h => h(App)
+}).$mount('#app')
+
+// Consider controller + middleware concepts.

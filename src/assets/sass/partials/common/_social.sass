@@ -1,0 +1,45 @@
+
+/**
+ * Styles for social sharing box.
+ */
+
+$social-colors: (whatsapp: $whatsapp, twitter: $twitter, messenger: $messenger, facebook: $facebook)
+
+.social
+
+  .social-title
+    padding: 1rem 0 2rem
+    text-align: center
+
+  .social-links
+    border-top: 1px solid $grey-lighter
+    margin-left: -1rem
+    overflow: hidden
+    width: calc(100% + 2rem)
+
+    a
+      background: $white-bis
+      border-bottom: 1px solid $grey-lighter
+      display: block
+      float: left
+      font-size: $size-3
+      padding: 1rem 0
+      text-align: center
+      transition: $transition-default
+      width: 50%
+
+      &:nth-child(2n + 1)
+        border-right: 1px solid $grey-lighter
+
+      @each $media, $color in $social-colors
+        &.is-#{$media}
+          color: $color
+
+          &:hover
+            background: $color
+            color: white
+
+
+  .social-footer
+    padding-top: 1rem
+    text-align: center

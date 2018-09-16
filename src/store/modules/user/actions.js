@@ -1,5 +1,5 @@
 import axios from 'axios'
-import config from 'config'
+import config from '@/config'
 import {
   USER_SET_TOKEN,
   USER_CONNECT_TWITTER,

@@ -1,0 +1,28 @@
+
+.panel
+  +block
+  border-radius: $radius-medium
+  border: 1px solid $grey-lighter
+  background: white
+  position: relative
+
+  &.is-elevated
+    +elevated(1)
+
+  &.is-medium
+    .panel-head
+      padding: 2rem 3.5rem
+
+    .panel-body
+      padding: 2rem 3rem
+
+  .panel-head
+    border-bottom: 1px solid $grey-lighter
+    color: $grey
+    font-size: $size-6
+    font-weight: bold
+    padding: 1rem 1.5rem
+    text-transform: uppercase
+
+  .panel-body
+    padding: 1rem

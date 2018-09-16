@@ -1,0 +1,15 @@
+
+$default-header-background: $primary
+$default-header-height: 6rem
+
+.default-header
+  background: $default-header-background
+  height: $default-header-height
+
+  &.is-fixed
+    +fixed
+    z-index: 50
+
+    // Any immediately following element should be offset by the header height.
+    ~ *
+      padding-top: $default-header-height

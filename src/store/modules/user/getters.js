@@ -1,3 +1,4 @@
+
 /**
  * @param {object} user
  * @return {object[]}
@@ -18,6 +19,7 @@ export const isLogged = ({ user }) => user && user.isLogged
 
 /**
  * Is true if this is the first session of a user.
+ *
  * @param  {object}  user
  * @return {Boolean}
  */

@@ -1,0 +1,35 @@
+
+.lever
+  background: $grey-lighter
+  border-radius: $radius-medium
+  display: inline-block
+  height: 1.25rem
+  margin: 0.125rem 0
+  position: relative
+  transition: $transition-default
+  user-select: none
+  width: 4.5rem
+
+  &.is-active
+    background: $primary
+
+    .lever-button
+      color: $primary
+      transform: translateX(1rem)
+
+  .lever-button
+    +elevated(1)
+    align-items: center
+    background: $white-bis
+    border-radius: $radius-medium
+    color: $grey-light
+    cursor: pointer
+    display: flex
+    font-size: $size-7
+    height: 1.5rem
+    justify-content: center
+    position: absolute
+    text-transform: uppercase
+    top: -0.125rem
+    transition: $transition-default
+    width: 3.5rem

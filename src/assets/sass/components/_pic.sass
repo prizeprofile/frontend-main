@@ -1,0 +1,23 @@
+
+.image
+  border-radius: $radius-medium
+  overflow: hidden
+  background: $white-ter
+
+  &.is-rounded
+    border-radius: 50%
+
+  &.is-loading
+    &:after
+      +loader
+      +center(1em)
+      font-size: $size-5
+
+    img
+      display: none
+
+  img
+    margin: 0 auto
+    min-height: 100%
+    min-width: 0
+    width: auto !important
