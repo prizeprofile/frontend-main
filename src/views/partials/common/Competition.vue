@@ -44,7 +44,7 @@
 
       <!-- Banner image. -->
       <div class="competition-image" v-if="competition.preview">
-        <pic size="2:1" :src="competition.preview" alt="Competition Preview"></pic>
+        <pic size="2:1" :src="competition.preview" alt="Competition Preview" radius></pic>
       </div>
 
       <!-- Competition actions. -->

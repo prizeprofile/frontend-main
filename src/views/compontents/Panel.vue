@@ -1,8 +1,11 @@
 <template>
   <div class="panel" :class="panelClasses" v-if="!dismissed">
-    <button class="delete" v-show="dismissible" @click="dismiss()"></button>
+    <button class="delete" v-show="dismissible" @click="dismissPanel()"></button>
+
     <div class="panel-head" v-if="title">{{ title }}</div>
-    <div class="panel-body"><slot></slot></div>
+    <div class="panel-body">
+      <slot :dismissPanel="dismissPanel"></slot>
+    </div>
   </div>
 </template>
 
@@ -39,7 +42,7 @@ export default {
   },
 
   methods: {
-    dismiss () {
+    dismissPanel () {
       this.dismissed = true
       localStorage.setItem(this.panelKey, true)
     }

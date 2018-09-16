@@ -14,7 +14,7 @@
         <div class="nav-spacer"></div>
         <div class="nav-menu">
           <a class="nav-item is-static">
-            <action medium inverted @click="openModal">
+            <action medium inverted @click="showModal('connect-twitter')">
               <icon name="fab fa-twitter"></icon>
               &nbsp;
               Connect Twitter
@@ -27,13 +27,9 @@
 </template>
 
 <script>
-import { SHOW_MODAL } from '@/store/types'
+import ControlsModals from '@/core/mixins/ControlsModals'
 
 export default {
-  methods: {
-    openModal () {
-      this.$store.dispatch(SHOW_MODAL, 'connect-twitter')
-    }
-  }
+  mixins: [ControlsModals]
 }
 </script>

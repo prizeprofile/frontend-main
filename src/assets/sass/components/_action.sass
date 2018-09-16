@@ -1,6 +1,12 @@
 
 $button-types: (primary: $primary, twitter: $twitter)
 
+.actions
+  display: flex
+
+  > .action:not(:last-child)
+    margin-right: 0.5rem
+
 a.action, button.action
   align-items: center
   border-radius: $radius-medium

@@ -1,70 +1,44 @@
 <template>
   <modal name="welcome">
-    <div class="hero is-white is-medium">
-      <div class="hero-head is-centered">
-        <img :src="slides[slide].image">
-
-        <div class="logo">
-          <img src="/static/images/branding/logo_green.png" alt="PrizeProfile">
-          <div class="has-text-weight-bold has-text-grey">OVERVIEW</div>
-        </div>
+    <div class="welcome-modal">
+      <div class="welcome-modal-image">
+        <pic size="2:1" :src="currentSlide.image" :alt="currentSlide.heading"></pic>
       </div>
 
-      <div class="modal-body">
-        <div class="title has-text-primary is-size-4 is-centered has-text-weight-semibold">
-          {{ slides[slide].heading }}
-        </div>
-
-        <p class="has-text-grey-dark" v-text="slides[slide].text"></p>
+      <div class="welcome-modal-content">
+        <h3 class="title is-3 has-text-primary">{{ currentSlide.heading }}</h3>
+        <p>{{ currentSlide.text }}</p>
       </div>
 
-      <div class="hero-footer">
-        <!-- <div
-          class="is-pointer is-unselectable"
-          v-if="slide === 0"
-          @click="hide"
-        >CLOSE</div> -->
+      <div class="welcome-modal-controls">
+        <action fullwidth type="default" @click="currentPage === 0 || --currentPage">Previous</action>
 
-        <!-- <div
-          class="is-pointer is-unselectable"
-          v-on:click="slide = slide - 1"
-          v-else
-        >PREVIOUS</div> -->
-
-        <div class="control">
-          <span v-for="n in slides.length" :key="n">
-            <input
-              type="radio"
-              name="slider"
-              v-model="slide"
-              :value="n - 1"
-              :checked="n === 1"
-              :id="'slider-' + (n - 1)"
-            >
-
-            <label :for="'slider-' + (n - 1)">
-              <span>
-                <div class="bg"></div>
-              </span>
-            </label>
-          </span>
+        <!-- Extract if needed. -->
+        <div class="pagination">
+          <span
+            v-for="(_, page) in slides.length"
+            :key="page"
+            :class="{ 'is-active': page === currentPage }"
+            @click="currentPage = page"
+          ></span>
         </div>
 
-        <span
-          class="is-unselectable has-text-primary is-pointer"
-          v-visible="slide < 3"
-          v-on:click="slide = slide + 1"
-        >NEXT</span>
+        <action fullwidth @click="++currentPage" v-if="!lastPage">Next</action>
+        <action fullwidth @click="hideModals" v-else>Done</action>
       </div>
     </div>
   </modal>
 </template>
 
 <script>
+import ControlsModals from '@/core/mixins/ControlsModals'
+
 export default {
+  mixins: [ControlsModals],
+
   data () {
     return {
-      slide: 0,
+      currentPage: 0,
 
       slides: [
         {
@@ -88,6 +62,16 @@ export default {
           text: 'In order for PrizeProfile to enter the competition we need to connect your Twitter Account. If you are new to twitter you can also sign up below.'
         }
       ]
+    }
+  },
+
+  computed: {
+    currentSlide () {
+      return this.slides[this.currentPage]
+    },
+
+    lastPage () {
+      return this.currentPage === this.slides.length - 1
     }
   }
 }

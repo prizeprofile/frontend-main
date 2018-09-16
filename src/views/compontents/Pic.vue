@@ -13,6 +13,7 @@ export default {
   props: {
     size: String,
     rounded: Boolean,
+    radius: Boolean,
     alt: {
       type: String,
       required: true
@@ -33,7 +34,8 @@ export default {
       return [
         `is-${this.size.replace(':', 'by')}`,
         !this.rounded || 'is-rounded',
-        !this.loading || 'is-loading'
+        !this.loading || 'is-loading',
+        !this.radius || 'has-radius'
       ]
     }
   },
