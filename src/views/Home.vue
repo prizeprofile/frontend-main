@@ -5,7 +5,7 @@
         <filters></filters>
       </panel>
 
-      <panel>
+      <panel class="is-hidden-touch">
         <social></social>
       </panel>
     </aside>
@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import Filters from '@/views/partials/Filters'
 import Social from '@/views/partials/common/Social'
+import Filters from '@/views/partials/common/Filters'
 import Competitions from '@/views/partials/lists/Competitions'
 
 export default {

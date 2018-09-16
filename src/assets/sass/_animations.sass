@@ -30,7 +30,11 @@
  */
 
 .fade-enter-active, .fade-leave-active
-  transition: opacity 0.5s
+  transition-property: opacity
+  transition-duration: .3s
 
-.fade-enter, .fade-leave-to
+.fade-enter-active
+  transition-delay: .3s
+
+.fade-enter, .fade-leave-active
   opacity: 0

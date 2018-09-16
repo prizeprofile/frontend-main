@@ -4,9 +4,15 @@
  */
 
 .competition
+  position: relative
+
   // Make sure that each vertical part of the competition is properly indented.
   > div
     +block
+
+  .competition-external-link
+    color: $grey
+    float: right
 
   .competition-tags
     //
@@ -36,7 +42,16 @@
     align-items: center
     justify-content: center
 
-    .competition-actions-entry-method
-
     .competition-actions-spacer
       flex: 1
+
+    +touch
+      display: block
+
+      .competition-actions-spacer
+        +block
+
+      .competition-actions-entry-methods
+        .badge
+          padding-left: 0
+          padding-right: 0

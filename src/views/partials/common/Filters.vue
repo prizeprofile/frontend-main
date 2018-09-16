@@ -4,13 +4,13 @@
     <span class="filters-heading">Entry Types</span>
     <div class="filters-entry-types badges">
       <badge
-        v-for="(method, key) in entryMethods.values()"
+        v-for="(method, key) in entryMethods"
         :key="key"
-        :active="!!raw.entryMethods.find(m => m === entryMethods[method].name)"
+        :active="!!raw.entryMethods.find(m => m === method.name)"
         flex
-        @click="toggleEntryMethod(entryMethods[method].name)"
+        @click="toggleEntryMethod(method.name)"
       >
-        <icon :type="entryMethods[method].icon.type" :name="entryMethods[method].icon.name" small></icon>
+        <icon :type="method.icon.type" :name="method.icon.name" small></icon>
       </badge>
     </div>
 
@@ -39,9 +39,11 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import * as EntryMethod from '@/core/enums/EntryMethod'
+import EntersCompetitions from '@/core/mixins/EntersCompetitions'
 
 export default {
+  mixins: [EntersCompetitions],
+
   data: () => ({
     filterTimeout: null,
     raw: {
@@ -49,7 +51,6 @@ export default {
       entryMethods: [],
       onlyVerified: false
     },
-    entryMethods: EntryMethod
   }),
 
   watch: {

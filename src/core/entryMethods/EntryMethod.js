@@ -1,31 +1,38 @@
 
 export default class EntryMethod {
   /**
-   * Class constructor
+   * The entry method name and idetified.
    *
-   * @param {any} tweet
-   * @param {any} user
+   * @var {string}
    */
-  constructor (tweet, user) {
-    this.tweet = tweet
-    this.user = user
-  }
-
-  enter () {
-    this.job = this.user ? this.auto() : this.intent()
-
-    return this
-  }
-
-  auto () {
+  get name () {
     throw new Error('Not Implemented')
   }
 
-  intent () {
+  /**
+   * The entry method display icons.
+   *
+   * @var {any}
+   */
+  get icon () {
     throw new Error('Not Implemented')
   }
 
-  name () {
+  /**
+   * Automatically enter the competition.
+   *
+   * @param {any} competition
+   */
+  async auto (competition) {
+    throw new Error('Not Implemented')
+  }
+
+  /**
+   * Manually enter the competition.
+   *
+   * @param {any} competition
+   */
+  async manual (competition) {
     throw new Error('Not Implemented')
   }
 }

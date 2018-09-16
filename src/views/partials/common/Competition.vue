@@ -2,7 +2,7 @@
   <panel medium>
     <article class="competition">
       <!-- External link. -->
-      <a class="is-pulled-right has-text-grey" :href="tweetLink" target="_blank" ref="noopener">
+      <a class="competition-external-link" :href="tweetLink" target="_blank" ref="noopener">
         <icon type="fas" name="fa-external-link-alt"></icon>
       </a>
 
@@ -38,6 +38,7 @@
 
       <!-- Content. -->
       <div class="competition-content">
+        <!-- Move to v-html. -->
         <p>{{ competition.text | prettifyDescription }}</p>
       </div>
 
@@ -50,19 +51,19 @@
       <div class="competition-actions">
         <div class="competition-actions-entry-methods badges">
           <badge
-            v-for="(method, key) in entryMethods.values()"
+            v-for="(method, key) in entryMethods"
             :key="key"
-            :static="!entryMethodAvailable(entryMethods[method].name)"
-            @click="enterCompetition([entryMethods[method].name])"
+            :static="!entryMethodAvailable(method.name)"
+            @click="enterCompetition(competition, [method.name])"
           >
-            <icon :type="entryMethods[method].icon.type" :name="entryMethods[method].icon.name" small></icon>
+            <icon :type="method.icon.type" :name="method.icon.name" small></icon>
           </badge>
         </div>
         <div class="competition-actions-spacer"></div>
         <div class="competition-actions-autoentry">
           <action
-            medium
-            @click="enterCompetition(this.this.competition.entry_methods)"
+            medium fullwidth
+            @click="enterCompetition(competition, competition.entry_methods)"
           >
             <icon name="fas fa-magic"></icon>
             &nbsp;
@@ -76,19 +77,15 @@
 
 <script>
 import moment from 'moment'
-import * as EntryMethod from '@/core/enums/EntryMethod'
+import EntersCompetitions from '@/core/mixins/EntersCompetitions'
 
 export default {
+  mixins: [EntersCompetitions],
+
   props: {
     payload: {
       type: Object,
       required: true
-    }
-  },
-
-  data () {
-    return {
-      entryMethods: EntryMethod
     }
   },
 
@@ -105,6 +102,7 @@ export default {
 
     /**
      * Return prettified competition description.
+     *
      * TODO: Link, @-ed and hashtag colours.
      *
      * @param {string} value
@@ -133,22 +131,13 @@ export default {
 
   methods: {
     /**
-     * Enters the competition based on the provided methods.
-     *
-     * @param {string[]} methods
-     */
-    enterCompetition (methods) {
-      //
-    },
-
-    /**
      * Determines whether the entry method is available.
      *
-     * @param {string} method
+     * @param {string} methodName
      * @return {boolean}
      */
-    entryMethodAvailable (method) {
-      return true
+    entryMethodAvailable (methodName) {
+      return this.competition.entry_methods.find(m => m === methodName)
     }
   }
 }
