@@ -27,12 +27,12 @@
 </template>
 
 <script>
-import { MODAL_SHOW } from '@/store/types'
+import { SHOW_MODAL } from '@/store/types'
 
 export default {
   methods: {
     openModal () {
-      this.$store.dispatch(MODAL_SHOW, 'connect-twitter')
+      this.$store.dispatch(SHOW_MODAL, 'connect-twitter')
     }
   }
 }

@@ -1,5 +1,7 @@
 <template>
   <div>
+    <welcome-brick />
+
     <transition-group name="fade" tag="div">
       <competition
         v-for="competition in competitions"
@@ -18,10 +20,11 @@
 <script>
 import { mapGetters } from 'vuex'
 import Competition from '@/views/partials/common/Competition'
+import WelcomeBrick from '@/views/partials/common/WelcomeBrick'
 import PlaceholderBrick from '@/views/partials/ui/PlaceholderBrick'
 
 export default {
-  components: { Competition, PlaceholderBrick },
+  components: { Competition, PlaceholderBrick, WelcomeBrick },
 
   computed: {
     ...mapGetters(['competitions'])

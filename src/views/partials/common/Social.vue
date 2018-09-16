@@ -13,7 +13,7 @@
     </div>
 
     <div class="social-footer">
-      <p>Thank you! <span class="has-text-danger">❤</span></p>
+      <p>Thank you! ❤</p>
     </div>
   </div>
 </template>

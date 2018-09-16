@@ -18,9 +18,9 @@ export const LOAD_PROMOTERS = 'LOAD_PROMOTERS'
  * Modals.
  */
 
-export const MODAL_SET = 'MODAL_SET'
-export const MODAL_SHOW = 'MODAL_SHOW'
-export const MODAL_HIDE = 'MODAL_HIDE'
+export const SET_ACTIVE_MODAL = 'SET_ACTIVE_MODAL'
+export const SHOW_MODAL = 'SHOW_MODAL'
+export const HIDE_MODALS = 'HIDE_MODALS'
 
 /**
  * User.

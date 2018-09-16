@@ -1,4 +1,4 @@
-import { MODAL_SET } from '@/store/types'
+import { SET_ACTIVE_MODAL } from '@/store/types'
 
 export default {
   /**
@@ -8,7 +8,7 @@ export default {
    * @param {Boolean} bool
    * @return {void}
    */
-  [MODAL_SET]: (state, payload) => {
-    state.elements.modals[payload.modal].isActive = payload.active
+  [SET_ACTIVE_MODAL]: (state, payload) => {
+    state.activeModal = payload
   }
 }

@@ -5,4 +5,4 @@
  * @param {object} state
  * @return {object[]}
  */
-export const modal = state => modal => state.elements.modals[modal]
+export const activeModal = state => state.activeModal

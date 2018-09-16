@@ -1,4 +1,4 @@
-import { MODAL_SET, MODAL_SHOW, MODAL_HIDE } from '@/store/types'
+import { SET_ACTIVE_MODAL, SHOW_MODAL, HIDE_MODALS } from '@/store/types'
 
 export default {
   /**
@@ -8,18 +8,17 @@ export default {
    * @param {string} modal
    * @return {Promise<void>}
    */
-  [MODAL_SHOW]: ({ commit }, modal) => {
-    commit(MODAL_SET, { modal, active: true })
+  [SHOW_MODAL]: async ({ commit }, modal) => {
+    return commit(SET_ACTIVE_MODAL, modal)
   },
 
   /**
    * Shows welcome modal window.
    *
    * @param {object.function} commit
-   * @param {string} modal
    * @return {Promise<void>}
    */
-  [MODAL_HIDE]: ({ commit }, modal) => {
-    commit(MODAL_SET, { modal, active: false })
+  [HIDE_MODALS]: async ({ commit }) => {
+    return commit(SET_ACTIVE_MODAL, null)
   }
 }

@@ -1,81 +1,66 @@
 <template>
-  <div
-    class="welcome-modal modal"
-    :class="{ 'is-active': isActive }"
-  >
-    <div class="modal-background" @click="hide()"></div>
+  <modal name="welcome">
+    <div class="hero is-white is-medium">
+      <div class="hero-head is-centered">
+        <img :src="slides[slide].image">
 
-    <div class="modal-content">
-      <div class="hero is-white is-medium">
-        <div class="hero-head is-centered">
-          <img :src="slides[slide].image">
-
-          <div class="logo">
-            <img src="/static/images/branding/logo_green.png" alt="PrizeProfile">
-            <div class="has-text-weight-bold has-text-grey">OVERVIEW</div>
-          </div>
-        </div>
-
-        <div class="modal-body">
-          <div class="title has-text-primary is-size-4 is-centered has-text-weight-semibold">
-            {{ slides[slide].heading }}
-          </div>
-
-          <p class="has-text-grey-dark" v-text="slides[slide].text"></p>
-        </div>
-
-        <div class="hero-footer">
-          <div
-            class="is-pointer is-unselectable"
-            v-if="slide === 0"
-            v-on:click="hide"
-          >CLOSE</div>
-
-          <div
-            class="is-pointer is-unselectable"
-            v-on:click="slide = slide - 1"
-            v-else
-          >PREVIOUS</div>
-
-          <div class="control">
-            <span v-for="n in slides.length" :key="n">
-              <input
-                type="radio"
-                name="slider"
-                v-model="slide"
-                :value="n - 1"
-                :checked="n === 1"
-                :id="'slider-' + (n - 1)"
-              >
-
-              <label :for="'slider-' + (n - 1)">
-                <span>
-                  <div class="bg"></div>
-                </span>
-              </label>
-            </span>
-          </div>
-
-          <span
-            class="is-unselectable has-text-primary is-pointer"
-            v-visible="slide < 3"
-            v-on:click="slide = slide + 1"
-          >NEXT</span>
+        <div class="logo">
+          <img src="/static/images/branding/logo_green.png" alt="PrizeProfile">
+          <div class="has-text-weight-bold has-text-grey">OVERVIEW</div>
         </div>
       </div>
-    </div>
 
-    <button
-      v-on:click="hide"
-      aria-label="close"
-      class="modal-close is-large"
-    ></button>
-  </div>
+      <div class="modal-body">
+        <div class="title has-text-primary is-size-4 is-centered has-text-weight-semibold">
+          {{ slides[slide].heading }}
+        </div>
+
+        <p class="has-text-grey-dark" v-text="slides[slide].text"></p>
+      </div>
+
+      <div class="hero-footer">
+        <!-- <div
+          class="is-pointer is-unselectable"
+          v-if="slide === 0"
+          @click="hide"
+        >CLOSE</div> -->
+
+        <!-- <div
+          class="is-pointer is-unselectable"
+          v-on:click="slide = slide - 1"
+          v-else
+        >PREVIOUS</div> -->
+
+        <div class="control">
+          <span v-for="n in slides.length" :key="n">
+            <input
+              type="radio"
+              name="slider"
+              v-model="slide"
+              :value="n - 1"
+              :checked="n === 1"
+              :id="'slider-' + (n - 1)"
+            >
+
+            <label :for="'slider-' + (n - 1)">
+              <span>
+                <div class="bg"></div>
+              </span>
+            </label>
+          </span>
+        </div>
+
+        <span
+          class="is-unselectable has-text-primary is-pointer"
+          v-visible="slide < 3"
+          v-on:click="slide = slide + 1"
+        >NEXT</span>
+      </div>
+    </div>
+  </modal>
 </template>
 
 <script>
-import { MODAL_HIDE } from '@/store/types'
-
 export default {
   data () {
     return {
@@ -103,18 +88,6 @@ export default {
           text: 'In order for PrizeProfile to enter the competition we need to connect your Twitter Account. If you are new to twitter you can also sign up below.'
         }
       ]
-    }
-  },
-
-  computed: {
-    isActive () {
-      return this.$store.getters.modal('welcome').isActive
-    }
-  },
-
-  methods: {
-    hide () {
-      this.$store.dispatch(MODAL_HIDE, 'welcome')
     }
   }
 }

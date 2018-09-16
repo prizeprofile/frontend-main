@@ -1,41 +1,25 @@
 <template>
-  <div class="brick welcome-brick">
-    <div class="close">
-      <span>
-        <i class="fas fa-times"></i>
-      </span>
-    </div>
-
-    <div class="columns">
-      <div class="column is-three-quarter">
-        <h3>
-          👋 New to PrizeProfile?
-        </h3>
-
-        <p>
-          Find out how PrizeProfile works in our handy 3 step guide!
-        </p>
+  <panel dismissible="welcome-brick" elevated>
+    <div class="welcome-brick">
+      <div class="welcome-brick-title">
+        <h3 class="title is-4">👋&nbsp;&nbsp;New to PrizeProfile?</h3>
+        <p class="subtitle is-6 has-text-grey">Find out how PrizeProfile works in our handy 3 step guide!</p>
       </div>
 
-      <div class="column is-one-quarter">
-        <div>
-          <span
-            class="button is-primary"
-            v-on:click="openModal"
-          >START HERE</span>
-        </div>
+      <div class="welcome-brick-action">
+        <action medium @click="openModal">Start Here</action>
       </div>
     </div>
-  </div>
+  </panel>
 </template>
 
 <script>
-import { MODAL_SHOW } from '@/store/types'
+import { SHOW_MODAL } from '@/store/types'
 
 export default {
   methods: {
     openModal () {
-      this.$store.dispatch(MODAL_SHOW, 'welcome')
+      this.$store.dispatch(SHOW_MODAL, 'welcome')
     }
   }
 }
