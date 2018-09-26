@@ -1,10 +1,13 @@
 
-console.log(process.env)
 export default {
   api: {
-    competitions: 'https://uaoc3ai346.execute-api.eu-west-1.amazonaws.com/v1' + '/competitions',
-    promoters: 'https://uaoc3ai346.execute-api.eu-west-1.amazonaws.com/v1' + '/promoters',
-    oauth: 'https://uaoc3ai346.execute-api.eu-west-1.amazonaws.com/v1' + '/stage-twitter-oauth'
+    competitions: env('API_BASE_URL') + '/competitions',
+    promoters: env('API_BASE_URL') + '/promoters',
+    oauth: env('API_BASE_URL') + '/stage-twitter-oauth'
+  },
+
+  pagination: {
+    competitions: 20
   },
 
   twitter: {
