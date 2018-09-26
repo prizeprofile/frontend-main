@@ -11,9 +11,13 @@
 <script>
 export default {
   props: {
-    size: String,
+    size: {
+      type: String,
+      default: ''
+    },
     rounded: Boolean,
     radius: Boolean,
+    filled: Boolean,
     alt: {
       type: String,
       required: true
@@ -35,6 +39,7 @@ export default {
         `is-${this.size.replace(':', 'by')}`,
         !this.rounded || 'is-rounded',
         !this.loading || 'is-loading',
+        !this.filled || 'is-filled',
         !this.radius || 'has-radius'
       ]
     }

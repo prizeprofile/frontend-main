@@ -1,5 +1,5 @@
-import './bootstrap/registerVuePlugins'
 import './bootstrap/registerGlobalHelpers'
+import './bootstrap/registerVuePlugins'
 import './bootstrap/registerServiceWorker'
 import './bootstrap/registerControllerRouter'
 import './bootstrap/registerGlobalComponents'
@@ -20,4 +20,4 @@ new Vue({
   render: h => h(App)
 }).$mount('#app')
 
-// Consider controller + middleware concepts.
+// Change local storage caching to something more sophsitihcated.

@@ -20,10 +20,6 @@ export default new Router({
       meta: {
         controller: [HomeController, 'index']
       }
-    },
-    {
-      path: '/twitter-auth',
-      component: () => import('./views/TwitterAuth.vue')
     }
   ]
 })

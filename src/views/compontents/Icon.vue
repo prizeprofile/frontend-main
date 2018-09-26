@@ -1,6 +1,6 @@
 <template>
   <span class="icon" :class="sizeClass">
-    <i :class="[type, name.split(' ')]"></i>
+    <i :class="[type].concat(name.split(' '))"></i>
   </span>
 </template>
 

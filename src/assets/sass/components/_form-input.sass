@@ -1,0 +1,67 @@
+
+.form-control
+  position: relative
+
+  &.has-icon-left .form-input
+    padding-left: 2.25em
+
+  &.has-icon-right .form-input
+    padding-right: 2.25em
+
+  .form-icon
+    align-items: center
+    display: inline-flex
+    height: 2.25em
+    justify-content: center
+    pointer-events: none
+    position: absolute
+    width: 2.25em
+
+    &.is-left
+      left: 0
+
+    &.is-right
+      right: 0
+
+.form-input
+  border-radius: $radius-medium
+  border: 1px solid transparent
+  color: $text
+  height: 2.25em
+  font-size: $size-6
+  outline: none
+  padding: 0.5rem 0.875rem
+  transition: $transition-default
+
+  &::placeholder
+    color: $grey-light
+
+  /**
+   * Type modifiers
+   */
+
+  &.is-white
+    background: white
+
+  /**
+   * State modifiers
+   */
+
+  &:hover, &:focus
+    +elevated(1)
+
+  /**
+   * Size modifiers
+   */
+
+  &.is-medium
+    font-size: $size-5
+
+  &.is-large
+    font-size: $size-4
+
+  /**
+   * Other modifiers
+   */
+
+  //

@@ -59,7 +59,7 @@ export default {
      */
     filters: {
       deep: true,
-      handler (value, old) {
+      handler (value) {
         clearTimeout(this.filterTimeout)
 
         this.filterTimeout = setTimeout(this.filterCompetitions, 1000)
@@ -69,7 +69,7 @@ export default {
 
   computed: {
     /**
-     * Transform the filers to match the appropriate values.
+     * Transform the raw filers to match the appropriate values.
      */
     filters () {
       return {
@@ -108,12 +108,12 @@ export default {
     },
 
     /**
-     * Redirects to the same page with filters.
+     * Redirects to the same page with filters applied.
      */
     filterCompetitions () {
       this.$router.push({
         name: 'home',
-        query: this.filters
+        query: { ...this.$route.query, ...this.filters }
       })
     },
 

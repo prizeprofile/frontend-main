@@ -1,9 +1,10 @@
-// TODO: Implement enviroments.
+
+console.log(process.env)
 export default {
   api: {
-    oauth: 'https://tv3g8idtf9.execute-api.eu-west-1.amazonaws.com/stage/stage-twitter-oauth',
-    competitions: 'https://tv3g8idtf9.execute-api.eu-west-1.amazonaws.com/stage/competitions',
-    promoters: 'https://tv3g8idtf9.execute-api.eu-west-1.amazonaws.com/stage/promoters',
+    competitions: 'https://uaoc3ai346.execute-api.eu-west-1.amazonaws.com/v1' + '/competitions',
+    promoters: 'https://uaoc3ai346.execute-api.eu-west-1.amazonaws.com/v1' + '/promoters',
+    oauth: 'https://uaoc3ai346.execute-api.eu-west-1.amazonaws.com/v1' + '/stage-twitter-oauth'
   },
 
   twitter: {

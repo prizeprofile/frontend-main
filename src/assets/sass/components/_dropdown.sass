@@ -1,0 +1,44 @@
+
+.dropdown
+  position: relative
+
+  &:hover
+    .dropdown-active-item
+      background: white
+      border-bottom-left-radius: 0
+      border-bottom-right-radius: 0
+      border: 1px solid $white-ter
+
+    .dropdown-items
+      display: block
+
+  .dropdown-active-item
+    align-items: center
+    border-radius: $radius-medium
+    border: 1px solid transparent
+    color: $primary
+    cursor: pointer
+    display: flex
+    font-size: $size-7
+    padding: 0.25rem 0.75rem
+    transition: $transition-default
+
+  .dropdown-items
+    background: white
+    border-bottom-left-radius: $radius-medium
+    border-bottom-right-radius: $radius-medium
+    border: 1px solid $white-ter
+    border-top: none
+    display: none
+    position: absolute
+    top: 100%
+    width: 100%
+
+    li
+      cursor: pointer
+      font-size: $size-7
+      padding: 0.25rem 0.75rem
+      transition: $transition-default
+
+      &:hover
+        color: $primary

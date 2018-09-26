@@ -3,6 +3,8 @@
     <welcome-brick />
 
     <transition-group name="fade" tag="div">
+      <sieve v-if="competitions.length || true" key="sieve"></sieve>
+
       <competition
         v-for="competition in competitions"
         :key="competition.id"
@@ -19,12 +21,13 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import Sieve from '@/views/partials/common/Sieve'
 import Competition from '@/views/partials/common/Competition'
 import WelcomeBrick from '@/views/partials/common/WelcomeBrick'
 import PlaceholderBrick from '@/views/partials/ui/PlaceholderBrick'
 
 export default {
-  components: { Competition, PlaceholderBrick, WelcomeBrick },
+  components: { Competition, PlaceholderBrick, Sieve, WelcomeBrick },
 
   computed: {
     ...mapGetters(['competitions'])

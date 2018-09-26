@@ -21,7 +21,7 @@
         <pic
           class="competition-promoter-logo"
           size="48x48"
-          rounded
+          rounded filled
           :src="competition.promoter.thumbnail" alt="Promoter Thumbnail"
         ></pic>
 
@@ -38,13 +38,12 @@
 
       <!-- Content. -->
       <div class="competition-content">
-        <!-- Move to v-html. -->
-        <p>{{ competition.text | prettifyDescription }}</p>
+        <p v-html="competition.text"></p>
       </div>
 
       <!-- Banner image. -->
       <div class="competition-image" v-if="competition.preview">
-        <pic size="2:1" :src="competition.preview" alt="Competition Preview" radius></pic>
+        <pic size="2:1" :src="competition.preview" alt="Competition Preview" radius filled></pic>
       </div>
 
       <!-- Competition actions. -->

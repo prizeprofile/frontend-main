@@ -1,37 +1,23 @@
 <template>
   <modal name="connect-twitter">
-    <div class="hero is-white is-medium">
-      <div class="modal-body is-centered">
-        <div class="block">
-          <img src="/static/images/branding/logo_green.png" alt="PrizeProfile">
-        </div>
+    <div class="connect-twitter-modal">
+      <div class="connect-twitter-modal-image">
+        <pic :src="`$/images/branding/logo.png`" alt="Prize Profile"></pic>
+      </div>
 
-        <h3 class="has-text-grey-darker">Connect Twitter</h3>
-
-        <p class="has-text-grey-darker block">
-          To enter competitions with one click, we need you to connect
-          PrizeProfile with your Twitter account.
+      <div class="connect-twitter-modal-body">
+        <h3 class="title is-3">Connect Twitter</h3>
+        <p class="subtitle is-5 has-text-grey">
+          To enter competitions in one click we need you to connect with your Twitter.
         </p>
+      </div>
 
-        <div class="block">
-          <span class="button is-info is-medium" v-on:click="auth">
-            CONNECT TWITTER
-          </span>
-        </div>
-
-        <div class="block">
-          <a
-            target="_blank"
-            href="https://twitter.com/signup"
-            class="button is-info is-outlined"
-          >
-            SIGN UP TO TWITTER
-          </a>
-        </div>
-
-        <p class="has-text-grey is-size-7">
-          We never post without your permission
-        </p>
+      <div class="connect-twitter-modal-action">
+        <action medium @click="auth">
+          <icon type="fab" name="fa-twitter"></icon>
+          &nbsp;&nbsp;
+          Connect Twitter
+        </action>
       </div>
     </div>
   </modal>

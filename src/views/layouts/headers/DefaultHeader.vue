@@ -7,10 +7,6 @@
             <img v-lazy="`$/images/branding/logo-white.png`" alt="Prize Profile">
           </router-link>
         </div>
-        <div class="nav-menu">
-          <a class="nav-item">Recent</a>
-          <a class="nav-item">Popular</a>
-        </div>
         <div class="nav-spacer"></div>
         <div class="nav-menu">
           <a class="nav-item is-static">
