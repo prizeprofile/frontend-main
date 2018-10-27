@@ -3,7 +3,8 @@ export default {
   api: {
     competitions: env('API_BASE_URL') + '/competitions',
     promoters: env('API_BASE_URL') + '/promoters',
-    oauth: env('API_BASE_URL') + '/stage-twitter-oauth'
+    requestToken: env('API_BASE_URL') + '/me/request-token',
+    sync: env('API_BASE_URL') + '/me/sync'
   },
 
   pagination: {

@@ -1,6 +1,5 @@
 
 export default {
-  user: {
-    tokens: {}
-  }
+  tokens: {},
+  info: {}
 }

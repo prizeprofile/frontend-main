@@ -13,7 +13,7 @@
       </div>
 
       <div class="connect-twitter-modal-action">
-        <action medium @click="auth">
+        <action medium @click="auth" :loading="loading">
           <icon type="fab" name="fa-twitter"></icon>
           &nbsp;&nbsp;
           Connect Twitter
@@ -27,9 +27,19 @@
 import { USER_CONNECT_TWITTER } from '@/store/types'
 
 export default {
+  data () {
+    return {
+      loading: false
+    }
+  },
+
   methods: {
     auth () {
+      this.loading = true
+
       this.$store.dispatch(USER_CONNECT_TWITTER)
+        .catch(console.error)
+        .then(() => this.loading = false)
     }
   }
 }

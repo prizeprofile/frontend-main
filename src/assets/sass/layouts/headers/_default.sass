@@ -1,6 +1,7 @@
 
 $default-header-background: $primary
 $default-header-height: 6rem
+$pseudo-icon-size: 7px
 
 .default-header
   background: $default-header-background
@@ -13,3 +14,31 @@ $default-header-height: 6rem
     // Any immediately following element should be offset by the header height.
     ~ *
       padding-top: $default-header-height
+
+  .level .level-item:first-child div
+    display: flex
+    padding-left: nth(map-get($offsets, 'desktop'), 2)
+    border-left: 1px solid rgba($white, .5)
+
+  .has-icon-tick
+    position: relative
+
+    &::after
+      position: absolute
+      bottom: 0
+      left: 55%
+      font-style: normal
+      font-variant: normal
+      text-rendering: auto
+      -webkit-font-smoothing: antialiased
+      font-family: "Font Awesome 5 Free"
+      font-weight: 900
+      content: "\f00c"
+      font-size: $pseudo-icon-size
+      color: $primary
+      background-color: $white
+      border-radius: 50%
+      text-align: center
+      line-height: calc(2 * #{$pseudo-icon-size} - 1px)
+      width: calc(2 * #{$pseudo-icon-size} - 1px)
+      height: calc(2 * #{$pseudo-icon-size} - 1px)

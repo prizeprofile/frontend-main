@@ -12,8 +12,8 @@
 </template>
 
 <script>
-const DefaultLayout = () => import ('@/views/layouts/DefaultLayout')
-const DefaultHeader = () => import ('@/views/layouts/headers/DefaultHeader')
+const DefaultLayout = () => import('@/views/layouts/DefaultLayout')
+const DefaultHeader = () => import('@/views/layouts/headers/DefaultHeader')
 
 export default {
   components: { DefaultHeader, DefaultLayout },

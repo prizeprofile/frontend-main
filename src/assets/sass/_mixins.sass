@@ -48,3 +48,14 @@
 =static
   cursor: default
   opacity: 0.75
+
+/**
+ * Paddings and margins classes
+ */
+@each $offset in ('padding', 'margin')
+  @for $i from 1 through length(map-get($offsets, 'desktop'))
+    .has-#{$offset}-#{$i}
+      #{$offset}: nth(map-get($offsets, 'desktop'), $i)
+
+      +mobile
+        #{$offset}: nth(map-get($offsets, 'mobile'), $i)

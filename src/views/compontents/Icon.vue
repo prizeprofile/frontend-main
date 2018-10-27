@@ -17,7 +17,7 @@ export default {
     },
     small: Boolean,
     medium: Boolean,
-    large: Boolean,
+    large: Boolean
   },
 
   computed: {

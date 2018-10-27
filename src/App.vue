@@ -9,7 +9,15 @@
 import GlobalModals from '@/views/partials/lists/GlobalModals'
 
 export default {
-  components: { GlobalModals }
+  components: { GlobalModals },
+
+  mounted () {
+    let cache = localStorage.getItem('vuex:store')
+
+    if (cache) {
+      this.$store.replaceState(Object.assign(this.$store.state, JSON.parse(cache)))
+    }
+  }
 }
 </script>
 

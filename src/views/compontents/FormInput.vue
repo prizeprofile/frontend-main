@@ -33,7 +33,7 @@ export default {
     },
     white: Boolean,
     medium: Boolean,
-    large: Boolean,
+    large: Boolean
   },
 
   computed: {
@@ -48,7 +48,7 @@ export default {
     formControlClass () {
       return {
         'has-icon-left': this.hasIconLeft,
-        'has-icon-right': this.hasIconRight,
+        'has-icon-right': this.hasIconRight
       }
     },
 

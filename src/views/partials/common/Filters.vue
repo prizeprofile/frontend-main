@@ -1,7 +1,7 @@
 <template>
   <div class="filters">
     <!-- Entry types filters. -->
-    <span class="filters-heading">Entry Types</span>
+    <span class="filters-heading">Entry Methods</span>
     <div class="filters-entry-types badges">
       <badge
         v-for="(method, key) in entryMethods"
@@ -38,7 +38,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import EntersCompetitions from '@/core/mixins/EntersCompetitions'
 
 export default {
@@ -50,7 +49,7 @@ export default {
       numberOfEntrants: 10,
       entryMethods: [],
       onlyVerified: false
-    },
+    }
   }),
 
   watch: {
@@ -75,7 +74,7 @@ export default {
       return {
         numberOfEntrants: this.raw.numberOfEntrants * 100,
         onlyVerified: this.raw.onlyVerified + 0,
-        entryMethods: this.raw.entryMethods.sort().join('|')
+        entryMethods: [...this.raw.entryMethods].sort().join('|')
       }
     }
   },
@@ -103,7 +102,7 @@ export default {
       }
 
       if (query.onlyVerified) {
-        this.raw.onlyVerified = !! + query.onlyVerified
+        this.raw.onlyVerified = !!+query.onlyVerified
       }
     },
 

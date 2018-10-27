@@ -13,23 +13,10 @@ const store = new Vuex.Store({
     elements,
     promoters,
     user
-  },
-
-  mutations: {
-    // Loads cached data from local storage.
-    init (state) {
-      let cache = window.localStorage.getItem('store')
-
-      if (cache) {
-        this.replaceState(Object.assign(state, JSON.parse(cache)))
-      }
-    }
   }
 })
 
 // Caches Vuex to localStorage.
-store.subscribe((_, state) => {
-  window.localStorage.setItem('store', JSON.stringify(state))
-})
+store.subscribe((_, state) => localStorage.setItem('vuex:store', JSON.stringify(state)))
 
 export default store
