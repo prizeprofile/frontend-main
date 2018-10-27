@@ -4,8 +4,7 @@ import {
   LOAD_COMPETITIONS,
   RESET_COMPETITIONS,
   SET_COMPETITIONS,
-  APPEND_COMPETITIONS,
-  INCREMENT_COMPETITIONS_PAGE
+  APPEND_COMPETITIONS
 } from '@/store/types'
 
 const fetchCompetitions = (filters) => {
@@ -49,9 +48,5 @@ export default {
    */
   [APPEND_COMPETITIONS]: async ({ commit }, filters) => {
     return commit(APPEND_COMPETITIONS, await fetchCompetitions(filters))
-  },
-
-  [INCREMENT_COMPETITIONS_PAGE]: async ({ commit }) => {
-    return commit(INCREMENT_COMPETITIONS_PAGE)
   }
 }

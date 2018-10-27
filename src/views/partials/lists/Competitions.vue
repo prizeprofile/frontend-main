@@ -23,7 +23,6 @@
 <script>
 import { mapGetters } from 'vuex'
 import Sieve from '@/views/partials/common/Sieve'
-import { INCREMENT_COMPETITIONS_PAGE } from '@/store/types'
 import Competition from '@/views/partials/common/Competition'
 import WelcomeBrick from '@/views/partials/common/WelcomeBrick'
 import PlaceholderBrick from '@/views/partials/ui/PlaceholderBrick'
@@ -47,8 +46,6 @@ export default {
           page: this.competitions.page + 1
         }
       })
-
-      this.$store.dispatch(INCREMENT_COMPETITIONS_PAGE)
     })
   },
 
