@@ -27,7 +27,7 @@
 
         <div class="competition-promoter-name content">
           <p>
-            {{ competition.promoter.name }}
+            {{ competition.promoter.name || competition.promoter.screen_name }}
             <sup
               v-if="competition.promoter.verified"
               class="competition-promoter-verified"

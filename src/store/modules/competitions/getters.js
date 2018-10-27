@@ -5,4 +5,4 @@
  * @param {object} state
  * @return {object[]}
  */
-export const competitions = state => state.competitions
+export const competitions = competitions => competitions

@@ -1,4 +1,6 @@
 
 export default {
-  list: []
+  last: false,
+  page: 0,
+  content: []
 }

@@ -84,7 +84,7 @@ export default {
     filterCompetitions () {
       this.$router.push({
         name: 'home',
-        query: { ...this.$route.query, ...this.filters }
+        query: { ...this.$route.query, ...this.filters, page: 0 }
       })
     }
   }
