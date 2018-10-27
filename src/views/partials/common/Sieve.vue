@@ -20,11 +20,12 @@ export default {
     return {
       raw: {
         pattern: '',
-        orderBy: 'recent'
+        orderBy: 'posted'
       },
       dropdownItems: [
-        { name: 'recent', text: 'Recent' },
-        { name: 'popular', text: 'Popular' }
+        { name: 'posted', text: 'Recent', type: 'desc' },
+        { name: 'retweets', text: 'Popular', type: 'desc' },
+        { name: 'endDate', text: 'Ending soon', type: 'asc' }
       ]
     }
   },
@@ -48,9 +49,10 @@ export default {
      * Transform the raw filers to match the appropriate values.
      */
     filters () {
+      const type = this.dropdownItems.find(i => i.name === this.raw.orderBy).type
       return {
         pattern: this.raw.pattern,
-        orderBy: this.raw.orderBy
+        sort: `${this.raw.orderBy},${type}`
       }
     }
   },
@@ -73,8 +75,8 @@ export default {
         this.raw.pattern = query.pattern
       }
 
-      if (query.orderBy) {
-        this.raw.orderBy = query.orderBy
+      if (query.sort) {
+        this.raw.orderBy = query.sort.split(',')[0]
       }
     },
 

@@ -18,11 +18,11 @@
 
     <!-- Number of entrants filters. -->
     <span class="filters-heading"># of Entrants</span>
-    <slider :max="10" v-model="raw.numberOfEntrants"></slider>
+    <slider :max="10" v-model="numberOfEntrants"></slider>
     <span class="fitlers-help">
       Up to:
       <span class="has-text-primary">
-        {{ filters.numberOfEntrants }}{{ filters.numberOfEntrants === 1000 ? '+' : '' }}
+        {{ entrants }}{{ entrants === 1000 ? '+' : '' }}
       </span>
     </span>
 
@@ -45,8 +45,8 @@ export default {
 
   data: () => ({
     filterTimeout: null,
+    numberOfEntrants: 10,
     raw: {
-      numberOfEntrants: 10,
       entryMethods: [],
       onlyVerified: false
     }
@@ -68,13 +68,21 @@ export default {
 
   computed: {
     /**
+     * Number of entrants.
+     */
+    entrants () {
+      return this.numberOfEntrants * 100
+    },
+
+    /**
      * Transform the raw filers to match the appropriate values.
      */
     filters () {
       return {
-        numberOfEntrants: this.raw.numberOfEntrants * 100,
+        minEntrants: this.entrants >= 1000 ? this.entrants : 0,
+        maxEntrants: this.entrants < 1000 ? this.entrants : 0,
         onlyVerified: this.raw.onlyVerified + 0,
-        entryMethods: [...this.raw.entryMethods].sort().join('|')
+        entryMethods: [...this.raw.entryMethods].sort().join(',')
       }
     }
   },
@@ -97,8 +105,12 @@ export default {
         this.raw.entryMethods = query.entryMethods.split('|')
       }
 
-      if (query.numberOfEntrants) {
-        this.raw.numberOfEntrants = parseInt(query.numberOfEntrants / 100)
+      if (query.minEntrants) {
+        this.numberOfEntrants = parseInt(query.minEntrants / 100)
+      }
+
+      if (query.maxEntrants) {
+        this.numberOfEntrants = parseInt(query.maxEntrants / 100)
       }
 
       if (query.onlyVerified) {
