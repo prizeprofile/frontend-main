@@ -79,7 +79,6 @@ export default {
      */
     filters () {
       return {
-        minEntrants: this.entrants >= 1000 ? this.entrants : 0,
         maxEntrants: this.entrants < 1000 ? this.entrants : 0,
         onlyVerified: this.raw.onlyVerified + 0,
         entryMethods: [...this.raw.entryMethods].sort().join(',')
@@ -102,11 +101,7 @@ export default {
       const query = this.$route.query
 
       if (query.entryMethods) {
-        this.raw.entryMethods = query.entryMethods.split('|')
-      }
-
-      if (query.minEntrants) {
-        this.numberOfEntrants = parseInt(query.minEntrants / 100)
+        this.raw.entryMethods = query.entryMethods.split(',')
       }
 
       if (query.maxEntrants) {

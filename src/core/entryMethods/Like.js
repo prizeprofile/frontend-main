@@ -1,6 +1,6 @@
 import EntryMethod from './EntryMethod'
 
-export default class Comment extends EntryMethod {
+export default class Like extends EntryMethod {
   /**
    * The entry method name and idetified.
    *

@@ -1,7 +1,7 @@
 import Like from '@/core/entryMethods/Like'
 import Follow from '@/core/entryMethods/Follow'
 import Comment from '@/core/entryMethods/Comment'
-import Mention from '@/core/entryMethods/Mention'
+import Friend from '@/core/entryMethods/Friend'
 import Retweet from '@/core/entryMethods/Retweet'
 
 export default {
@@ -12,7 +12,7 @@ export default {
         comment: new Comment(),
         like: new Like(),
         follow: new Follow(),
-        mention: new Mention()
+        friend: new Friend()
       }
     }
   },

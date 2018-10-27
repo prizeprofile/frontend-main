@@ -1,13 +1,13 @@
 import EntryMethod from './EntryMethod'
 
-export default class Comment extends EntryMethod {
+export default class Friend extends EntryMethod {
   /**
    * The entry method name and idetified.
    *
    * @var {string}
    */
   get name () {
-    return 'mention'
+    return 'friend'
   }
 
   /**
