@@ -16,7 +16,7 @@ export default class Follow extends EntryMethod {
    * @var {any}
    */
   get icon () {
-    return {
+    return this.progress || {
       type: 'fas',
       name: 'fa-user-plus'
     }
@@ -27,8 +27,11 @@ export default class Follow extends EntryMethod {
    *
    * @param {any} competition
    */
-  async auto (competition) {
-    throw new Error('Not Implemented')
+  auto (competition) {
+    return {
+      method: this.name,
+      id: competition.promoter.twitter_id
+    }
   }
 
   /**

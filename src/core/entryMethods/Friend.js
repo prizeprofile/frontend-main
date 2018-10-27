@@ -16,7 +16,7 @@ export default class Friend extends EntryMethod {
    * @var {any}
    */
   get icon () {
-    return {
+    return this.progress || {
       type: 'fas',
       name: 'fa-at'
     }
@@ -28,7 +28,7 @@ export default class Friend extends EntryMethod {
    * @param {any} competition
    */
   async auto (competition) {
-    throw new Error('Not Implemented')
+    return this.manual(competition)
   }
 
   /**

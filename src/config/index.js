@@ -12,10 +12,7 @@ export default {
   },
 
   twitter: {
-    oauth: 'https://twitter.com/oauth/authenticate?oauth_token=',
-    methods: {
-      like: 'https://api.twitter.com/1.1/favorites/create.json'
-    }
+    oauth: 'https://twitter.com/oauth/authenticate?oauth_token='
   },
 
   assets: {

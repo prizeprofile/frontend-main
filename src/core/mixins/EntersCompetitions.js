@@ -1,7 +1,11 @@
+import Vue from 'vue'
+import axios from 'axios'
+import store from '@/store'
+import config from '@/config'
 import Like from '@/core/entryMethods/Like'
 import Follow from '@/core/entryMethods/Follow'
-import Comment from '@/core/entryMethods/Comment'
 import Friend from '@/core/entryMethods/Friend'
+import Comment from '@/core/entryMethods/Comment'
 import Retweet from '@/core/entryMethods/Retweet'
 
 export default {
@@ -23,20 +27,51 @@ export default {
      *
      * @param {any} competition
      * @param {string[]} methods
+     *
+     * @return {Promise<void>}
      */
     async enterCompetition (competition, methods) {
-      const loggedIn = false
+      const token = store.getters.userToken('service_token')
 
-      // Redo for auto.
-      methods.map((method) => {
-        // Pick the correct instance
-        const entryMethod = this.entryMethods[method]
+      methods = methods.map(method => this.entryMethods[method])
 
-        // Call the accurate entry method.
-        return loggedIn
-          ? entryMethod.auto(competition)
-          : entryMethod.manual(competition)
-      })
+      if (!token) {
+        return methods.map(method => method.manual(competition))
+      }
+
+      let res = false
+
+      methods.forEach(method => Vue.set(method, '_progress', true))
+
+      try {
+        res = await this.enterViaApi(competition, token, methods)
+      } catch (_) {}
+
+      methods.forEach(method => Vue.set(method, '_progress', false))
+
+      return res
+    },
+
+    /**
+     * Enters the competition with APIs.
+     *
+     * @param {any} competition
+     * @param {string} token
+     * @param {EntryMethod[]} methods
+     */
+    async enterViaApi (competition, token, methods) {
+      const actions = methods.map(method => method.auto(competition))
+        .filter(job => !(job instanceof Promise))
+
+      if (!actions.length) return true
+
+      await axios.post(
+        `${config.api.competitions}/${competition.id}/enter`,
+        { actions },
+        { headers: { 'Authorization': `Bearer ${token}` } }
+      )
+
+      return true
     }
   }
 }

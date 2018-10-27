@@ -16,7 +16,7 @@ export default class Retweet extends EntryMethod {
    * @var {any}
    */
   get icon () {
-    return {
+    return this.progress || {
       type: 'fas',
       name: 'fa-retweet'
     }
@@ -27,8 +27,11 @@ export default class Retweet extends EntryMethod {
    *
    * @param {any} competition
    */
-  async auto (competition) {
-    throw new Error('Not Implemented')
+  auto (competition) {
+    return {
+      method: this.name,
+      id: competition.tweet_id
+    }
   }
 
   /**

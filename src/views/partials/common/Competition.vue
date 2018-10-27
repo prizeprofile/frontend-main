@@ -59,14 +59,17 @@
           </badge>
         </div>
         <div class="competition-actions-spacer"></div>
-        <div class="competition-actions-autoentry">
+        <div class="competition-actions-autoentry" v-if="canOneClickEnter()">
           <action
-            medium fullwidth
-            @click="enterCompetition(competition, competition.entry_methods)"
+            medium fullwidth :loading="status === 'loading'"
+            :classes="[`has-background-${status}`]"
+            @click="bulkEnter(competition, competition.entry_methods)"
           >
             <icon name="fas fa-magic"></icon>
             &nbsp;
-            Enter
+            <span v-if="status === 'success'">Entered</span>
+            <span v-else-if="status === 'danger'">Try Again</span>
+            <span v-else>Enter</span>
           </action>
         </div>
       </div>
@@ -85,6 +88,12 @@ export default {
     payload: {
       type: Object,
       required: true
+    }
+  },
+
+  data () {
+    return {
+      status: null
     }
   },
 
@@ -130,6 +139,18 @@ export default {
 
   methods: {
     /**
+     * @param {any} competition
+     * @param {String[]} methods
+     */
+    bulkEnter (competition, methods) {
+      this.status = 'loading'
+
+      this.enterCompetition(competition, methods)
+        .then(() => this.status = 'success')
+        .catch(() => this.status = 'danger')
+    },
+
+    /**
      * Determines whether the entry method is available.
      *
      * @param {string} methodName
@@ -137,6 +158,13 @@ export default {
      */
     entryMethodAvailable (methodName) {
       return this.competition.entry_methods.find(m => m === methodName)
+    },
+
+    /**
+     * Temporarily disables comment and friend methods.
+     */
+    canOneClickEnter () {
+      return !(this.entryMethodAvailable('comment') || this.entryMethodAvailable('friend'))
     }
   }
 }

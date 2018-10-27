@@ -19,6 +19,15 @@ export default class EntryMethod {
   }
 
   /**
+   * Progress icon.
+   *
+   * @var {any}
+   */
+  get progress () {
+    return this._progress && { type: 'fas', name: 'fa-spinner fa-spin' }
+  }
+
+  /**
    * Automatically enter the competition.
    *
    * @param {any} competition

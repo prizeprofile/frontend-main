@@ -3,7 +3,7 @@
     :is="to ? 'router-link' : 'button'"
     :to="to"
     class="action"
-    :class="classes"
+    :class="hasClasses"
     :disabled="disabled"
     v-on="$listeners"
   >
@@ -22,17 +22,21 @@ export default {
       type: String,
       default: 'primary'
     },
+    classes: {
+      type: Array,
+      default: () => []
+    },
     loading: Boolean,
     inverted: Boolean,
     small: Boolean,
     medium: Boolean,
     large: Boolean,
     fullwidth: Boolean,
-    disabled: Boolean
+    disabled: Boolean,
   },
 
   computed: {
-    classes () {
+    hasClasses () {
       return [
         `is-${this.type}`,
         !this.loading || 'is-loading',
@@ -40,7 +44,8 @@ export default {
         !this.small || 'is-small',
         !this.medium || 'is-medium',
         !this.large || 'is-large',
-        !this.fullwidth || 'is-fullwidth'
+        !this.fullwidth || 'is-fullwidth',
+        ...this.classes
       ]
     }
   }
