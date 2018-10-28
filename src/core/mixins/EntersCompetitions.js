@@ -33,20 +33,25 @@ export default {
     async enterCompetition (competition, methods) {
       const token = store.getters.userToken('service_token')
 
+      // Maps string methods to appropriate classes.
       methods = methods.map(method => this.entryMethods[method])
 
+      // If user is not logged in, entering competitions is manual.
       if (!token) {
         return methods.map(method => method.manual(competition))
       }
 
       let res = false
 
+      // Sets all methods to loading.
       methods.forEach(method => Vue.set(method, '_progress', true))
 
       try {
+        // Tries to enter competition.
         res = await this.enterViaApi(competition, token, methods)
       } catch (_) {}
 
+      // Removes loading icon from methods.
       methods.forEach(method => Vue.set(method, '_progress', false))
 
       return res
@@ -60,11 +65,13 @@ export default {
      * @param {EntryMethod[]} methods
      */
     async enterViaApi (competition, token, methods) {
+      // Picks only methods that can be auto entered.
       const actions = methods.map(method => method.auto(competition))
         .filter(job => !(job instanceof Promise))
 
       if (!actions.length) return true
 
+      // TODO: Implement partial content.
       await axios.post(
         `${config.api.competitions}/${competition.id}/enter`,
         { actions },
