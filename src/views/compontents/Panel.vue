@@ -1,12 +1,17 @@
 <template>
-  <div class="panel" :class="panelClasses" v-if="!dismissed" @click="expanded = !expanded">
+  <div class="panel" :class="panelClasses" v-if="!dismissed">
     <button class="delete" v-show="dismissible" @click="dismissPanel()"></button>
     <span v-if="accordionMobile" class="accordion is-hidden-tablet">
       <i class="fas fa-angle-up" v-show="expanded"></i>
       <i class="fas fa-angle-down" v-show="!expanded"></i>
     </span>
 
-    <div class="panel-head" v-if="title">{{ title }}</div>
+    <div
+      class="panel-head"
+      v-if="title"
+      v-text="title"
+      @click="expanded = !expanded"
+    ></div>
     <div
       class="panel-body"
       :class="{ 'is-hidden-mobile': accordionMobile && !expanded }"
