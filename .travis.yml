@@ -2,11 +2,26 @@ language: node_js
 node_js:
   - "10"
 
-install:
-  - npm i
-  - npm run lint
-  - npm run build:staging
-  - npm run test:unit
+stages:
+  - name: stage
+    if: branch = develop
+  - name: prod
+    if: branch = master
+
+jobs:
+  include:
+    - stage: stage
+      script:
+        - npm i
+        - npm run lint
+        - npm run build:staging
+        - npm test:unit
+    - stage: prod
+      script:
+        - npm i
+        - npm run lint
+        - npm run build:prod
+        - npm test:unit
 
 deploy:
   - provider: s3
