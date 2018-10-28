@@ -4,16 +4,10 @@ node_js:
   - "10"
 
 install:
-  - if: branch = develop
-    - npm i
-    - npm run lint
-    - npm run build:staging
-    - npm run test:unit
-  - if: branch = master
-    - npm i
-    - npm run lint
-    - npm run build:prod
-    - npm run test:unit
+  - npm i
+  - npm run lint
+  - npm run build:staging
+  - npm run test:unit
 
 deploy:
   - provider: s3
