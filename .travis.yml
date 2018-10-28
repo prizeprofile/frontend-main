@@ -1,8 +1,12 @@
+language: node_js
+node_js:
+  - "10"
 
 install:
   - npm i
-  - npm run build
-  - npm run test
+  - npm run lint
+  - npm run build:staging
+  - npm run test:unit
 
 deploy:
   - provider: s3
