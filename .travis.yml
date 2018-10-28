@@ -17,6 +17,7 @@ deploy:
     bucket: prizeprofile.stage
     local-dir: dist
     acl: public_read
+    region: eu-west-1
     on:
       repo: prizeprofile/frontend-main
       branch: develop
@@ -29,10 +30,7 @@ deploy:
     bucket: prizeprofile.com
     local-dir: dist
     acl: public_read
+    region: eu-west-1
     on:
       repo: prizeprofile/frontend-main
       branch: master
-
-addons:
-  artifacts:
-    s3_region: eu-west-1
