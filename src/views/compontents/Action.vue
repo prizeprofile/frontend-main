@@ -33,7 +33,7 @@ export default {
     large: Boolean,
     fullwidth: Boolean,
     disabled: Boolean,
-    responsive: Boolean,
+    responsive: Boolean
   },
 
   computed: {
