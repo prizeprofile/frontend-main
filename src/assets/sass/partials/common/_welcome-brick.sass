@@ -1,8 +1,13 @@
 
 .welcome-brick
   display: flex
-  padding: 2rem
   align-items: center
 
   .welcome-brick-title
     flex: 1
+
+    +mobile
+      padding-bottom: .5rem
+
+  +mobile
+    display: block
