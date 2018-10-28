@@ -1,0 +1,29 @@
+
+install:
+  - npm i
+  - npm run build
+  - npm run test
+
+deploy:
+  - provider: s3
+    access_key_id: AKIAI7QNCVJTD3KJ5XPA
+    secret_access_key:
+      secure: GYi96E2B0PJ1Qzbmvm8oy+eN9P6T/euXOCYmSTD6PvgRYKnPSlmxK6W/nJ58zs1xWnnl/wdGmHqYvTpD9L51z3+yT4Fj2PHgzW3/gcNh/UdEJ2DPQNmH6BUtEovqs8x8oNF+wiUZU9KNp4iOGkDelUXxFaokNHpk0zpIr+R9VID+Z2IcEyEJpKfe85g+1qzh2OPGrSoj3iYOodet1Tfow3MzlGas9sDsALO4c2HlMtEyQBXhs2PyvRK1AeQjUvgIPhH8JyU/7OpVbw+EZbGiodjxWxq7I7gbWz322Dr1YMCRycrMpRgw+tcr6rQ11ub+xZJCmc3NILarLP44s19zK8vFIcEj2kAQziul2PGwApylII4I+cfD1PbRupWguxiPphts/MzHRk9O/fgSC0X15/Tyq4cIv0qk4ZUemlcCplyJu2VWQ9NI0owC7EBFDbAwfGwI+8O4cf9S6g56I2gG+E4/DnKUq2VnYJPflkZXxSyQvpilh2EuvX8es7oqmLSd9nZ9yDbTdUAthbduqqzXtadfp3H3oirtKCCT/SZFSyuJEEhHfr8cXz5wuKv9K7Sa/A/XxbWhiwoOd0kAC61vTtAvQErQIftdvHOEtb8+JUbNaDPf1CxRyxVyj6YJvMS9Dppf234DJVK2KfkruOXOZ9qVWab7dovo8YZvOTfXtgw=
+    bucket: prizeprofile.stage
+    local-dir: dist
+    acl: public_read
+    on:
+      repo: prizeprofile/frontend-main
+      branch: develop
+
+  - provider: s3
+    access_key_id: AKIAI7QNCVJTD3KJ5XPA
+    secret_access_key:
+      secure: GYi96E2B0PJ1Qzbmvm8oy+eN9P6T/euXOCYmSTD6PvgRYKnPSlmxK6W/nJ58zs1xWnnl/wdGmHqYvTpD9L51z3+yT4Fj2PHgzW3/gcNh/UdEJ2DPQNmH6BUtEovqs8x8oNF+wiUZU9KNp4iOGkDelUXxFaokNHpk0zpIr+R9VID+Z2IcEyEJpKfe85g+1qzh2OPGrSoj3iYOodet1Tfow3MzlGas9sDsALO4c2HlMtEyQBXhs2PyvRK1AeQjUvgIPhH8JyU/7OpVbw+EZbGiodjxWxq7I7gbWz322Dr1YMCRycrMpRgw+tcr6rQ11ub+xZJCmc3NILarLP44s19zK8vFIcEj2kAQziul2PGwApylII4I+cfD1PbRupWguxiPphts/MzHRk9O/fgSC0X15/Tyq4cIv0qk4ZUemlcCplyJu2VWQ9NI0owC7EBFDbAwfGwI+8O4cf9S6g56I2gG+E4/DnKUq2VnYJPflkZXxSyQvpilh2EuvX8es7oqmLSd9nZ9yDbTdUAthbduqqzXtadfp3H3oirtKCCT/SZFSyuJEEhHfr8cXz5wuKv9K7Sa/A/XxbWhiwoOd0kAC61vTtAvQErQIftdvHOEtb8+JUbNaDPf1CxRyxVyj6YJvMS9Dppf234DJVK2KfkruOXOZ9qVWab7dovo8YZvOTfXtgw=
+    bucket: prizeprofile.com
+    local-dir: dist
+    acl: public_read
+    on:
+      repo: prizeprofile/frontend-main
+      branch: master
+
