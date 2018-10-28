@@ -16,7 +16,7 @@
         </span>
 
         <span class="tag" v-if="competition.end_date">
-          Ends&nbsp;in&nbsp;<span class="has-text-weight-bold">{{ competition.end_date | humanFriendlyTime }}</span>
+          Ends&nbsp;<span class="has-text-weight-bold">{{ competition.end_date | humanFriendlyTime }}</span>
         </span>
       </div>
 
