@@ -9,7 +9,7 @@
       <!-- Info tags. -->
       <div class="competition-tags tags">
         <span class="tag">
-          <span class="has-text-weight-bold">{{ competition.retweets }}</span>&nbsp;entrants
+          <span class="has-text-weight-bold">{{ competition.entrants }}</span>&nbsp;entrants
         </span>
         <span class="tag">
           Found&nbsp;<span class="has-text-weight-bold">{{ competition.posted | humanFriendlyTime }}</span>
@@ -137,7 +137,7 @@ export default {
      * Form the twitter tweet link.
      */
     tweetLink () {
-      return `https://twitter.com/statuses/${this.competition.tweet_id}`
+      return `https://twitter.com/statuses/${this.competition.resource_id}`
     }
   },
 

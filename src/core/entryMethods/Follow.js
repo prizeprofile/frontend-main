@@ -30,7 +30,7 @@ export default class Follow extends EntryMethod {
   auto (competition) {
     return {
       method: this.name,
-      id: competition.promoter.twitter_id
+      id: competition.promoter.resource_id
     }
   }
 
@@ -40,6 +40,6 @@ export default class Follow extends EntryMethod {
    * @param {any} competition
    */
   async manual (competition) {
-    open(`https://twitter.com/intent/tweet?in_reply_to=${competition.tweet_id}`)
+    open(`https://twitter.com/intent/user?screen_name=${competition.promoter.screen_name}`)
   }
 }

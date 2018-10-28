@@ -30,7 +30,7 @@ export default class Retweet extends EntryMethod {
   auto (competition) {
     return {
       method: this.name,
-      id: competition.tweet_id
+      id: competition.resource_id
     }
   }
 
@@ -40,6 +40,6 @@ export default class Retweet extends EntryMethod {
    * @param {any} competition
    */
   async manual (competition) {
-    open(`https://twitter.com/intent/tweet?in_reply_to=${competition.tweet_id}`)
+    open(`https://twitter.com/intent/retweet?tweet_id=${competition.resource_id}`)
   }
 }

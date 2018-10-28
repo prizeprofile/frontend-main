@@ -24,7 +24,7 @@ export default {
       },
       dropdownItems: [
         { name: 'posted', text: 'Recent', type: 'desc' },
-        { name: 'retweets', text: 'Popular', type: 'desc' },
+        { name: 'entrants', text: 'Popular', type: 'desc' },
         { name: 'endDate', text: 'Ending soon', type: 'asc' }
       ]
     }

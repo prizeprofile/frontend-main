@@ -37,6 +37,6 @@ export default class Friend extends EntryMethod {
    * @param {any} competition
    */
   async manual (competition) {
-    open(`https://twitter.com/intent/tweet?in_reply_to=${competition.tweet_id}`)
+    open(`https://twitter.com/intent/tweet?in_reply_to=${competition.resource_id}`)
   }
 }
