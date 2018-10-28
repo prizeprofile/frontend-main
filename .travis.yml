@@ -15,13 +15,13 @@ jobs:
         - npm i
         - npm run lint
         - npm run build:staging
-        - npm test:unit
+        - npm run test:unit
     - stage: prod
       script:
         - npm i
         - npm run lint
         - npm run build:prod
-        - npm test:unit
+        - npm run test:unit
 
 deploy:
   - provider: s3
