@@ -1,7 +1,7 @@
 <template>
   <layout type="Default" header="Default">
     <aside slot="side">
-      <panel title="Filter Competitions">
+      <panel title="Filter Competitions" accordion-mobile>
         <filters></filters>
       </panel>
 

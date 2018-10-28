@@ -12,8 +12,9 @@ nav.nav
   .nav-menu
     display: flex
 
-    &:not(:last-child)
-      padding-right: 3rem
+    +desktop
+      &:not(:last-child)
+        padding-right: 3rem
 
   .nav-item
     align-items: center

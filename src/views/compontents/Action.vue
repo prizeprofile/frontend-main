@@ -33,6 +33,7 @@ export default {
     large: Boolean,
     fullwidth: Boolean,
     disabled: Boolean,
+    responsive: Boolean,
   },
 
   computed: {
@@ -45,6 +46,7 @@ export default {
         !this.medium || 'is-medium',
         !this.large || 'is-large',
         !this.fullwidth || 'is-fullwidth',
+        !this.responsive || 'is-responsive',
         ...this.classes
       ]
     }
