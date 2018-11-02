@@ -36,7 +36,7 @@ export default {
   computed: {
     imageClasses () {
       return [
-        `is-${this.size.replace(':', 'by')}`,
+        `is-${this.size.replace(':', 'x')}`,
         !this.rounded || 'is-rounded',
         !this.loading || 'is-loading',
         !this.filled || 'is-filled',

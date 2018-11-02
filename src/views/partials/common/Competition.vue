@@ -87,7 +87,7 @@ import ControlsModals from '@/core/mixins/ControlsModals'
 import EntersCompetitions from '@/core/mixins/EntersCompetitions'
 
 export default {
-  mixins: [EntersCompetitions, ControlsModalsx],
+  mixins: [EntersCompetitions, ControlsModals],
 
   props: {
     payload: {

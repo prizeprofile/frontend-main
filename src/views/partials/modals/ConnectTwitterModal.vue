@@ -2,7 +2,13 @@
   <modal name="connect-twitter">
     <div class="connect-twitter-modal">
       <div class="connect-twitter-modal-image">
-        <pic :src="`$/images/branding/logo.png`" alt="Prize Profile"></pic>
+        <pic
+          style="margin: auto"
+          size="128:128"
+          radius
+          :src="`$/images/icons/android-chrome-512x512.png`"
+          alt="Prize Profile"
+        ></pic>
       </div>
 
       <div class="connect-twitter-modal-body">
