@@ -1,6 +1,6 @@
 {
-  "name": "v2",
-  "short_name": "v2",
+  "name": "PrizeProfile: Competitions made easy",
+  "short_name": "PrizeProfile",
   "icons": [
     {
       "src": "/static/images/icons/android-chrome-192x192.png",
