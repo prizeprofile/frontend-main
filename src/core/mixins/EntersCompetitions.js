@@ -54,7 +54,7 @@ export default {
       // Removes loading icon from methods.
       methods.forEach(method => Vue.set(method, '_progress', false))
 
-      return res
+      return res || Promise.reject()
     },
 
     /**
