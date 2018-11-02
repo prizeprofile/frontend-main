@@ -6,7 +6,7 @@
       <icon name="fa-angle-down fa-lg" small></icon>
     </div>
 
-    <ul class="dropdown-items">
+    <ul class="dropdown-items" aria-haspopup="true">
       <li v-for="(item, key) in inactiveItems" :key="key" @click="$emit('input', item.name)">
         {{ item.text }}
       </li>

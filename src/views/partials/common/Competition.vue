@@ -42,7 +42,7 @@
 
       <!-- Content. -->
       <div class="competition-content">
-        <p v-html="competition.text"></p>
+        <p v-text="competition.text"></p>
       </div>
 
       <!-- Banner image. -->
@@ -83,10 +83,11 @@
 
 <script>
 import moment from 'moment'
+import ControlsModals from '@/core/mixins/ControlsModals'
 import EntersCompetitions from '@/core/mixins/EntersCompetitions'
 
 export default {
-  mixins: [EntersCompetitions],
+  mixins: [EntersCompetitions, ControlsModalsx],
 
   props: {
     payload: {
@@ -147,6 +148,12 @@ export default {
      * @param {String[]} methods
      */
     bulkEnter (competition, methods) {
+      if (!this.$store.getters.isLogged) {
+        this.showModal('connect-twitter')
+
+        return
+      }
+
       this.status = 'loading'
 
       this.enterCompetition(competition, methods)
