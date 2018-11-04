@@ -6,8 +6,8 @@
       </div>
 
       <div class="welcome-modal-content">
-        <h3 class="title is-3 has-text-primary">{{ currentSlide.heading }}</h3>
-        <p>{{ currentSlide.text }}</p>
+        <h3 class="title is-4 has-text-primary">{{ currentSlide.heading }}</h3>
+        <p v-html="currentSlide.text"></p>
       </div>
 
       <div class="welcome-modal-controls">
@@ -42,24 +42,24 @@ export default {
 
       slides: [
         {
-          image: 'http://via.placeholder.com/640x320',
-          heading: 'How PrizeProfile Works',
-          text: 'We wanted to make a website that made entering Twitter competitions as easy as possible. PrizeProfile looks for new competitions every minute to adds them to our feed!'
+          image: '$/images/welcome/twitter/intro.png',
+          heading: 'Get Free Stuff on Twitter',
+          text: 'Brands are always giving away free stuff on Twitter. We scout out the best competitions so you can enter them all at once.'
         },
         {
-          image: 'http://via.placeholder.com/640x320',
-          heading: 'Filter Competitions',
-          text: 'Use the filter on the right-hand side of the page so you only see competitions you are interested in.'
-        },
-        {
-          image: 'http://via.placeholder.com/640x320',
+          image: '$/images/welcome/twitter/entry-methods.gif',
           heading: 'One Click Enter - It’s Magic!',
-          text: 'Click on the magic “Enter” button and PrizeProfile will get to work completing the actions needed to enter the competition.'
+          text: 'We’ve made things easy. Click the “Enter” button and we\'ll get to work completing the actions needed to enter the competition.'
         },
         {
-          image: 'http://via.placeholder.com/640x320',
+          image: '$/images/welcome/twitter/account-connect.png',
           heading: 'Connect Your Account',
-          text: 'In order for PrizeProfile to enter the competition we need to connect your Twitter Account. If you are new to twitter you can also sign up below.'
+          text: 'For us to enter competitions on your behalf you will need to connect your Twitter account. If you\'re new to Twitter you can also sign up <a href="https://twitter.com/i/flow/signup" target="_blank">here</a>.'
+        },
+        {
+          image: '$/images/welcome/twitter/any-suggestions.png',
+          heading: 'Any Suggestions?',
+          text: 'Have an idea on how we can make things easier? Drop us a message on our contact form and we will try our best to make it happen!'
         }
       ]
     }

@@ -12,7 +12,7 @@
           <span class="has-text-weight-bold">{{ competition.entrants }}</span>&nbsp;entrants
         </span>
         <span class="tag">
-          Found&nbsp;<span class="has-text-weight-bold">{{ competition.posted | humanFriendlyTime }}</span>
+          Found&nbsp;<span class="has-text-weight-bold">{{ competition.created_at | humanFriendlyTime }}</span>
         </span>
 
         <span class="tag" v-if="competition.end_date">
@@ -24,13 +24,13 @@
       <div class="competition-promoter">
         <pic
           class="competition-promoter-logo"
-          size="48x48"
+          size="profile-pic"
           rounded filled
           :src="competition.promoter.thumbnail" alt="Promoter Thumbnail"
         ></pic>
 
         <div class="competition-promoter-name content">
-          <p>
+          <p class="has-text-weight-black is-size-3">
             {{ competition.promoter.name || competition.promoter.screen_name }}
             <sup
               v-if="competition.promoter.verified"
@@ -41,8 +41,8 @@
       </div>
 
       <!-- Content. -->
-      <div class="competition-content">
-        <p v-text="competition.text"></p>
+      <div class="competition-content has-text-weght-normal has-text-grey-dark">
+        <p>{{ competition.text | prettifyDescription }}</p>
       </div>
 
       <!-- Banner image. -->
@@ -122,7 +122,7 @@ export default {
      * @return {string}
      */
     prettifyDescription (value) {
-      return value
+      return value.replace(/\?{4}/g, '')
     }
   },
 
@@ -138,7 +138,7 @@ export default {
      * Form the twitter tweet link.
      */
     tweetLink () {
-      return `https://twitter.com/statuses/${this.competition.resource_id}`
+      return `https://twitter.com/i/web/status/${this.competition.resource_id}`
     }
   },
 

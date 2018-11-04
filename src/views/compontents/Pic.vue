@@ -65,6 +65,12 @@ export default {
       }
       el.src = src
     }
+  },
+
+  watch: {
+    src () {
+      this.lazyLoadImage()
+    }
   }
 }
 </script>

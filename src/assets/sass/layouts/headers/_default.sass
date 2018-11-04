@@ -7,6 +7,32 @@ $pseudo-icon-size: 7px
   background: $default-header-background
   height: $default-header-height
 
+  .nav-menu
+    &:hover
+      .menu-user
+        display: block
+
+    .menu-user
+      +elevated(3)
+      display: none
+      position: absolute
+      background: white
+      margin-top: 0
+      top: 100%
+      width: 100%
+      border-bottom-left-radius: $radius
+      border-bottom-right-radius: $radius
+
+      ul li:hover
+        color: $white 
+        background-color: $primary
+
+      &:hover
+        display: block
+
+      +mobile
+        display: block
+
   &.is-fixed
     +fixed
     z-index: 39

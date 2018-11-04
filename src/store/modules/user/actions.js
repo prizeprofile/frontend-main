@@ -4,7 +4,9 @@ import {
   USER_UPDATE,
   USER_SET_TOKEN,
   USER_CONNECT_TWITTER,
-  USER_AUTHORISE_TWITTER
+  USER_AUTHORISE_TWITTER,
+  USER_LOGOUT,
+  USER_CLEAR
 } from '@/store/types'
 
 export default {
@@ -39,5 +41,14 @@ export default {
     await commit(USER_UPDATE, data.user)
 
     await commit(USER_SET_TOKEN, { key: 'service_token', value: data.token })
+  },
+
+  /**
+   * Clears user localstorage info.
+   * 
+   * @return {Promise<void>}
+   */
+  [USER_LOGOUT]: ({ commit }) => {
+    return commit(USER_CLEAR)
   }
 }

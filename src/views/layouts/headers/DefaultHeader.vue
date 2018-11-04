@@ -8,7 +8,11 @@
           </router-link>
         </div>
         <div class="nav-spacer"></div>
-        <div class="nav-menu">
+        <div
+          class="nav-menu"
+          style="position: relative;"
+          @click="isHiddenMenu = !isHiddenMenu"
+        >
           <div
             v-if="isLogged"
             class="level is-mobile has-padding-3 is-unselectable"
@@ -16,11 +20,12 @@
             <div class="level-item has-padding-2">
               <div>
                 <span class="has-icon-tick">
-                  <img
-                    class="image is-48x48 is-rounded"
-                    :src="user.info.image"
-                    alt="Profile picture"
-                  >
+                  <pic
+                    class="competition-promoter-logo"
+                    size="profile-pic"
+                    rounded filled
+                    :src="user.info.image" alt="Profile"
+                  ></pic>
                 </span>
               </div>
             </div>
@@ -37,7 +42,21 @@
                 </p>
               </div>
             </div>
+
+            <div class="menu-user" :class="{ 'is-hidden-mobile': isHiddenMenu }">
+              <div>
+                <ul>
+                  <a @click="logout">
+                    <li class="has-padding-2">
+                        <i class="fas fa-sign-out-alt"></i>
+                        &nbsp;&nbsp;Logout
+                    </li>
+                  </a>
+                </ul>
+              </div>
+            </div>
           </div>
+
           <a v-else class="nav-item is-static">
             <action responsive inverted @click="showModal('connect-twitter')" :loading="loading">
               <icon name="fab fa-twitter"></icon>
@@ -55,13 +74,15 @@
 import { mapGetters } from 'vuex'
 import { USER_AUTHORISE_TWITTER } from '@/store/types'
 import ControlsModals from '@/core/mixins/ControlsModals'
+import { USER_LOGOUT } from '@/store/types'
 
 export default {
   mixins: [ ControlsModals ],
 
   data () {
     return {
-      loading: false
+      loading: false,
+      isHiddenMenu: true
     }
   },
 
@@ -89,8 +110,17 @@ export default {
         verifier,
         token_secret: this.userToken('token_secret')
       })
+        .then(() => this.loading = false)
+        .catch(() => this.attemptLogin(token, verifier))
 
       this.$router.replace('/')
+    },
+
+    /**
+     * Logs user out.
+     */
+    logout () {
+      return this.$store.dispatch(USER_LOGOUT)
     }
   },
 

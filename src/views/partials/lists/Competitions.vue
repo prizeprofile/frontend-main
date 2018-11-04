@@ -11,12 +11,23 @@
         :payload="competition"
       ></competition>
 
-      <placeholder-brick
-        v-show="!competitions.last"
-        v-for="key in 3"
-        :key="`brick-${key}`"
-      ></placeholder-brick>
+      <div v-show="!competitions.last" key="loading-bricks">
+        <placeholder-brick></placeholder-brick>
+        <placeholder-brick class="is-hidden-mobile"></placeholder-brick>
+        <placeholder-brick class="is-hidden-mobile"></placeholder-brick>
+      </div>
     </transition-group>
+
+    <panel elevated>
+      <div class="has-padding-3 has-text-centered">
+        <h3 class="title is-4">
+          <span class="has-text-primary">Ooops!</span>
+          No Competitions Found
+        </h3>
+
+        <p class="subtitle is-6 has-text-grey-light">Try changing the filter and open up your search</p>
+      </div>
+    </panel>
   </div>
 </template>
 

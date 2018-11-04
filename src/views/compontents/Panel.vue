@@ -1,6 +1,5 @@
 <template>
   <div class="panel" :class="panelClasses" v-if="!dismissed">
-    <button class="delete" v-show="dismissible" @click="dismissPanel()"></button>
     <span v-if="accordionMobile" class="accordion is-hidden-tablet">
       <i class="fas fa-angle-up" v-show="expanded"></i>
       <i class="fas fa-angle-down" v-show="!expanded"></i>
@@ -18,6 +17,8 @@
     >
       <slot :dismissPanel="dismissPanel"></slot>
     </div>
+
+    <button class="delete" v-show="dismissible" @click="dismissPanel()"></button>
   </div>
 </template>
 
