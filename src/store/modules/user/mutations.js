@@ -14,7 +14,7 @@ export default {
   },
 
   /**
-   * Sets a user info.
+   * Sets the user info.
    *
    * @param {object} user
    * @param {object[]} payload

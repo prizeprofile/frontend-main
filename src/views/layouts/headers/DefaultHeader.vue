@@ -72,9 +72,8 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { USER_AUTHORISE_TWITTER } from '@/store/types'
 import ControlsModals from '@/core/mixins/ControlsModals'
-import { USER_LOGOUT } from '@/store/types'
+import { USER_LOGOUT, USER_AUTHORISE_TWITTER } from '@/store/types'
 
 export default {
   mixins: [ ControlsModals ],

@@ -45,7 +45,7 @@ export default {
 
   /**
    * Clears user localstorage info.
-   * 
+   *
    * @return {Promise<void>}
    */
   [USER_LOGOUT]: ({ commit }) => {
