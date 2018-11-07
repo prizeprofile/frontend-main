@@ -54,7 +54,7 @@ export default {
         {
           image: '$/images/welcome/twitter/account-connect.png',
           heading: 'Connect Your Account',
-          text: 'For us to enter competitions on your behalf you will need to connect your Twitter account. If you\'re new to Twitter you can also sign up <a href="https://twitter.com/i/flow/signup" target="_blank">here</a>.'
+          text: 'For us to enter competitions on your behalf you will need to connect your Twitter account.'
         },
         {
           image: '$/images/welcome/twitter/any-suggestions.png',
