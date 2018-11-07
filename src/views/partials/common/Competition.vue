@@ -30,7 +30,7 @@
         ></pic>
 
         <div class="competition-promoter-name content">
-          <p class="has-text-weight-black is-size-3">
+          <p class="has-text-weight-black is-size-4">
             {{ competition.promoter.name || competition.promoter.screen_name }}
             <sup
               v-if="competition.promoter.verified"
@@ -117,12 +117,15 @@ export default {
      * Return prettified competition description.
      *
      * TODO: Link, @-ed and hashtag colours.
+     * TODO: Move replace methods to backend.
      *
      * @param {string} value
      * @return {string}
      */
     prettifyDescription (value) {
-      return value.replace(/\?{4}/g, '')
+      return value
+        .replace(/\?{4}/g, '')
+        .replace(/&amp/gi, '&')
     }
   },
 

@@ -12,7 +12,7 @@
       </div>
 
       <div class="connect-twitter-modal-body">
-        <h3 class="title is-3">Connect Twitter</h3>
+        <h3 class="title is-4">Connect Twitter</h3>
         <p class="subtitle is-5 has-text-grey">
           To enter competitions in one click we need you to connect with your Twitter.
         </p>
