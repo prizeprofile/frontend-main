@@ -4,7 +4,6 @@
       <div class="connect-twitter-modal-image">
         <pic
           style="margin: auto"
-          size="128:128"
           radius
           :src="`$/images/icons/android-chrome-512x512.png`"
           alt="Prize Profile"
