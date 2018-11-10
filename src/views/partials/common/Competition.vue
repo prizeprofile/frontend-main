@@ -71,7 +71,7 @@
             :classes="[`has-background-${status}`]"
             @click="bulkEnter(competition, competition.entry_methods)"
           >
-            <icon name="fas fa-magic"></icon>
+            <icon name="fas fa-magic fa-xs"></icon>
             &nbsp;
             <span v-if="status === 'success'">Entered</span>
             <span v-else-if="status === 'danger'">Try Again</span>
