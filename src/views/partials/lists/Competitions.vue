@@ -18,7 +18,7 @@
       </div>
     </transition-group>
 
-    <panel elevated>
+    <panel elevated v-if="!competitions.content.length">
       <div class="has-padding-3 has-text-centered">
         <h3 class="title is-4">
           <span class="has-text-primary">Ooops!</span>
@@ -45,7 +45,7 @@ export default {
     // Infinite scroll listener.
     window.addEventListener('scroll', () => {
       const { scrollTop, offsetHeight } = window.document.documentElement
-      const bottomOfWindow = scrollTop + window.innerHeight === offsetHeight
+      const bottomOfWindow = scrollTop + window.innerHeight * 1.3 >= offsetHeight
 
       if (!bottomOfWindow || this.competitions.last) {
         return
