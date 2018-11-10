@@ -26,7 +26,9 @@
           class="competition-promoter-logo"
           size="profile-pic"
           rounded filled
-          :src="competition.promoter.thumbnail" alt="Promoter Thumbnail"
+          fallback="$/images/icons/store-with-padding.png"
+          :src="competition.promoter.thumbnail"
+          alt="Promoter Thumbnail"
         ></pic>
 
         <div class="competition-promoter-name content">

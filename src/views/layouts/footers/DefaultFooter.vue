@@ -3,7 +3,7 @@
     <hr class="is-medium">
 
     <nav class="default-footer-links">
-      <a href="">Contact Us</a>
+      <a href="mailto:jonnymatthews94@gmail.com">Contact Us</a>
       &middot;
       <a href="">Privacy Policy</a>
       &middot;
