@@ -100,7 +100,9 @@ export default {
 
   data () {
     return {
-      status: null
+      status: this.$store
+        .getters
+        .hasEnteredCompetition(this.payload.id) ? 'success' : null
     }
   },
 
