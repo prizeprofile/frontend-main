@@ -21,10 +21,19 @@ export default new Router({
         controller: [HomeController, 'index']
       }
     },
+
+    /**
+     * Legal.
+     */
     {
       path: '/privacy-policy',
       name: 'privacy-policy',
       component: () => import('./views/pages/PrivacyPolicy.vue')
+    },
+    {
+      path: '/terms-and-conditions',
+      name: 'terms-and-conditions',
+      component: () => import('./views/pages/TermsAndConditions.vue')
     }
   ]
 })

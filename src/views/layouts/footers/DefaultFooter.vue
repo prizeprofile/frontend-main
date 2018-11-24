@@ -5,9 +5,13 @@
     <nav class="default-footer-links">
       <a href="mailto:jonnymatthews94@gmail.com">Contact Us</a>
       &middot;
-      <a href="">Privacy Policy</a>
+      <router-link :to="{ name: 'privacy-policy' }">
+        Privacy Policy
+      </router-link>
       &middot;
-      <a href="">Terms &amp; Conditions</a>
+      <router-link :to="{ name: 'terms-and-conditions' }">
+        Terms &amp; Conditions
+      </router-link>
     </nav>
 
     <nav class="default-footer-social">
