@@ -56,9 +56,10 @@
       <div class="competition-actions">
         <div class="competition-actions-entry-methods badges">
           <badge
+            :class="{ 'is-success': status === 'success' }"
             v-for="(method, key) in entryMethods"
             :key="key"
-            :static="!entryMethodAvailable(method.name)"
+            :required="!!entryMethodAvailable(method.name)"
             @click="enterCompetition(competition, [method.name])"
           >
             <icon :type="method.icon.type" :name="method.icon.name" small></icon>
@@ -100,7 +101,9 @@ export default {
 
   data () {
     return {
-      status: null
+      status: this.$store
+        .getters
+        .hasEnteredCompetition(this.payload.id) ? 'success' : null
     }
   },
 

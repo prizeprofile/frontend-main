@@ -4,7 +4,8 @@ import {
   LOAD_COMPETITIONS,
   RESET_COMPETITIONS,
   SET_COMPETITIONS,
-  APPEND_COMPETITIONS
+  APPEND_COMPETITIONS,
+  ENTER_COMPETITION
 } from '@/store/types'
 
 const fetchCompetitions = (filters) => {
@@ -20,7 +21,7 @@ export default {
   /**
    * Action that commits the competitions to the state.
    *
-   * @param {object.function} commit
+   * @param {any.function} commit
    * @param {any} filters
    *
    * @return {Promise<void>}
@@ -41,12 +42,22 @@ export default {
   /**
    * Action that appends competitions to the state.
    *
-   * @param {object.function} commit
+   * @param {any.function} commit
    * @param {any} filters
    *
    * @return {Promise<void>}
    */
   [APPEND_COMPETITIONS]: async ({ commit }, filters) => {
     return commit(APPEND_COMPETITIONS, await fetchCompetitions(filters))
-  }
+  },
+
+  /**
+   * Saves competition entering to store.
+   *
+   * @param {any.function} commit
+   * @param {any} payload
+   *
+   * @return {Promise<void>}
+   */
+  [ENTER_COMPETITION]: ({ commit }, payload) => commit(ENTER_COMPETITION, payload)
 }

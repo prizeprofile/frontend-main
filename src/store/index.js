@@ -19,7 +19,10 @@ const store = new Vuex.Store({
 // Caches Vuex to localStorage.
 store.subscribe((_, state) => {
   localStorage.setItem('vuex:store', JSON.stringify({
-    user: state.user
+    user: state.user,
+    competitions: {
+      entered: state.competitions.entered
+    }
   }))
 })
 
