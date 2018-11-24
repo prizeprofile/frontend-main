@@ -6,16 +6,34 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import GlobalModals from '@/views/partials/lists/GlobalModals'
 
 export default {
   components: { GlobalModals },
 
   mounted () {
-    let cache = localStorage.getItem('vuex:store')
+    this.loadCache(localStorage.getItem('vuex:store'))
+  },
 
-    if (cache) {
-      this.$store.replaceState(Object.assign(this.$store.state, JSON.parse(cache)))
+  methods: {
+    loadCache (cache) {
+      if (!cache) {
+        return
+      }
+
+      cache = JSON.parse(cache)
+
+      ;[
+        {
+          condition: _ => cache.user,
+          routine: state => Vue.set(state, 'user', cache.user)
+        },
+        {
+          condition: _ => cache.competitions,
+          routine: state => Vue.set(state.competitions, 'entered', cache.competitions.entered)
+        }
+      ].forEach(({ condition, routine }) => condition() && routine(this.$store.state))
     }
   }
 }

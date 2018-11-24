@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import axios from 'axios'
 import store from '@/store'
+import { ENTER_COMPETITION } from '@/store/types'
 import config from '@/config'
 import Like from '@/core/entryMethods/Like'
 import Follow from '@/core/entryMethods/Follow'
@@ -49,6 +50,13 @@ export default {
       try {
         // Tries to enter competition.
         res = await this.enterViaApi(competition, token, methods)
+
+        // Saves the information about entering a competition to global state.
+        store.dispatch(ENTER_COMPETITION, {
+          id: competition.id,
+          methods: competition.entry_methods,
+          timestamp: Date.now()
+        })
       } catch (_) {}
 
       // Removes loading icon from methods.

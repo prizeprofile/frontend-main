@@ -1,12 +1,16 @@
 import Vue from 'vue'
-import { SET_COMPETITIONS, APPEND_COMPETITIONS } from '@/store/types'
+import {
+  SET_COMPETITIONS,
+  APPEND_COMPETITIONS,
+  ENTER_COMPETITION
+} from '@/store/types'
 
 export default {
   /**
    * Appends the array with competitions.
    *
-   * @param {object} state
-   * @param {object[]} payload
+   * @param {any} state
+   * @param {any[]} payload
    *
    * @return {void}
    */
@@ -19,8 +23,8 @@ export default {
   /**
    * Sets the array with competitions.
    *
-   * @param {object} state
-   * @param {object[]} payload
+   * @param {any} state
+   * @param {any[]} payload
    *
    * @return {void}
    */
@@ -28,5 +32,19 @@ export default {
     Vue.set(state, 'content', content)
     Vue.set(state, 'last', !!last)
     Vue.set(state, 'page', 0)
+  },
+
+  /**
+   * Remembers the competition.
+   *
+   * @param {any.array} entered
+   * @param {any} paload
+   *
+   * @return {void}
+   */
+  [ENTER_COMPETITION]: ({ entered }, payload) => {
+    let i = entered.findIndex(competition => competition.id === payload.id)
+
+    i === -1 ? entered.push(payload) : entered[i] = payload
   }
 }

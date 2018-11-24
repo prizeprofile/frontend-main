@@ -90,7 +90,13 @@ export default {
     let token = params.get('oauth_token')
     let verifier = params.get('oauth_verifier')
 
-    if (token && verifier && !this.isLogged) this.attemptLogin(token, verifier)
+    if (token && verifier && !this.isLogged) {
+      this.hideModals()
+
+      this.attemptLogin(token, verifier)
+
+      this.$router.replace('/')
+    }
   },
 
   methods: {
@@ -101,7 +107,6 @@ export default {
      * @return {Promise<void>}
      */
     async attemptLogin (token, verifier) {
-      this.hideModals()
       this.loading = true
 
       this.$store.dispatch(USER_AUTHORISE_TWITTER, {
@@ -110,9 +115,7 @@ export default {
         token_secret: this.userToken('token_secret')
       })
         .then(() => this.loading = false)
-        .catch(() => this.attemptLogin(token, verifier))
-
-      this.$router.replace('/')
+        .catch(() => setTimeout(() => this.attemptLogin(token, verifier), 2000))
     },
 
     /**
