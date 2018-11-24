@@ -115,7 +115,7 @@ export default {
         token_secret: this.userToken('token_secret')
       })
         .then(() => this.loading = false)
-        .catch(() => setTimeout(() => this.attemptLogin(token, verifier), 1000))
+        .catch(() => setTimeout(() => this.attemptLogin(token, verifier), 2000))
     },
 
     /**
