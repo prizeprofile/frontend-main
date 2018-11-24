@@ -2,5 +2,6 @@
 export default {
   last: false,
   page: 0,
-  content: []
+  content: [],
+  entered: []
 }

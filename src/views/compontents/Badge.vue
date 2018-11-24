@@ -9,7 +9,8 @@ export default {
   props: {
     active: Boolean,
     flex: Boolean,
-    static: Boolean
+    static: Boolean,
+    required: Boolean
   },
 
   computed: {
@@ -17,7 +18,8 @@ export default {
       return {
         'is-active': this.active,
         'is-flex-width': this.flex,
-        'is-static': this.static
+        'is-static': this.static,
+        'is-required': this.required
       }
     }
   }
