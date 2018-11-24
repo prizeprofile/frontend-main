@@ -20,6 +20,11 @@ export default new Router({
       meta: {
         controller: [HomeController, 'index']
       }
+    },
+    {
+      path: '/privacy-policy',
+      name: 'privacy-policy',
+      component: () => import('./views/pages/PrivacyPolicy.vue')
     }
   ]
 })

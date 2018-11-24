@@ -13,10 +13,11 @@
 
 <script>
 const DefaultLayout = () => import('@/views/layouts/DefaultLayout')
+const SinglePageLayout = () => import('@/views/layouts/SinglePageLayout')
 const DefaultHeader = () => import('@/views/layouts/headers/DefaultHeader')
 
 export default {
-  components: { DefaultHeader, DefaultLayout },
+  components: { DefaultHeader, DefaultLayout, SinglePageLayout },
 
   props: {
     type: {
