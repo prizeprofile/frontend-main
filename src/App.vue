@@ -15,7 +15,9 @@ export default {
     let cache = localStorage.getItem('vuex:store')
 
     if (cache) {
-      this.$store.replaceState(Object.assign(this.$store.state, JSON.parse(cache)))
+      this.$store.replaceState(
+        Object.assign(this.$store.state, JSON.parse(cache))
+      )
     }
   }
 }
