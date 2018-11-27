@@ -18,7 +18,7 @@
       </div>
     </transition-group>
 
-    <panel elevated v-if="!competitions.content.length">
+    <panel elevated v-show="!competitions.content.length && competitions.last">
       <div class="has-padding-3 has-text-centered">
         <h3 class="title is-4">
           <span class="has-text-primary">Ooops!</span>
@@ -43,7 +43,19 @@ export default {
 
   mounted () {
     // Infinite scroll listener.
-    window.addEventListener('scroll', () => {
+    window.addEventListener('scroll', this.onScroll)
+  },
+
+  destroyed () {
+    window.removeEventListener('scroll', this.onScroll)
+  },
+
+  computed: {
+    ...mapGetters(['competitions'])
+  },
+
+  methods: {
+    onScroll () {
       const { scrollTop, offsetHeight } = window.document.documentElement
       const bottomOfWindow = scrollTop + window.innerHeight * 1.3 >= offsetHeight
 
@@ -57,11 +69,7 @@ export default {
           page: this.competitions.page + 1
         }
       })
-    })
-  },
-
-  computed: {
-    ...mapGetters(['competitions'])
+    }
   }
 }
 </script>

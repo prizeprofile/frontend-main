@@ -13,7 +13,8 @@
       <div class="connect-twitter-modal-body">
         <h3 class="title is-4">Connect Twitter</h3>
         <p class="subtitle is-6 has-text-grey">
-          To enter competitions in one click we need you to connect with your Twitter.
+          To enter competitions in one click you need to connect your Twitter.
+          We will never post without your permission.
         </p>
       </div>
 

@@ -4,7 +4,8 @@ export default {
     competitions: env('API_BASE_URL') + '/competitions',
     promoters: env('API_BASE_URL') + '/promoters',
     requestToken: env('API_BASE_URL') + '/me/request-token',
-    sync: env('API_BASE_URL') + '/me/sync'
+    sync: env('API_BASE_URL') + '/me/sync',
+    contact: env('API_BASE_URL') + '/contact'
   },
 
   pagination: {
