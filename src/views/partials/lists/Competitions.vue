@@ -18,7 +18,7 @@
       </div>
     </transition-group>
 
-    <panel elevated v-if="!competitions.content.length">
+    <panel elevated v-show="!competitions.content.length && competitions.last">
       <div class="has-padding-3 has-text-centered">
         <h3 class="title is-4">
           <span class="has-text-primary">Ooops!</span>
