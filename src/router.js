@@ -21,6 +21,11 @@ export default new Router({
         controller: [HomeController, 'index']
       }
     },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: () => import('./views/pages/Contact.vue')
+    },
 
     /**
      * Legal.

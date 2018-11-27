@@ -3,7 +3,9 @@
     <hr class="is-medium">
 
     <nav class="default-footer-links">
-      <a href="mailto:jonnymatthews94@gmail.com">Contact Us</a>
+      <router-link :to="{ name: 'contact' }">
+        Contact Us
+      </router-link>
       &middot;
       <router-link :to="{ name: 'privacy-policy' }">
         Privacy Policy
