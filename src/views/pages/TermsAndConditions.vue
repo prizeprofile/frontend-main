@@ -101,7 +101,6 @@
           constitutes a violation of their intellectual property rights, or of their right to privacy.
         </p>
 
-
         <p>
           We have the right to remove any User Submission at any time and for any reason.
         </p>
