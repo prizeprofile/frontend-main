@@ -6,3 +6,5 @@
  * @return {object[]}
  */
 export const feed = feed => feed
+
+export const activeFeed = feed => feed.slug

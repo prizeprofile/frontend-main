@@ -1,11 +1,31 @@
 <template>
   <header class="default-header is-fixed">
     <div class="container">
+      <div class="block">
+        <router-link class="nav-item is-static" :to="{ name: 'home' }">
+          <img
+            v-lazy="`$/images/branding/logo-white.png`"
+            alt="Prize Profile"
+            class="default-header-logo"
+          />
+        </router-link>
+      </div>
+
       <nav class="nav is-primary">
         <div class="nav-menu">
-          <router-link class="nav-item is-static" :to="{ name: 'home' }">
-            <img v-lazy="`$/images/branding/logo-white.png`" alt="Prize Profile">
-          </router-link>
+          <div
+            class="menu-feed-item"
+            v-for="(feed, key) in feeds"
+            :key="key"
+            :class="{ 'is-active': feed.isActive }"
+          >
+            <router-link :to="{ name: `${feed.slug}-feed` }">
+              <span class="icon is-medium">
+                <i :class="feed.class"></i>
+              </span>
+              {{ feed.slug }}
+            </router-link>
+          </div>
         </div>
         <div class="nav-spacer"></div>
         <div
@@ -72,6 +92,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { feeds } from '@/core/feeds'
 import ControlsModals from '@/core/mixins/ControlsModals'
 import { USER_LOGOUT, USER_AUTHORISE_TWITTER } from '@/store/types'
 
@@ -81,7 +102,8 @@ export default {
   data () {
     return {
       loading: false,
-      isHiddenMenu: true
+      isHiddenMenu: true,
+      feeds
     }
   },
 

@@ -1,13 +1,39 @@
 
 $default-header-background: $primary
-$default-header-height: 4.5rem
 $pseudo-icon-size: 7px
 
 .default-header
   background: $default-header-background
-  height: $default-header-height
+
+  .default-header-logo
+    max-height: 2.5rem
+    margin-top: 2.25rem
+
+    +mobile
+      margin-top: 1.25rem
 
   .nav-menu
+    .menu-feed-item
+      text-transform: capitalize
+      color: $white
+      border-top-left-radius: $radius-small
+      border-top-right-radius: $radius-small
+      padding: 10px 26px 10px 22px
+      font-size: $size-6
+      font-weight: bold
+
+      &:not(.is-active)
+        .icon i
+          color: $white !important
+
+      &.is-active
+        background-color: $white
+        color: $grey-dark
+
+      +mobile
+        &:first-child
+          margin-left: 10px
+
     &:hover
       .menu-user
         display: block
@@ -24,7 +50,7 @@ $pseudo-icon-size: 7px
       border-bottom-right-radius: $radius
 
       ul li:hover
-        color: $white 
+        color: $white
         background-color: $primary
 
       &:hover
@@ -32,14 +58,6 @@ $pseudo-icon-size: 7px
 
       +mobile
         display: block
-
-  &.is-fixed
-    +fixed
-    z-index: 39
-
-    // Any immediately following element should be offset by the header height.
-    ~ *
-      padding-top: $default-header-height
 
   .level .level-item:first-child div
     display: flex

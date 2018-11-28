@@ -4,8 +4,13 @@ import { APPEND_TO_FEED } from '@/store/types'
 export default /* abstract */ class Feed {
   /** @var {any[]} filters */
   /** @var {string} slug */
-  /** @var {string} icon */
+  /** @var {string[]} class */
   /** @var {any} defaultFilters */
+
+  /** @var {Boolean} */
+  get isActive () {
+    return this.$store.getters.activeFeed === this.slug
+  }
 
   /**
    * Class constructor.

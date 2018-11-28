@@ -1,6 +1,6 @@
 
 export default {
-  feed: null,
+  slug: 'twitter',
   content: [],
   last: false,
   page: 0

@@ -1,15 +1,18 @@
-import store from 'vuex'
+import store from '@/store'
 import axios from 'axios'
+import TwitterFeedClass from './TwitterFeed'
+import GleamFeedClass from './GleamFeed'
 
 const httpClient = axios.create({
   headers: { 'Cache-Control': 'max-age: 300' }
 })
 
 export const feeds = [
-  'TwitterFeed',
-  'GleamFeed'
+  new TwitterFeedClass(store, httpClient),
+  new GleamFeedClass(store, httpClient)
 ]
-  .map((file) => new require(`./${file}`)(store, httpClient))
 
-export const TwitterFeed = feeds.TwitterFeed
-export const GleamFeed = feeds.GleamFeed
+export const [
+  TwitterFeed,
+  GleamFeed
+ ] = feeds

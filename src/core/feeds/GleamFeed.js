@@ -1,9 +1,7 @@
 import Feed from './Feed'
 
 export default class GleamFeed extends Feed {
-  /**
-   * @var {any}
-   */
+  /** @var {any} */
   get defaultFilters () {
     return {
       sourceId: 1
@@ -15,8 +13,8 @@ export default class GleamFeed extends Feed {
     return 'gleam'
   }
 
-  /** @var {string} */
-  get icon () {
-    return 'icon-gleam'
+  /** @var {string[]} */
+  get class () {
+    return ['icon-gleam']
   }
 }
