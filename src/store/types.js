@@ -1,12 +1,15 @@
+/**
+ * Feeds.
+ */
+
+export const RESET_FEED = 'RESET_FEED'
+export const SET_FEED = 'SET_FEED'
+export const APPEND_TO_FEED = 'APPEND_TO_FEED'
 
 /**
  * Competitions.
  */
 
-export const SET_COMPETITIONS = 'SET_COMPETITIONS'
-export const LOAD_COMPETITIONS = 'LOAD_COMPETITIONS'
-export const RESET_COMPETITIONS = 'RESET_COMPETITIONS'
-export const APPEND_COMPETITIONS = 'APPEND_COMPETITIONS'
 export const ENTER_COMPETITION = 'ENTER_COMPETITION'
 
 /**
