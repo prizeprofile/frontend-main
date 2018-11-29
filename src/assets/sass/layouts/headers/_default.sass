@@ -1,6 +1,8 @@
 
 $default-header-background: $primary
 $pseudo-icon-size: 7px
+$menu-item-min-width: 130px
+$menu-item-padding: 10px 26px 10px 22px
 
 .default-header
   background: $default-header-background
@@ -13,33 +15,59 @@ $pseudo-icon-size: 7px
       margin-top: 1.25rem
 
   .nav-menu
-    .menu-feed-item
-      text-transform: capitalize
-      color: $white
-      border-top-left-radius: $radius-small
-      border-top-right-radius: $radius-small
-      padding: 10px 26px 10px 22px
-      font-size: $size-6
-      font-weight: bold
-
-      &:not(.is-active)
-        .icon i
-          color: $white !important
-
-      &.is-active
-        background-color: $white
-        color: $grey-dark
-
-      +mobile
-        &:first-child
-          margin-left: 10px
-
     &:hover
       .menu-user
         display: block
 
+    .menu-feed
+      display: flex
+      align-items: flex-end
+
+      .menu-feed-item
+        border-top-left-radius: $radius-small
+        border-top-right-radius: $radius-small
+        color: $white
+        font-size: $size-6
+        font-weight: bold
+        min-width: $menu-item-min-width
+        padding: $menu-item-padding
+        text-transform: capitalize
+        transition: opacity .5s ease
+
+        .icon i
+          background-repeat: no-repeat
+          background-size: cover
+          width: 16px
+          height: 16px
+
+          &.icon-gleam
+            background-image: url(#{$cdn}icons/gleam-icon.png)
+
+        &:not(.is-active)
+          opacity: .65
+
+          a:hover
+            color: $white
+
+          .icon i
+            color: $white !important
+            &.icon-gleam
+              background-image: url(#{$cdn}icons/gleam-icon-white.png)
+
+          &:hover
+            opacity: 1
+
+        &.is-active
+          background-color: $white
+          color: $grey-dark
+
+        +mobile
+          &:first-child.is-active
+            margin-left: 10px
+
     .menu-user
       +elevated(3)
+      z-index: 1
       display: none
       position: absolute
       background: white
@@ -86,3 +114,15 @@ $pseudo-icon-size: 7px
       line-height: calc(2 * #{$pseudo-icon-size} - 1px)
       width: calc(2 * #{$pseudo-icon-size} - 1px)
       height: calc(2 * #{$pseudo-icon-size} - 1px)
+
+  .sort-filters
+    border-bottom: 1px solid $grey-lighter
+
+    &.is-horizontally-scrollable
+      .tabs ul li:last-child
+        padding-right: $horizontal-scroll-shadow
+
+    .tabs
+      ul
+        li
+          min-width: $menu-item-min-width

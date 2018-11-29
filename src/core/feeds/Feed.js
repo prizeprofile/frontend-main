@@ -23,7 +23,7 @@ export default /* abstract */ class Feed {
 
     this.axios = axios
 
-    this.filters = { ...this.defaultFilters }
+    this.resetFilters()
   }
 
   /**
@@ -42,6 +42,18 @@ export default /* abstract */ class Feed {
   }
 
   /**
+   * @return {Feed}
+   */
+  resetFilters () {
+    this.filters = {
+      sort: 'createdAt,desc',
+      ...this.defaultFilters
+    }
+
+    return this
+  }
+
+  /**
    * @param {String} key
    *
    * @return {Feed}
@@ -50,6 +62,15 @@ export default /* abstract */ class Feed {
     delete this.filters[key]
 
     return this
+  }
+
+  /**
+   * @param {String} key
+   *
+   * @return {Boolean}
+   */
+  getFilter (key) {
+    return this.filters[key]
   }
 
   /**

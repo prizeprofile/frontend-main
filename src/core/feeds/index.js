@@ -16,3 +16,5 @@ export const [
   TwitterFeed,
   GleamFeed
  ] = feeds
+
+export const activeFeed = () => feeds.find(feed => feed.slug === store.getters.activeFeed)
