@@ -7,4 +7,4 @@
  */
 export const feed = feed => feed
 
-export const activeFeed = feed => feed.slug
+export const activeFeedSlug = feed => feed.slug

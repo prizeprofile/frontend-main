@@ -8,6 +8,10 @@ export default {
     contact: env('API_BASE_URL') + '/contact'
   },
 
+  filters: {
+    applyDelay: 500
+  },
+
   pagination: {
     competitions: 20
   },

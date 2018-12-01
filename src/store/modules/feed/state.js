@@ -1,6 +1,6 @@
 
 export default {
-  slug: 'gleam',
+  slug: 'twitter',
   content: [],
   last: false,
   page: 0

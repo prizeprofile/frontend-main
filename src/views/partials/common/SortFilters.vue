@@ -7,7 +7,7 @@
             v-for="(filter, key) in filters"
             :key="key"
             :class="{ 'is-active': active === filter.key }"
-            @click="feed.addFilter('sort', filter.key)"
+            @click="filter.onClick(activeFeed)"
           >
             <a>
               <span class="icon">
@@ -23,43 +23,53 @@
 </template>
 
 <script>
-import { activeFeed } from '@/core/feeds'
+import HasActiveFeed from '@/core/mixins/HasActiveFeed'
 
 export default {
+  mixins: [ HasActiveFeed ],
+
   data () {
     return {
       filters: [
         {
           icon: 'fa-clock',
           name: 'Recent',
-          key: 'createdAt,desc'
+          key: 'createdAt,desc',
+          onClick: feed => feed
+            .addFilter('sort', 'createdAt,desc')
+            .addFilter('onlyRecent', false)
         },
         {
           icon: 'fa-fire',
           name: 'Popular',
-          key: 'entrants,desc'
+          key: 'entrants,desc',
+          onClick: feed => feed
+            .addFilter('sort', 'entrants,desc')
+            .addFilter('onlyRecent', true)
         },
         {
           icon: 'fa-user',
           name: 'Low Entry',
-          key: 'entrants,asc'
+          key: 'entrants,asc',
+          onClick: feed => feed
+            .addFilter('sort', 'entrants,asc')
+            .addFilter('onlyRecent', true)
         },
         {
           icon: 'fa-stopwatch',
           name: 'Ending Soon',
-          key: 'endDate,asc'
+          key: 'endDate,asc',
+          onClick: feed => feed
+            .addFilter('sort', 'endDate,asc')
+            .addFilter('onlyRecent', false)
         }
       ]
     }
   },
 
   computed: {
-    feed () {
-      return activeFeed()
-    },
-
     active () {
-      return this.feed.getFilter('sort')
+      return this.activeFeed.getFilter('sort')
     }
   }
 }

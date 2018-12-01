@@ -21,6 +21,6 @@ export default {
     Vue.set(state, 'content', data.content)
     Vue.set(state, 'last', !!feed.last)
     Vue.set(state, 'page', 0)
-    Vue.set(state, 'feed', feed)
+    Vue.set(state, 'slug', feed)
   }
 }

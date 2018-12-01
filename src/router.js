@@ -18,7 +18,23 @@ export default new Router({
       name: 'home',
       component: () => import('./views/Home.vue'),
       meta: {
-        controller: [HomeController, 'index']
+        controller: [HomeController, 'twitter']
+      }
+    },
+    {
+      path: '/twitter',
+      name: 'twitter',
+      component: () => import('./views/Home.vue'),
+      meta: {
+        controller: [HomeController, 'twitter']
+      }
+    },
+    {
+      path: '/gleam',
+      name: 'gleam',
+      component: () => import('./views/Home.vue'),
+      meta: {
+        controller: [HomeController, 'gleam']
       }
     },
     {

@@ -4,7 +4,8 @@ export default class GleamFeed extends Feed {
   /** @var {any} */
   get defaultFilters () {
     return {
-      sourceId: 1
+      sourceId: 1,
+      notGaming: true
     }
   }
 
