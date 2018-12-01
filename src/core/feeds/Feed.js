@@ -6,8 +6,9 @@ import {
 
 export default /* abstract */ class Feed {
   /** @var {any} _filters */
-  /** @var {string} slug */
-  /** @var {string[]} class */
+  /** @var {String} slug */
+  /** @var {String[]} class */
+  /** @var {Number} page */
   /** @var {any} defaultFilters */
 
   /** @var {Boolean} */
@@ -23,9 +24,8 @@ export default /* abstract */ class Feed {
    */
   constructor (store, axios) {
     this.$store = store
-
     this.axios = axios
-
+    this.page = this.$store.getters.feed.page
     this.resetFilters()
   }
 
@@ -37,11 +37,19 @@ export default /* abstract */ class Feed {
    * @return {Promise<void>}
    */
   async fetch (action = APPEND_TO_FEED) {
-    const { data } = await this.axios.get(this.buildUrl())
+    this.loading = true
 
-    await this.$store.dispatch(action, {
-      data, feed: this.slug
-    })
+    try {
+      const { data } = await this.axios.get(this.buildUrl())
+
+      await this.$store.dispatch(action, {
+        data, slug: this.slug
+      })
+    } catch (error) {
+      console.warn(error)
+    } finally {
+      this.loading = false
+    }
   }
 
   /**
@@ -49,14 +57,18 @@ export default /* abstract */ class Feed {
    *
    * @return {void}
    */
-  refreshFeed () {
+  refreshFeed (action = SET_FEED) {
     if (!this.isActive) {
       return
     }
 
     clearTimeout(this.refreshFeedInterval)
 
-    this.refreshFeedInterval = setTimeout(() => this.fetch(SET_FEED), config.filters.applyDelay)
+    this.refreshFeedInterval = setTimeout(() => {
+      this.page = 0
+
+      this.fetch(action)
+    }, config.filters.applyDelay)
   }
 
   /**
@@ -68,6 +80,10 @@ export default /* abstract */ class Feed {
       ...this.defaultFilters
     }, {
       set: (state, key, value) => {
+        if (state[key] === value) {
+          return true
+        }
+
         state[key] = value
 
         this.refreshFeed()
@@ -118,6 +134,10 @@ export default /* abstract */ class Feed {
    */
   buildUrl () {
     const url = new URL(config.api.competitions)
+
+    if (this.page) {
+      url.searchParams.set('page', this.page)
+    }
 
     for (let key in this.filters) {
       url.searchParams.set(key, this.filters[key])

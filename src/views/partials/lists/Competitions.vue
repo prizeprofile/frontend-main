@@ -57,11 +57,13 @@ export default {
       const { scrollTop, offsetHeight } = window.document.documentElement
       const bottomOfWindow = scrollTop + window.innerHeight * 1.3 >= offsetHeight
 
-      if (!bottomOfWindow || this.feed.last) {
+      if (!bottomOfWindow || this.feed.last || this.activeFeed.page !== this.feed.page) {
         return
       }
 
-      this.activeFeed.addFilter('page', this.activeFeed.getFilter('page') || 1)
+      this.activeFeed.page++
+
+      this.activeFeed.fetch()
     }
   }
 }

@@ -17,10 +17,10 @@ export default {
   /**
    * @return {void}
    */
-  [SET_FEED]: (state, { feed, data }) => {
+  [SET_FEED]: (state, { slug, data }) => {
     Vue.set(state, 'content', data.content)
-    Vue.set(state, 'last', !!feed.last)
+    Vue.set(state, 'last', !!data.last)
     Vue.set(state, 'page', 0)
-    Vue.set(state, 'slug', feed)
+    Vue.set(state, 'slug', slug)
   }
 }
