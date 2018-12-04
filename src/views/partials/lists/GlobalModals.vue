@@ -1,15 +1,15 @@
 <template>
   <aside>
-    <welcome-twitter-modal></welcome-twitter-modal>
+    <welcome-modal></welcome-modal>
     <connect-twitter-modal></connect-twitter-modal>
   </aside>
 </template>
 
 <script>
-import WelcomeTwitterModal from '@/views/partials/modals/WelcomeTwitterModal'
+import WelcomeModal from '@/views/partials/modals/WelcomeModal'
 import ConnectTwitterModal from '@/views/partials/modals/ConnectTwitterModal'
 
 export default {
-  components: { ConnectTwitterModal, WelcomeTwitterModal }
+  components: { ConnectTwitterModal, WelcomeModal }
 }
 </script>

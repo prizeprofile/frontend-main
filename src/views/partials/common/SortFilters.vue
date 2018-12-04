@@ -37,7 +37,7 @@ export default {
           key: 'createdAt,desc',
           onClick: feed => feed
             .addFilter('sort', 'createdAt,desc')
-            .addFilter('onlyRecent', false)
+            .addFilter('onlyRecent', '')
         },
         {
           icon: 'fa-fire',
@@ -61,7 +61,7 @@ export default {
           key: 'endDate,asc',
           onClick: feed => feed
             .addFilter('sort', 'endDate,asc')
-            .addFilter('onlyRecent', false)
+            .addFilter('onlyRecent', '')
         }
       ]
     }

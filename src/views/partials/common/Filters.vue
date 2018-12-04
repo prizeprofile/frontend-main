@@ -1,6 +1,12 @@
 <template>
   <div class="filters">
     <!-- TODO: Refactor Filters later on. -->
+    <div class="block">
+      <form-input white placeholder="Search by promoter or prize" v-model="pattern">
+        <icon slot="icon-left" name="fa-search" class="has-text-primary"></icon>
+      </form-input>
+    </div>
+
     <span
       class="filters-heading"
       v-show="activeFeed.slug === 'twitter'"
@@ -30,7 +36,8 @@ export default {
 
   data () {
     return {
-      toggle: null
+      toggle: null,
+      pattern: ''
     }
   },
 
@@ -49,6 +56,10 @@ export default {
 
     toggle () {
       this.activeFeed.addFilter(this.toggleFilter, this.toggle)
+    },
+
+    pattern () {
+      this.activeFeed.addFilter('pattern', this.pattern)
     }
   }
 }

@@ -46,6 +46,7 @@ export default new Router({
     /**
      * Legal.
      */
+
     {
       path: '/privacy-policy',
       name: 'privacy-policy',
@@ -55,6 +56,15 @@ export default new Router({
       path: '/terms-and-conditions',
       name: 'terms-and-conditions',
       component: () => import('./views/pages/TermsAndConditions.vue')
-    }
+    },
+
+    /**
+     * 404
+     */
+
+    {
+      path: '*',
+      redirect: '/'
+    },
   ]
 })

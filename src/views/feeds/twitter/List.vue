@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="twitter-feed">
     <competition
       v-for="competition in feed.content"
       :key="competition.id"

@@ -131,7 +131,7 @@ export default {
     prettifyDescription (value) {
       return value
         .replace(/\?{4}/g, '')
-        .replace(/&amp/gi, '&')
+        .replace(/&amp;/gi, '&')
     }
   },
 

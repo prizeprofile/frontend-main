@@ -8,8 +8,9 @@ $menu-item-padding: 10px 26px 10px 22px
   background: $default-header-background
 
   .default-header-logo
-    max-height: 2.5rem
+    max-height: 2rem
     margin-top: 2.25rem
+    margin-left: $menu-margin-left
 
     +mobile
       margin-top: 1.25rem
@@ -63,7 +64,7 @@ $menu-item-padding: 10px 26px 10px 22px
 
         +touch
           &:first-child.is-active
-            margin-left: 10px
+            margin-left: $menu-margin-left
 
     .menu-user
       +elevated(3)

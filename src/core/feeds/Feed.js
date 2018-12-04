@@ -40,13 +40,23 @@ export default /* abstract */ class Feed {
     this.loading = true
 
     try {
+      if (action === SET_FEED) {
+        await this.$store.dispatch(action, {
+          data: { content: [], last: false, number: 0 },
+          slug: this.slug
+        })
+      }
+
       const { data } = await this.axios.get(this.buildUrl())
 
       await this.$store.dispatch(action, {
         data, slug: this.slug
       })
     } catch (error) {
-      console.warn(error)
+      await this.$store.dispatch(SET_FEED, {
+        data: { content: [], last: true, number: 0 },
+        slug: this.slug
+      })
     } finally {
       this.loading = false
     }
