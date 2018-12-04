@@ -18,4 +18,12 @@ export default class GleamFeed extends Feed {
   get class () {
     return ['icon-gleam']
   }
+
+  /** @var {any} */
+  get welcome () {
+    return {
+      title: '👋&nbsp;&nbsp;New to PrizeProfile?',
+      description: 'PrizeProfile finds all the best Gleam competitions so you don’t have to. Connect your Twitter and start entering giveaways in one click!'
+    }
+  }
 }

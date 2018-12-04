@@ -1,8 +1,21 @@
 <template>
   <div class="filters">
-    <!-- Only verified accounts filters. -->
-    <span class="filters-heading">Only Verified Accounts</span>
-    <lever>
+    <!-- TODO: Refactor Filters later on. -->
+    <span
+      class="filters-heading"
+      v-show="activeFeed.slug === 'twitter'"
+    >
+      Only Verified Accounts
+    </span>
+
+    <span
+      class="filters-heading"
+      v-show="activeFeed.slug === 'gleam'"
+    >
+      Hide Gaming Competitions
+    </span>
+
+    <lever v-model="toggle">
       <span slot="on">On &nbsp;<i class="fas fa-check-circle"></i></span>
       <span slot="off">Off &nbsp;<i class="fas fa-check-circle"></i></span>
     </lever>
@@ -10,7 +23,33 @@
 </template>
 
 <script>
+import HasActiveFeed from '@/core/mixins/HasActiveFeed'
+
 export default {
-  //
+  mixins: [ HasActiveFeed ],
+
+  data () {
+    return {
+      toggle: null
+    }
+  },
+
+  computed: {
+    toggleFilter () {
+      return this.activeFeed.slug === 'twitter'
+        ? 'onlyVerified'
+        : 'notGaming'
+    }
+  },
+
+  watch: {
+    activeFeed () {
+      this.toggle = !!this.activeFeed.getFilter(this.toggleFilter)
+    },
+
+    toggle () {
+      this.activeFeed.addFilter(this.toggleFilter, this.toggle)
+    }
+  }
 }
 </script>

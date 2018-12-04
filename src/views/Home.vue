@@ -1,7 +1,9 @@
 <template>
   <layout type="Default" header="Default">
     <aside slot="side">
-      <panel title="Filter Competitions" accordion-mobile>
+      <welcome-brick />
+
+      <panel title="Filter" accordion-touch>
         <filters></filters>
       </panel>
 
@@ -11,8 +13,6 @@
     </aside>
 
     <main slot="main">
-      <welcome-brick />
-
       <competitions></competitions>
     </main>
   </layout>

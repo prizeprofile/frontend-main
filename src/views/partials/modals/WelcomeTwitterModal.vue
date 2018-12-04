@@ -1,5 +1,5 @@
 <template>
-  <modal name="welcome">
+  <modal name="welcome-twitter">
     <div class="welcome-modal">
       <div class="welcome-modal-image">
         <pic size="2:1" :src="currentSlide.image" :alt="currentSlide.heading"></pic>

@@ -19,21 +19,45 @@
       +mobile
         padding: 1rem
 
+  +touch
+    &.is-accordion-touch
+      margin-bottom: 0
+
+      .accordion
+        display: block
+
+      .panel-head
+        padding-left: 2rem
+
+      &:not(.is-expanded)
+        background: transparent
+        border: 0
+
+        .panel-head
+          border: 0
+
   .panel-head
     border-bottom: 1px solid $grey-lighter
     color: $grey
     font-size: $size-6
     font-weight: bold
     padding: 1rem 1.5rem
-    text-transform: uppercase
+
+    +touch
+      padding: .5rem 1.5rem
 
   .panel-body
     padding: 1rem
 
-  .delete, .accordion
+  .delete
     position: absolute
     right: 1rem
     top: 1rem
 
   .accordion
+    display: none
     pointer-events: none
+    position: absolute
+    left: 1rem
+    top: .5rem
+

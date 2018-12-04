@@ -17,4 +17,12 @@ export default class Twitter extends Feed {
   get class () {
     return ['fab', 'fa-twitter', 'has-text-twitter']
   }
+
+  /** @var {any} */
+  get welcome () {
+    return {
+      title: '👋&nbsp;&nbsp;New to PrizeProfile?',
+      description: 'PrizeProfile finds all the best Twitter competitions so you don’t have to. Connect your Twitter and start entering giveaways in one click!'
+    }
+  }
 }

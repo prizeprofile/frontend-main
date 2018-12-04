@@ -1,13 +1,20 @@
 <template>
   <panel dismissible="welcome-brick" elevated>
-    <div class="welcome-brick has-padding-3" slot-scope="{ dismissPanel }">
+    <div class="welcome-brick has-padding-1" slot-scope="{ dismissPanel }">
       <div class="welcome-brick-title">
-        <h3 class="title is-4">👋&nbsp;&nbsp;New to Twitter Competitions?</h3>
-        <p class="subtitle is-6 has-text-grey">Find out how they work in our handy 4 step guide.</p>
+        <h3
+          class="title is-4"
+          v-html="activeFeed.welcome.title"
+        ></h3>
+
+        <p
+          class="subtitle is-6 has-text-grey"
+          v-html="activeFeed.welcome.description"
+        ></p>
       </div>
 
       <div class="welcome-brick-action">
-        <action @click="showModal('welcome')">Start Here</action>
+        <action @click="showModal('welcome-twitter')">Start Here</action>
       </div>
     </div>
   </panel>
@@ -15,8 +22,9 @@
 
 <script>
 import ControlsModals from '@/core/mixins/ControlsModals'
+import HasActiveFeed from '@/core/mixins/HasActiveFeed'
 
 export default {
-  mixins: [ControlsModals]
+  mixins: [ControlsModals, HasActiveFeed]
 }
 </script>
