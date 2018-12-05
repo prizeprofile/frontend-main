@@ -15,4 +15,4 @@ export const feeds = [
 export const [
   TwitterFeed,
   GleamFeed
- ] = feeds
+] = feeds

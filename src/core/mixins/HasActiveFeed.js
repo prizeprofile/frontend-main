@@ -6,6 +6,6 @@ export default {
       const active = this.$store.getters.activeFeedSlug
 
       return feeds.find(feed => feed.slug === active)
-    },
+    }
   }
 }
