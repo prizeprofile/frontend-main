@@ -73,6 +73,7 @@ export default {
           this.loading = false
           this.$refs.container.src = this.getFullSrc(src)
         })
+        .catch(_ => _)
     },
 
     getFullSrc (src) {

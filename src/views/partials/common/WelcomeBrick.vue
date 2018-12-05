@@ -1,9 +1,16 @@
 <template>
   <panel dismissible="welcome-brick" elevated>
-    <div class="welcome-brick has-padding-3" slot-scope="{ dismissPanel }">
+    <div class="welcome-brick has-padding-1" slot-scope="{ dismissPanel }">
       <div class="welcome-brick-title">
-        <h3 class="title is-4">👋&nbsp;&nbsp;New to Twitter Competitions?</h3>
-        <p class="subtitle is-6 has-text-grey">Find out how they work in our handy 4 step guide.</p>
+        <h3
+          class="title is-4"
+          v-html="data.title"
+        ></h3>
+
+        <p
+          class="subtitle is-6 has-text-grey"
+          v-html="data.description"
+        ></p>
       </div>
 
       <div class="welcome-brick-action">
@@ -17,6 +24,8 @@
 import ControlsModals from '@/core/mixins/ControlsModals'
 
 export default {
-  mixins: [ControlsModals]
+  mixins: [ControlsModals],
+
+  props: ['data']
 }
 </script>

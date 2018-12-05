@@ -1,6 +1,6 @@
 <template>
   <div class="panel" :class="panelClasses" v-if="!dismissed">
-    <span v-if="accordionMobile" class="accordion is-hidden-tablet">
+    <span class="accordion has-text-primary">
       <i class="fas fa-angle-up" v-show="expanded"></i>
       <i class="fas fa-angle-down" v-show="!expanded"></i>
     </span>
@@ -13,7 +13,7 @@
     ></div>
     <div
       class="panel-body"
-      :class="{ 'is-hidden-mobile': accordionMobile && !expanded }"
+      :class="{ 'is-hidden-touch': accordionTouch && !expanded }"
     >
       <slot :dismissPanel="dismissPanel"></slot>
     </div>
@@ -29,7 +29,7 @@ export default {
     medium: Boolean,
     elevated: Boolean,
     dismissible: String,
-    accordionMobile: Boolean,
+    accordionTouch: Boolean,
     default: {
       type: Boolean,
       default: false
@@ -51,7 +51,9 @@ export default {
     panelClasses () {
       return {
         'is-medium': this.medium,
-        'is-elevated': this.elevated
+        'is-elevated': this.elevated,
+        'is-accordion-touch': this.accordionTouch,
+        'is-expanded': this.expanded
       }
     },
 

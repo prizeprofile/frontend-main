@@ -18,7 +18,23 @@ export default new Router({
       name: 'home',
       component: () => import('./views/Home.vue'),
       meta: {
-        controller: [HomeController, 'index']
+        controller: [HomeController, 'twitter']
+      }
+    },
+    {
+      path: '/twitter',
+      name: 'twitter',
+      component: () => import('./views/Home.vue'),
+      meta: {
+        controller: [HomeController, 'twitter']
+      }
+    },
+    {
+      path: '/gleam',
+      name: 'gleam',
+      component: () => import('./views/Home.vue'),
+      meta: {
+        controller: [HomeController, 'gleam']
       }
     },
     {
@@ -30,6 +46,7 @@ export default new Router({
     /**
      * Legal.
      */
+
     {
       path: '/privacy-policy',
       name: 'privacy-policy',
@@ -39,6 +56,15 @@ export default new Router({
       path: '/terms-and-conditions',
       name: 'terms-and-conditions',
       component: () => import('./views/pages/TermsAndConditions.vue')
+    },
+
+    /**
+     * 404
+     */
+
+    {
+      path: '*',
+      redirect: '/'
     }
   ]
 })

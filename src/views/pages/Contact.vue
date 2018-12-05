@@ -123,7 +123,7 @@ export default {
         email.status !== 'success' ||
         message.status !== 'success'
       ) {
-          return
+        return
       }
 
       this.isLoading = true
