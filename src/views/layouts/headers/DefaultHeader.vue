@@ -86,11 +86,11 @@
             </div>
           </div>
 
-          <a v-else class="nav-item is-static is-hidden-mobile">
+          <a v-else class="nav-item is-static">
             <action responsive inverted @click="showModal('connect-twitter')" :loading="loading">
               <icon name="fab fa-twitter"></icon>
               &nbsp;
-              Connect Twitter
+              Connect
             </action>
           </a>
         </div>

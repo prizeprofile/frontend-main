@@ -1,8 +1,8 @@
 <template>
   <masonry
-    :cols="2"
+    :cols="{ default: 2, 1023: 1 }"
     :gutter="30"
-    class="gleam-feed"
+    class="gleam-feed masonry"
   >
     <competition
       v-for="competition in feed.content"

@@ -2,7 +2,6 @@
 $default-header-background: $primary
 $pseudo-icon-size: 7px
 $menu-item-min-width: 130px
-$menu-item-padding: 10px 26px 10px 22px
 
 .default-header
   background: $default-header-background
@@ -31,9 +30,12 @@ $menu-item-padding: 10px 26px 10px 22px
         font-size: $size-6
         font-weight: bold
         min-width: $menu-item-min-width
-        padding: $menu-item-padding
+        padding: 10px 26px 10px 22px
         text-transform: capitalize
         transition: opacity .5s ease
+
+        +mobile
+          padding: 10px
 
         .icon i
           background-repeat: no-repeat

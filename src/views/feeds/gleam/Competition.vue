@@ -38,11 +38,15 @@
       </div>
 
       <div class="content">
-        <action
-            medium fullwidth
-          >
-            Enter
-          </action>
+        <a
+          target="_blank"
+          @click="enter(competition)"
+          :class="{ 'has-background-success': isEntered }"
+          :href="`https://gleam.io/${competition.resource_id}`"
+          class="action is-primary is-medium is-fullwidth"
+        >
+          Enter<span v-show="isEntered">ed</span>
+        </a>
       </div>
     </div>
   </div>
@@ -50,6 +54,7 @@
 
 <script>
 import moment from 'moment'
+import { ENTER_COMPETITION } from '@/store/types'
 
 export default {
   props: {
@@ -61,9 +66,9 @@ export default {
 
   data () {
     return {
-      status: this.$store
+      isEntered: this.$store
         .getters
-        .hasEnteredCompetition(this.payload.id) ? 'success' : null
+        .hasEnteredCompetition(this.payload.id)
     }
   },
 
@@ -97,5 +102,17 @@ export default {
       return this.payload
     }
   },
+
+  methods: {
+    enter (competition) {
+      this.isEntered = true
+
+      this.$store.dispatch(ENTER_COMPETITION, {
+        id: this.competition.id,
+        methods: [],
+        timestamp: Date.now()
+      })
+    }
+  }
 }
 </script>

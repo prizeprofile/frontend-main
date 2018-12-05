@@ -40,6 +40,14 @@ export default {
             .addFilter('onlyRecent', '')
         },
         {
+          icon: 'fa-stopwatch',
+          name: 'Ending Soon',
+          key: 'endDate,asc',
+          onClick: feed => feed
+            .addFilter('sort', 'endDate,asc')
+            .addFilter('onlyRecent', '')
+        },
+        {
           icon: 'fa-fire',
           name: 'Popular',
           key: 'entrants,desc',
@@ -54,14 +62,6 @@ export default {
           onClick: feed => feed
             .addFilter('sort', 'entrants,asc')
             .addFilter('onlyRecent', true)
-        },
-        {
-          icon: 'fa-stopwatch',
-          name: 'Ending Soon',
-          key: 'endDate,asc',
-          onClick: feed => feed
-            .addFilter('sort', 'endDate,asc')
-            .addFilter('onlyRecent', '')
         }
       ]
     }
