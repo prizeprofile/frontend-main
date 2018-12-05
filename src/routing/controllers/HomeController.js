@@ -1,19 +1,22 @@
 import Controller from './Controller'
-import { LOAD_COMPETITIONS, RESET_COMPETITIONS, APPEND_COMPETITIONS } from '@/store/types'
+import {
+  TwitterFeed,
+  GleamFeed
+} from '@/core/feeds'
+import { SET_FEED } from '@/store/types'
 
 export default class HomeController extends Controller {
   /**
-   * Load competitions based on filters from the URL.
+   * @inheritdoc
    */
-  async index ({ to, from }) {
-    if (to.query.page && from.query.page !== to.query.page) {
-      this.$store.dispatch(APPEND_COMPETITIONS, to.query)
+  async twitter ({ to, from }) {
+    await TwitterFeed.fetch(SET_FEED)
+  }
 
-      return
-    }
-
-    await this.$store.dispatch(RESET_COMPETITIONS)
-
-    this.$store.dispatch(LOAD_COMPETITIONS, to.query)
+  /**
+   * @inheritdoc
+   */
+  async gleam ({ to, from }) {
+    await GleamFeed.fetch(SET_FEED)
   }
 }

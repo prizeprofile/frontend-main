@@ -8,9 +8,10 @@
 
       <!-- Info tags. -->
       <div class="competition-tags tags">
-        <span class="tag">
+        <span class="tag" v-if="competition.entrants">
           <span class="has-text-weight-bold">{{ competition.entrants }}</span>&nbsp;entrants
         </span>
+
         <span class="tag">
           Found&nbsp;<span class="has-text-weight-bold">{{ competition.created_at | humanFriendlyTime }}</span>
         </span>
@@ -130,7 +131,7 @@ export default {
     prettifyDescription (value) {
       return value
         .replace(/\?{4}/g, '')
-        .replace(/&amp/gi, '&')
+        .replace(/&amp;/gi, '&')
     }
   },
 

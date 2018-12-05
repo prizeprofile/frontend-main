@@ -1,19 +1,76 @@
 
 $default-header-background: $primary
-$default-header-height: 4.5rem
 $pseudo-icon-size: 7px
+$menu-item-min-width: 130px
 
 .default-header
   background: $default-header-background
-  height: $default-header-height
+
+  .default-header-logo
+    max-height: 2rem
+    margin-top: 2.25rem
+    margin-left: $menu-margin-left
+
+    +mobile
+      margin-top: 1.25rem
 
   .nav-menu
     &:hover
       .menu-user
         display: block
 
+    .menu-feed
+      display: flex
+      align-items: flex-end
+
+      .menu-feed-item
+        border-top-left-radius: $radius-small
+        border-top-right-radius: $radius-small
+        color: $white
+        font-size: $size-6
+        font-weight: bold
+        min-width: $menu-item-min-width
+        padding: 10px 26px 10px 22px
+        text-transform: capitalize
+        transition: opacity .5s ease
+
+        +mobile
+          padding: 10px
+
+        .icon i
+          background-repeat: no-repeat
+          background-size: cover
+          width: 16px
+          height: 16px
+
+          &.icon-gleam
+            background-image: url(#{$cdn}icons/gleam-icon.png)
+
+        &:not(.is-active)
+          opacity: .65
+
+          a:hover
+            color: $white
+
+          .icon i
+            color: $white !important
+            &.icon-gleam
+              background-image: url(#{$cdn}icons/gleam-icon-white.png)
+
+          &:hover
+            opacity: 1
+
+        &.is-active
+          background-color: $white
+          color: $grey-dark
+
+        +touch
+          &:first-child.is-active
+            margin-left: $menu-margin-left
+
     .menu-user
       +elevated(3)
+      z-index: 1
       display: none
       position: absolute
       background: white
@@ -24,7 +81,7 @@ $pseudo-icon-size: 7px
       border-bottom-right-radius: $radius
 
       ul li:hover
-        color: $white 
+        color: $white
         background-color: $primary
 
       &:hover
@@ -32,14 +89,6 @@ $pseudo-icon-size: 7px
 
       +mobile
         display: block
-
-  &.is-fixed
-    +fixed
-    z-index: 39
-
-    // Any immediately following element should be offset by the header height.
-    ~ *
-      padding-top: $default-header-height
 
   .level .level-item:first-child div
     display: flex
@@ -68,3 +117,15 @@ $pseudo-icon-size: 7px
       line-height: calc(2 * #{$pseudo-icon-size} - 1px)
       width: calc(2 * #{$pseudo-icon-size} - 1px)
       height: calc(2 * #{$pseudo-icon-size} - 1px)
+
+  .sort-filters
+    border-bottom: 1px solid $grey-lighter
+
+    &.is-horizontally-scrollable
+      .tabs ul li:last-child
+        padding-right: $horizontal-scroll-shadow
+
+    .tabs
+      ul
+        li
+          min-width: $menu-item-min-width
