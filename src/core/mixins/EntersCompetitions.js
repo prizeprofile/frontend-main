@@ -1,13 +1,17 @@
 import Vue from 'vue'
 import axios from 'axios'
 import store from '@/store'
-import { ENTER_COMPETITION } from '@/store/types'
 import config from '@/config'
 import Like from '@/core/entryMethods/Like'
 import Follow from '@/core/entryMethods/Follow'
 import Friend from '@/core/entryMethods/Friend'
 import Comment from '@/core/entryMethods/Comment'
 import Retweet from '@/core/entryMethods/Retweet'
+import {
+  ENTER_COMPETITION,
+  USER_LOGOUT,
+  SHOW_MODAL
+} from '@/store/types'
 
 export default {
   data () {
@@ -57,7 +61,11 @@ export default {
           methods: competition.entry_methods,
           timestamp: Date.now()
         })
-      } catch (_) {}
+      } catch (_) {
+        await store.dispatch(USER_LOGOUT)
+
+        await store.dispatch(SHOW_MODAL, 'connect-twitter')
+      }
 
       // Removes loading icon from methods.
       methods.forEach(method => Vue.set(method, '_progress', false))
