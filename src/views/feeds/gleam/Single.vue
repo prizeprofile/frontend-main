@@ -19,6 +19,13 @@
           &nbsp;entrants
         </span>
 
+        <span class="tag">
+          Found&nbsp;
+          <span class="has-text-weight-bold">
+            {{ competition.created_at | humanFriendlyTime }}
+          </span>
+        </span>
+
         <span class="tag" v-if="competition.end_date">
           Ends&nbsp;
           <span class="has-text-weight-bold">
@@ -28,12 +35,11 @@
       </div>
 
       <a
+        target="_blank"
+        ref="gleamWidget"
         class="e-widget no-button"
-        href="https://gleam.io/0esHz/win-a-100-amazon-gift-card"
-        rel="gleamWidget"
-      >
-
-      </a>
+        :href="`https://gleam.io/${competition.resource_id}`"
+      ></a>
     </div>
   </div>
 </template>
@@ -53,14 +59,6 @@ export default {
   },
 
   mixins: [LoadsGleamWidget],
-
-  data () {
-    return {
-      isEntered: this.$store
-        .getters
-        .hasEnteredCompetition(this.payload.id)
-    }
-  },
 
   filters: {
     /**

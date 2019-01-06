@@ -18,6 +18,13 @@
           &nbsp;entrants
         </span>
 
+        <span class="tag">
+          Found&nbsp;
+          <span class="has-text-weight-bold">
+            {{ competition.created_at | humanFriendlyTime }}
+          </span>
+        </span>
+
         <span class="tag" v-if="competition.end_date">
           Ends&nbsp;
           <span class="has-text-weight-bold">
@@ -43,6 +50,7 @@
           }}"
         >
           <a
+            @click="enter"
             :class="{ 'has-background-success': isEntered }"
             class="action is-primary is-medium is-fullwidth"
           >
@@ -94,6 +102,17 @@ export default {
       return value
         .replace(/https?:\/\/(www.)?/gmi, '')
         .replace(/\/$/gmi, '')
+    }
+  },
+
+  methods: {
+    enter (competition) {
+      this.isEntered = true
+      this.$store.dispatch(ENTER_COMPETITION, {
+        id: this.competition.id,
+        methods: [],
+        timestamp: Date.now()
+      })
     }
   },
 

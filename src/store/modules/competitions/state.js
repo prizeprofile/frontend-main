@@ -1,5 +1,8 @@
 
 export default {
   entered: [],
-  viewed: null
+  viewed: {
+    content: {},
+    feed: ''
+  }
 }

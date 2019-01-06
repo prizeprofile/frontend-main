@@ -23,14 +23,14 @@ export default {
    * @return {Promise<void>}
    */
   [VIEW_COMPETITION]: async ({ commit, getters }, { id, feed }) => {
-    const data = getters.feed.content.find(comp => comp.id == id)
+    const content = getters.feed.content.find(comp => comp.id == id)
 
-    if (data) {
-      return commit(VIEW_COMPETITION, { data, feed })
+    if (content) {
+      return commit(VIEW_COMPETITION, { content, feed })
     }
 
-    console.log('competition could not be found in cache')
+    const { data } = await axios.get(`${config.api.competitions}/${id}`)
 
-    await axios.get(`${config.api.competition}/${id}`)
+    return commit(VIEW_COMPETITION, { feed, content: data })
   }
 }

@@ -15,8 +15,8 @@
 
     <main slot="main">
       <component
-        :is="`gleam-single-competition`"
-        :payload="$store.getters.viewedCompetition.data"
+        :is="`${viewed.feed}-single-competition`"
+        :payload="viewed.content"
       >
       </component>
     </main>
@@ -32,6 +32,12 @@ import WelcomeBrick from '@/views/partials/common/WelcomeBrick'
 export default {
   components: { Social, WelcomeBrick, GleamSingleCompetition },
 
-  mixins: [HasActiveFeed]
+  mixins: [HasActiveFeed],
+
+  computed: {
+    viewed () {
+      return this.$store.getters.viewedCompetition
+    }
+  }
 }
 </script>

@@ -5,11 +5,16 @@ export default {
   },
 
   methods: {
+    /**
+     * Gleam script for loading a widget.
+     *
+     * @param {HTMLNode} elem
+     */
     loadGleamWidget (elem) {
-      console.log('loading widget for', elem)
       if (!elem) {
         return
       }
+
       const base = 'https://js.gleam.io',
             defaultImage = 'https://js.gleam.io/images/logo.png'
 
