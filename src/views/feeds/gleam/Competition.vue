@@ -1,11 +1,11 @@
 <template>
-  <div class="card">
+  <div class="card has-border-radius-medium">
     <div class="card-image">
       <pic
         size="2:1"
         :src="competition.preview || '$/images/gleam-fallback.jpeg'"
         alt="Competition Preview"
-        filled
+        filled radius
       ></pic>
     </div>
 

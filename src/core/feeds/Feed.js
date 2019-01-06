@@ -5,7 +5,7 @@ import {
 } from '@/store/types'
 
 export default /* abstract */ class Feed {
-  /** @var {any} _filters */
+  /** @var {any} filters */
   /** @var {String} slug */
   /** @var {String[]} class */
   /** @var {Number} page */

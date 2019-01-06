@@ -39,7 +39,7 @@ export default new Router({
       }
     },
     {
-      path: '/:feed(gleam|twitter)/:id/:slug',
+      path: '/:feed(gleam)/:id/:slug',
       name: 'single-competition',
       component: () => import('./views/SingleCompetition.vue'),
       meta: {

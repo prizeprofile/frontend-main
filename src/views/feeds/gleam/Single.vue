@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card has-border-radius-medium">
     <div class="card-content">
       <div class="media">
         <div class="media-content">
