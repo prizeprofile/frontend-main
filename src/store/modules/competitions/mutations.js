@@ -1,4 +1,5 @@
-import { ENTER_COMPETITION } from '@/store/types'
+import Vue from 'vue'
+import { ENTER_COMPETITION, VIEW_COMPETITION } from '@/store/types'
 
 export default {
 
@@ -18,5 +19,17 @@ export default {
       ? entered.push(payload)
       // Otherwise update the current entry.
       : entered[i] = payload
+  },
+
+  /**
+   * Sets currently viewed competition.
+   *
+   * @param {any} state
+   * @param {any} competition
+   *
+   * @return {void}
+   */
+  [VIEW_COMPETITION]: (state, competition) => {
+    Vue.set(state, 'viewed', competition)
   }
 }

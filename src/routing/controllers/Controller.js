@@ -1,4 +1,5 @@
 import store from '@/store'
+import router from '@/router'
 
 export default class {
   /**
@@ -6,6 +7,7 @@ export default class {
    */
   constructor () {
     this.$store = store
+    this.$router = router
   }
 
   /**
