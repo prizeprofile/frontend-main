@@ -39,11 +39,11 @@ export default new Router({
       }
     },
     {
-      path: '/gleam/:id/:slug',
+      path: '/:feed(gleam|twitter)/:id/:slug',
       name: 'single-competition',
       component: () => import('./views/SingleCompetition.vue'),
       meta: {
-        controller: [SingleCompetitionController, 'gleam'],
+        controller: [SingleCompetitionController, 'index'],
       }
     },
     {
