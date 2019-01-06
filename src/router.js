@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import HomeController from '@/routing/controllers/HomeController'
+import SingleCompetitionController from '@/routing/controllers/SingleCompetitionController'
 
 Vue.use(Router)
 
@@ -35,6 +36,14 @@ export default new Router({
       component: () => import('./views/Home.vue'),
       meta: {
         controller: [HomeController, 'gleam']
+      }
+    },
+    {
+      path: '/:feed(gleam)/:id/:slug',
+      name: 'single-competition',
+      component: () => import('./views/SingleCompetition.vue'),
+      meta: {
+        controller: [SingleCompetitionController, 'index'],
       }
     },
     {

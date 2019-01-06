@@ -5,7 +5,7 @@ import {
 } from '@/store/types'
 
 export default /* abstract */ class Feed {
-  /** @var {any} _filters */
+  /** @var {any} filters */
   /** @var {String} slug */
   /** @var {String[]} class */
   /** @var {Number} page */
@@ -52,7 +52,7 @@ export default /* abstract */ class Feed {
       await this.$store.dispatch(action, {
         data, slug: this.slug
       })
-    } catch (error) {
+    } catch (_) {
       await this.$store.dispatch(SET_FEED, {
         data: { content: [], last: true, number: 0 },
         slug: this.slug

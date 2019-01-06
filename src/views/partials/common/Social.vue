@@ -2,7 +2,7 @@
   <div class="social">
     <div class="social-title">
       <h3 class="title is-4">Do you like us?</h3>
-      <p class="subtitle is-6">Spread the word</p>
+      <p class="subtitle is-6 has-text-weight-light">Spread the word</p>
     </div>
 
     <div class="social-links">
