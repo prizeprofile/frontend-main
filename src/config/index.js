@@ -3,6 +3,7 @@ export default {
   api: {
     competitions: env('API_BASE_URL') + '/competitions',
     promoters: env('API_BASE_URL') + '/promoters',
+    competition: env('API_BASE_URL') + '/competition',
     requestToken: env('API_BASE_URL') + '/me/request-token',
     sync: env('API_BASE_URL') + '/me/sync',
     contact: env('API_BASE_URL') + '/contact'

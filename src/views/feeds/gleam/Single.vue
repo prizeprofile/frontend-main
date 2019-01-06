@@ -1,15 +1,16 @@
 <template>
   <div class="card">
-    <div class="card-image">
-      <pic
-        size="2:1"
-        :src="competition.preview || '$/images/gleam-fallback.jpeg'"
-        alt="Competition Preview"
-        filled
-      ></pic>
-    </div>
-
     <div class="card-content">
+      <div class="media">
+        <div class="media-content">
+          <p class="title is-5">{{ competition.text }}</p>
+          <p class="subtitle is-6 has-text-grey">
+            <img :src="competition.promoter.thumbnail" alt="Promoter" />
+            {{ competition.promoter.homepage | trimUrl }}
+          </p>
+        </div>
+      </div>
+
       <div class="competition-tags tags">
         <span class="tag" v-if="competition.entrants">
           <span class="has-text-weight-bold">
@@ -26,30 +27,13 @@
         </span>
       </div>
 
-      <div class="media">
-        <div class="media-content">
-          <p class="title is-5">{{ competition.text }}</p>
-          <p class="subtitle is-6 has-text-grey">
-            <img :src="competition.promoter.thumbnail" alt="Promoter" />
-            {{ competition.promoter.homepage | trimUrl }}
-          </p>
-        </div>
-      </div>
+      <a
+        class="e-widget no-button"
+        href="https://gleam.io/0esHz/win-a-100-amazon-gift-card"
+        rel="gleamWidget"
+      >
 
-      <div class="content">
-        <router-link
-          :to="{ name: 'single-competition', params: {
-            feed, slug, id: competition.id,
-          }}"
-        >
-          <a
-            :class="{ 'has-background-success': isEntered }"
-            class="action is-primary is-medium is-fullwidth"
-          >
-            Enter<span v-show="isEntered">ed</span>
-          </a>
-        </router-link>
-      </div>
+      </a>
     </div>
   </div>
 </template>
@@ -58,6 +42,7 @@
 import moment from 'moment'
 import slugify from 'slugify'
 import { ENTER_COMPETITION } from '@/store/types'
+import LoadsGleamWidget from '@/core/mixins/LoadsGleamWidget'
 
 export default {
   props: {
@@ -66,6 +51,8 @@ export default {
       required: true
     }
   },
+
+  mixins: [LoadsGleamWidget],
 
   data () {
     return {
@@ -103,14 +90,6 @@ export default {
      */
     competition () {
       return this.payload
-    },
-
-    slug () {
-      return slugify(this.payload.text).toLowerCase()
-    },
-
-    feed () {
-      return 'gleam'
     }
   }
 }

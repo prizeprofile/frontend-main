@@ -52,7 +52,7 @@ export default /* abstract */ class Feed {
       await this.$store.dispatch(action, {
         data, slug: this.slug
       })
-    } catch (error) {
+    } catch (_) {
       await this.$store.dispatch(SET_FEED, {
         data: { content: [], last: true, number: 0 },
         slug: this.slug

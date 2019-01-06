@@ -10,6 +10,7 @@ export const APPEND_TO_FEED = 'APPEND_TO_FEED'
  * Competitions.
  */
 
+export const VIEW_COMPETITION = 'VIEW_COMPETITION'
 export const ENTER_COMPETITION = 'ENTER_COMPETITION'
 
 /**
