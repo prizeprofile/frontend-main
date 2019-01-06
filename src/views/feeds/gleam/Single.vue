@@ -46,8 +46,6 @@
 
 <script>
 import moment from 'moment'
-import slugify from 'slugify'
-import { ENTER_COMPETITION } from '@/store/types'
 import LoadsGleamWidget from '@/core/mixins/LoadsGleamWidget'
 
 export default {

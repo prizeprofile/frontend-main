@@ -43,7 +43,7 @@ export default new Router({
       name: 'single-competition',
       component: () => import('./views/SingleCompetition.vue'),
       meta: {
-        controller: [SingleCompetitionController, 'index'],
+        controller: [SingleCompetitionController, 'index']
       }
     },
     {
