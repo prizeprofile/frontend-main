@@ -19,7 +19,7 @@ export default new Router({
       name: 'home',
       component: () => import('./views/Home.vue'),
       meta: {
-        controller: [HomeController, 'twitter']
+        controller: [HomeController, 'gleam']
       }
     },
     {
