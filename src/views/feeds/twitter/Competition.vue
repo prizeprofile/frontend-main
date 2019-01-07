@@ -184,7 +184,8 @@ export default {
      * Temporarily disables comment and friend methods.
      */
     canOneClickEnter () {
-      return !(this.entryMethodAvailable('comment') || this.entryMethodAvailable('friend'))
+      return false
+      // return !(this.entryMethodAvailable('comment') || this.entryMethodAvailable('friend'))
     }
   }
 }
