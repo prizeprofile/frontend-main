@@ -61,11 +61,7 @@ export default {
           methods: competition.entry_methods,
           timestamp: Date.now()
         })
-      } catch (_) {
-        await store.dispatch(USER_LOGOUT)
-
-        await store.dispatch(SHOW_MODAL, 'connect-twitter')
-      }
+      } catch (_) {}
 
       // Removes loading icon from methods.
       methods.forEach(method => Vue.set(method, '_progress', false))
